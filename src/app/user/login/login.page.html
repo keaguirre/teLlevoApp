@@ -1,0 +1,29 @@
+<ion-header class="p-top c-header" [translucent]="true">
+  <img class="m-logo" src="../../../assets/duocLogo/duoc.png" alt="">
+</ion-header>
+<ion-content color="light" padding>
+  <form class="m-form" #form="ngForm" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3 class="ion-text-center" >Inicio de sesión</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input class="ion-text-center" name="email" type="email" placeholder="Tu usuario" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input class="ion-text-center" name="password" type="password" placeholder="Contraseña" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button class="m-button" color="duoc-secondary" size="large" type="submit" expand="block">Ingresar</ion-button>
+            <div class="div-hyperlink" id="div-forgot-pass"><a class="hyperlink" href="faq">Olvidé mi contraseña</a></div>
+            <div class="div-hyperlink"><a class="hyperlink" href="registro">Registrate aquí!</a></div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

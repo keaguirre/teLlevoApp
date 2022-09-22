@@ -1,0 +1,34 @@
+<ion-header class="p-top c-header" [translucent]="true">
+  <img class="m-logo" src="https://www.duoc.cl/wp-content/themes/wordpress-duoc-cl/images/logo-duoc.svg" alt="">
+</ion-header>
+<ion-content color="light" padding>
+  <form class="m-form" #form="ngForm" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3 class="ion-text-center" >Registro</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input class="ion-text-center" name="name" type="text" placeholder="Nombre" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input class="ion-text-center" name="email" type="email" placeholder="Usuario" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input class="ion-text-center" name="password" type="password" placeholder="Contraseña" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input class="ion-text-center" name="confirm" type="password" placeholder="Confirmar contraseña" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button class="m-button" color="duoc-secondary" size="large" type="submit" expand="block">Registrarme</ion-button>
+            <div class="div-hyperlink"><a class="hyperlink" href="login">Volver al login</a></div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

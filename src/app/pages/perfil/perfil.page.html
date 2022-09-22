@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="duoc-primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <viaje-component></viaje-component>
+  <!------------------------------------>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" (click)="router.navigate(['/viajar'])">
+      <ion-icon name="pencil-sharp"></ion-icon>
+      <!-- PARA GUARDAR POST ACTIVAR EL EDIT <ion-icon name="save"></ion-icon>-->
+    </ion-fab-button>
+  </ion-fab>
+  <!------------------------------------->
+  <!--header bloque color + profile-img-->
+  <div class="profile-header">
+    <div class="profile-header"></div>
+  </div>
+  <div class="flex">
+    <div class="border-yellow">
+      <div class="border-white">
+        <div class="img-box">
+          <img src="../../../assets/icon/avatar_placeholder3.svg" alt="foto-perfil">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--PROFILE DATA-->
+    <form id="profile-form" #form="ngForm" (ngSubmit)="register(form)">
+      <ion-grid>
+        <ion-row color="primary" justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div padding>
+              <ion-item>
+                <ion-input class="ion-text-center" name="name" type="text" placeholder="Armando" ngModel required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input class="ion-text-center" name="email" type="email" placeholder="Casas user" ngModel required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input class="ion-text-center" name="password" type="password" placeholder="Contraseña" ngModel required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input class="ion-text-center" name="confirm" type="password" placeholder="Confirmar contraseña" ngModel required></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+</ion-content>

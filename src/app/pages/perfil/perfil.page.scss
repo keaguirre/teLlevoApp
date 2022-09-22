@@ -1,0 +1,40 @@
+.avatar-center{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20%;
+}
+
+.img-box{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.border-white{
+    border: 7px solid white;
+    border-radius: 50%;
+    width: fit-content;
+}
+
+.border-yellow{
+    border: 10px solid #FFB800;
+    border-radius: 50%;
+    width: fit-content;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    margin-top: -30%;
+}
+
+.profile-header{
+    background-color: #002E53;
+    height: 18%;
+}
+#profile-form{
+    margin-top: -20%;
+    padding-top: 20%;
+}
+
