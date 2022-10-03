@@ -25,6 +25,29 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+
+
+//Custom fonts--
+@font-face {   
+	font-family: 'Montserrat';
+	src: url('/src/assets/fonts/Montserrat/static/Montserrat-Thin.ttf');
+  }
+@font-face {   
+	font-family: 'Roboto';
+	src: url('/src/assets/fonts/Roboto/Roboto-Regular.ttf');
+  }
+@font-face {   
+	font-family: 'Open_Sans';
+	src: url('/src/assets/fonts/Open_Sans/static/OpenSans/OpenSans-Regular.ttf');
+  }
+@font-face {   
+	font-family: 'Noto_Sans';
+	src: url('/src/assets/fonts/Noto_Sans/NotoSans-Regular.ttf');
+  }
+// :root {
+//  	--ion-font-family:Montserrat;
+//  }
+
 //--Custom Colors--
 //duoc-primary:
 :root {

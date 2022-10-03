@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { IonRouterOutlet, MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
@@ -7,24 +7,10 @@ import { AlertController } from '@ionic/angular';
 })
 export class InicioPage implements OnInit {
   loading : HTMLIonLoadingElement;
-  constructor(private alertCtrl: AlertController) { }
+  constructor(private menu: MenuController,private routerOutlet: IonRouterOutlet) {this.menu.enable(true);}
 
   ngOnInit() {
-    this.presentAlert();
+    this.routerOutlet.swipeGesture = false;
   }
   
-  async presentAlert() {
-    const alert =await this.alertCtrl.create({
-      header: 'Bienvenido',
-      cssClass: 'custom-alert',
-      message: 'Bienvenido @tuNombre',
-      buttons: [
-        {
-          text: 'Gracias!',
-          cssClass: 'alert-button-confirm',
-        },
-      ],
-    });
-    await alert.present();
-  }
 }

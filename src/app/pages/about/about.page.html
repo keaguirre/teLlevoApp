@@ -9,44 +9,30 @@
 
 <ion-content>
   <viaje-component></viaje-component>
-  <ion-content>
-    <viaje-component></viaje-component>
-    <div>
-      <a href="faq"><img id="b-1" class="home-images" src="../../../assets/icon/avatar_placeholder1.svg"></a><!--Bloque1-->
-      <ion-label>Johan</ion-label>
-    </div>
-    <div>
-      <a href="perfil"><img id="b-2" class="home-images" src="../../../assets/icon/avatar_placeholder2.svg"></a><!--Bloque2-->
-      <ion-label>Benja</ion-label>
-    </div>
-    <div>
-      <a href="perfil"><img id="b-3" class="home-images" src="../../../assets/icon/avatar_placeholder3.svg"></a><!--Bloque2-->
-      <ion-label>Kevin</ion-label>
-    </div>
-    <ion-item class="d-block ion-text-center">Analistas programadores</ion-item>
-    <ion-item class="d-block ion-text-center">Sede San Joaquín</ion-item>
-  </ion-content>
-
-  <!--
-  <ion-list class="m-list" lines="full">
-    <ion-item class="ion-text-center">
-      <ion-avatar class="d-avatar">
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" />
-      </ion-avatar>
-      <ion-label>Benjamin Paredes</ion-label>
-    </ion-item>
-    <ion-item class="ion-text-center">
-      <ion-avatar id="m-avatar-center" class="d-avatar">
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" />
-      </ion-avatar>
-      <ion-label>Johan Dahlbokum</ion-label>
-    </ion-item>
-    <ion-item class="ion-text-center">
-      <ion-avatar class="d-avatar">
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" />
-      </ion-avatar>
-      <ion-label>Kevin Aguirre</ion-label>
-    </ion-item>
-  </ion-list>
-  -->
+    <ion-grid id="row-m-top">
+      <ion-row>
+        <ion-item lines="none">
+          <ion-avatar id="b-1" slot="start">
+            <img alt="Silhouette of a person's head" src="../../../assets/icon/avatar_placeholder1.svg" />
+          </ion-avatar>
+          <ion-label>Benjamín Paredes</ion-label>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item lines="none">
+          <ion-avatar id="b-2" slot="start">
+            <img alt="Silhouette of a person's head" src="../../../assets/icon/avatar_placeholder2.svg" />
+          </ion-avatar>
+          <ion-label>Kevin Aguirre</ion-label>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item lines="none">
+          <ion-avatar id="b-3" slot="start">
+            <img alt="Silhouette of a person's head" src="../../../assets/icon/avatar_placeholder3.svg" />
+          </ion-avatar>
+          <ion-label>Johan Dahlbokum</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
 </ion-content>

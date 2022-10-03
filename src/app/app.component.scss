@@ -29,7 +29,6 @@ ion-menu.md ion-list#inbox-list {
 ion-menu.md ion-list#inbox-list ion-list-header {
   font-size: 22px;
   font-weight: 600;
-
   min-height: 20px;
 }
 
@@ -90,7 +89,7 @@ ion-menu.ios ion-item.selected ion-icon {
 
 ion-menu.ios ion-item ion-icon {
   font-size: 24px;
-  color: #73849a;
+  color: #f3ae00;
 }
 
 ion-menu.ios ion-list#labels-list ion-list-header {
@@ -116,4 +115,9 @@ ion-note {
 
 ion-item.selected {
   --color: var(--ion-color-primary);
+}
+
+#sidebar-image{
+  width: 30%;
+  height: 30%;
 }

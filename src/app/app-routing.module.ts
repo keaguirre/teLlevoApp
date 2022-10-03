@@ -4,12 +4,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    loadChildren: () => import('../app/pages/folder/folder.module').then( m => m.FolderPageModule)
   },
   {
     path: 'about',
@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'coversor',
     loadChildren: () => import('./pages/coversor/coversor.module').then( m => m.CoversorPageModule)
+  },
+  {
+    path: 'error404',
+    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   }
 ];
 
