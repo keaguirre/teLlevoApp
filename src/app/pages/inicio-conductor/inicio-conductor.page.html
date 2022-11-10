@@ -3,19 +3,20 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title lass="ion-text-center">{{user}}</ion-title>
+    <ion-title>Conductor</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <!--TABS-->
   <ion-tabs>
     <ion-tab-bar color="duoc-primary" slot="bottom">
-      <ion-tab-button>
-        <ion-icon [routerLink]="['/perfil']" color="light" name="person-circle"></ion-icon>
+      <ion-tab-button tab="speakers">
+        <ion-icon routerLink="/perfil" color="light" name="person-circle"></ion-icon>
         <ion-label>Perfil</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button id="top-center">
+      <ion-tab-button tab="schedule" id="top-center">
         <ion-icon color="light" name="notifications-outline"></ion-icon>
         <ion-label>Notificaciones</ion-label>
         <ion-badge color="duoc-secondary">1</ion-badge>
@@ -28,26 +29,26 @@
   </ion-tabs>
   <!--END TABS-->
   <ion-row>
-    <ion-button color="bloque1" class="homeImage" routerLink="/viajar"><!--Bloque1-->
+    <ion-button color="clear" class="homeImage" routerLink="/viajar"><!--Bloque1-->
       <ion-img src='../../../assets/icon/viajar2.svg'></ion-img>
-      <span class="btn-txt" >Viajas?</span>
+      <span class="btn-txt">Comenzar viaje</span>
     </ion-button>
   </ion-row>
   <ion-row>
-    <ion-button id="b-2" color="bloque2" class="homeImage" routerLink="/placeholder"><!--Bloque2-->
+    <ion-button id="b-2" color="clear" class="homeImage" routerLink="/placeholder"><!--Bloque2-->
       <ion-img  src='../../../assets/icon/logistica.svg'></ion-img>
       <span>Placeholder</span>
     </ion-button>
   </ion-row>
   <ion-row class="row-3">
       <ion-col>
-        <ion-button id="b-3" color="bloque3" class="home-images" routerLink="/faq"><!--Bloque3-->
+        <ion-button id="b-3" color="clear" class="home-images" routerLink="/faq"><!--Bloque3-->
           <ion-img  src='../../../assets/icon/faq.svg'></ion-img>
           <span>FAQ</span>
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button id="b-4" color="bloque4" class="home-images" routerLink="/about"><!--Bloque3-->
+        <ion-button id="b-4" color="clear" class="home-images" routerLink="/about"><!--Bloque3-->
           <ion-img  src='../../../assets/icon/team.svg'></ion-img>
           <span>Equipo</span>
         </ion-button>

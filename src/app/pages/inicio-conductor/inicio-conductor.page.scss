@@ -4,7 +4,8 @@
     margin-right: 5%;
     width: 90%;
     height: 40%;
-    border-radius: 5%;
+    background-color: #ffe8ff;
+    border-radius: 2%;
 
     --box-shadow: 0 1px 6px 0 rgb(0, 0, 0, 0.25);
     --ripple-color: deeppink;
@@ -13,13 +14,13 @@
 
 #b-2{
     height: 150px;
+    background-color: #00b28f;
 }
-
 #b-3{
-    height: 65px;
+    background-color: #ffdfca;
 }
 #b-4{
-    height: 65px;
+    background-color: #ffa77f;
 }
 .home-images{
     width: 100%;

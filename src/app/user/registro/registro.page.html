@@ -7,25 +7,31 @@
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <div text-center>
-            <h3 class="ion-text-center" >Registro</h3>
+            <h3 class="ion-text-center"><strong>Registro</strong></h3>
           </div>
           <div padding>
             <ion-item>
-              <ion-input class="ion-text-center" name="name" type="text" placeholder="Nombre" ngModel required></ion-input>
+              <ion-input name="name" type="text" placeholder="Nombre" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input class="ion-text-center" name="email" type="email" placeholder="Usuario" ngModel required></ion-input>
+              <ion-input name="email" type="email" placeholder="Usuario" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input class="ion-text-center" name="password" type="password" placeholder="Contraseña" ngModel required></ion-input>
+              <ion-input name="password" type="password" placeholder="Contraseña" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input class="ion-text-center" name="confirm" type="password" placeholder="Confirmar contraseña" ngModel required></ion-input>
+              <ion-input name="confirm" type="password" placeholder="Confirmar contraseña" ngModel required></ion-input>
             </ion-item>
           </div>
           <div padding>
             <ion-button class="m-button" color="duoc-secondary" size="large" type="submit" expand="block">Registrarme</ion-button>
-            <div class="div-hyperlink"><a class="hyperlink" href="login">Volver al login</a></div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="div-hyperlink">
+            <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/login']">Volver al login</a></div>
           </div>
         </ion-col>
       </ion-row>

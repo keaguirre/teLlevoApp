@@ -1,33 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AlertController, IonRouterOutlet, MenuController, NavController, ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-login-conductor',
+  templateUrl: './login-conductor.page.html',
+  styleUrls: ['./login-conductor.page.scss'],
 })
-
-export class LoginPage implements OnInit {
+export class LoginConductorPage implements OnInit {
   pageTitle = 'home';
   isNotHome = false;
   loading : HTMLIonLoadingElement;
   isTextFieldType: boolean;
-
   //Model
-  user : any =
-    {
+  user : any = {
     nombre: '',
     password : ''
-    };
+  }
 
   field: string = '';
   username: string = '';
 
-  constructor(private loadingCtrl: LoadingController, private alertCtrl: AlertController,
-    private menu: MenuController,private toastCtrl: ToastController,private router: Router) {
-    this.menu.enable(false);
-  }/*this.menu.enable(false); desactiva el SideMenu en esta pagina*/
+  constructor(private loadingCtrl: LoadingController, private alertCtrl: AlertController, private navCrtl: NavController, private menu: MenuController,private toastCtrl: ToastController,private router: Router) {
+  this.menu.enable(false);}/*this.menu.enable(false); desactiva el SideMenu en esta pagina*/
 
 
     ionViewDidEnter(){
@@ -46,8 +41,7 @@ export class LoginPage implements OnInit {
       if(this.validateModel(this.user)){
         this.presentAlert('Bienvenido ' + this.user.nombre);
         this.username = this.user.nombre;
-        this.router.navigateByUrl(`/inicio/${this.username}`);
-        //this.router.navigate(['inicio']);
+        this.router.navigate(['inicio-conductor']);
       }
       else{
         this.presentToast('Datos no validos');
@@ -96,6 +90,8 @@ export class LoginPage implements OnInit {
       toast.present();
     }
 
+    
+
     // async presentLoading(message: string) {
     //   this.loading = await this.loadingCtrl.create({
     //     message,
@@ -114,12 +110,4 @@ export class LoginPage implements OnInit {
        await this.loading.present();
      }
 
-     
-     //-----------------------------------
-    //  userToHome(){
-    //   this.router.navigateByUrl(`/inicio/${this.username}`);
-    //  }
-
-  }
-
-  
+}

@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
+    path: 'inicio/:id',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
     path: 'viajar',
     loadChildren: () => import('./pages/viajar/viajar.module').then( m => m.ViajarPageModule)
   },
@@ -44,7 +48,19 @@ const routes: Routes = [
     loadChildren: () => import('./pages/coversor/coversor.module').then( m => m.CoversorPageModule)
   },
   {
+    path: 'login-conductor',
+    loadChildren: () => import('./user/login-conductor/login-conductor.module').then( m => m.LoginConductorPageModule)
+  },
+  {
+    path: 'inicio-conductor',
+    loadChildren: () => import('./pages/inicio-conductor/inicio-conductor.module').then( m => m.InicioConductorPageModule)
+  },
+  {
     path: 'error404',
+    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
+  },
+  {
+    path: '**',
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   }
 ];

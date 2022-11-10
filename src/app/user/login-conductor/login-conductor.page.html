@@ -2,12 +2,12 @@
   <img class="m-logo" src="../../../assets/duocLogo/duoc.png" alt="">
 </ion-header>
 <ion-content color="light" padding >
-  <form class="m-form" #form="ngForm"><!--(ngSubmit)="form.reset();"-->
+  <form class="m-form" #form="ngForm" (ngSubmit)="form.reset();">
     <ion-grid>
       <ion-row justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <div text-center>
-            <h3><strong>Inicio de sesión</strong></h3>
+            <h3><strong>Conductor</strong></h3>
           </div>
           <div padding>
             <ion-item lines="none">
@@ -27,23 +27,23 @@
                           required
                           pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{4,8}$">
               </ion-input>
-              <div id="eyeToggle" color="duoc-primary" (click)="togglePasswordFieldType()">
-                <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'">
+              <div id="eyeToggle" (click)="togglePasswordFieldType()">
+                <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye-outline'">
                 </ion-icon>
-              </div><!--Si cambio estos div a button tambien queda bien, so discutir design-->
+              </div>  
             </ion-item>
           </div>
           <div padding>
-            <ion-button [routerLink]="['/', 'inicio', 'id']" class="m-button" color="duoc-secondary" size="large" type="submit" expand="block" (click)="login()">Ingresar</ion-button>
+            <ion-button class="m-button" color="duoc-secondary" size="large" type="submit" expand="block" (click)="login()">Ingresar</ion-button>
           </div>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <div id="conductor"><a class="hyperlink" [routerLink]="['/login-conductor']">Soy conductor</a></div>
+          <div id="conductor"><a class="hyperlink" [routerLink]="['/login']">Soy pasajero</a></div>
           <div class="div-hyperlink">
             <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/faq']">Olvidé mi contraseña</a></div>
-            <!-- <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/faq']">Olvidé mi cuenta</a></div> -->
+            <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/faq']">Olvidé mi cuenta</a></div>
             <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/registro']">Registrate aquí!</a></div>
           </div>
         </ion-col>

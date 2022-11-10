@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,15 +16,21 @@ export class AppComponent {
     { title: 'Viajar', url: 'viajar', icon: 'car' },
     { title: 'Ayuda', url: 'faq', icon: 'help-buoy' },
     { title: 'Nuestro equipo', url: 'about', icon: 'people' },
-    { title: 'Coversor', url: 'coversor', icon: 'hammer' },
+    { title: 'Conversor', url: 'coversor', icon: 'earth' },
     {title: 'Cerrar Sesion', url: 'login', icon: 'log-out'},
     
 
   ];
   public labels = [
-    {title:'DuocUC', url: 'www.duocuc.cl', icon: 'bookmark'},
+    {title:'DuocUC', url: '/www.duocuc.cl', icon: 'bookmark'},
     {title: 'Blackboard', url: 'about', icon: 'bookmark'},
   ];
-  constructor() {}
+  
+  constructor(private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+    
+  }
 }
 

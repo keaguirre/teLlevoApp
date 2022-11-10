@@ -12,12 +12,10 @@
 }
 .m-form{
     margin-top: 5%;
-    margin-left: 3%;
-    margin-right: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
-.m-button{
-    margin-top: 10%;
-}
+
 .div-hyperlink{
     padding-top: 20%;
 }
@@ -25,14 +23,30 @@
     text-decoration: none;
     color: #002E53;
 }
+
 .hyperlink:hover{
     color: #ffb800;
 }
+
 .hyperlink:active{
     color: #ffb800;
 }
+
+.m-button{
+    margin-top: 10%;
+}
 .hyperlink-txt{
-    font-weight: bold;
+    font-weight: light;
     text-align: center;
     padding-top: 3%;
 }
+
+#conductor{
+    text-align: center;
+    font-weight: bold;
+    padding-top: 0%;
+    font-size: 0.9em;
+}
+#eyeToggle{
+    color: #002E53;
+    }

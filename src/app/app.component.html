@@ -1,13 +1,13 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay"> <!--swipeGesture="false" desactiva la funcion de deslizar el dedo por la pantalla para abrir SideMenu-->>
+    <ion-menu contentId="main-content" type="overlay"> <!--swipeGesture="false" desactiva la funcion de deslizar el dedo por la pantalla para abrir SideMenu-->
       <ion-content>
         <ion-list id="inbox-list">
           <ion-item lines="none">
             <ion-avatar id="sidebar-image" slot="start">
               <img alt="Silhouette of a person" src="../assets/icon/avatar_placeholder1.svg" />
             </ion-avatar>
-            <ion-label>Tu nombre</ion-label>
+            <ion-label>Usuario</ion-label>
           </ion-item>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
