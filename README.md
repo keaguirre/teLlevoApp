@@ -5,9 +5,9 @@
 redirigirlos a su propio home segun quien logee.
 - [ ] Agregar boton hamburguesa en inicio conductor
 - [ ] Agregar el usuario al sidebar y lo almacene
-- [ ] Consumir api del clima con geolocalizacion
 - [ ] Consumir api de conversion de divisas
 - [ ] Crear Django Backend
+- [ ] Servicio de geolocalizacion(mapa?)
 
 ## 07/oct
 - Ajuste de estilos a enlaces en login y registro
@@ -40,3 +40,8 @@ redirigirlos a su propio home segun quien logee.
 -Comienza el desarrollo del backend de django
 -Comienza el consumo de api clima y divisas
 -Se crean servicios de clima y conversor
+
+## 13/11
+- [x] Consumir api del clima con geolocalizacion
+- Arreglos en el components module
+- Arreglo en el global css font(error al escribir monstserrat)
