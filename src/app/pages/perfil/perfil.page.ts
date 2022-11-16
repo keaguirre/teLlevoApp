@@ -5,7 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
 })
+
+
 export class PerfilPage implements OnInit {
+  editProfile: any
   ngOnInit() {
   }
   constructor() {

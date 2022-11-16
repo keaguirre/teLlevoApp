@@ -1,5 +1,5 @@
 
-<ion-card *ngIf="weatherTemp,weatherDescription" mode="md">
+<!-- TARGETA COMPLETA <ion-card *ngIf="weatherTemp,weatherDescription" mode="md">
 
   <ion-item lines="none">
     <p>El clima hoy</p>
@@ -13,7 +13,16 @@
     <img slot="end" src="http://openweathermap.org/img/wn/{{weatherDescription.icon}}@2x.png" style="max-width: 60px;">
   </ion-item>
 
-</ion-card>
+</ion-card> -->
+
+<span *ngIf="weatherTemp,weatherDescription">
+      <ion-row>
+        <p class="cli-comp-p">
+          {{(weatherTemp.temp).toFixed(0)}}°
+        </p>
+        <img src="http://openweathermap.org/img/wn/{{weatherDescription.icon}}@2x.png" class="cli-comp-img">
+      </ion-row>
+    </span>
 
 
 

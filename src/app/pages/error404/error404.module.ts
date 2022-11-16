@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { Error404PageRoutingModule } from './error404-routing.module';
 
 import { Error404Page } from './error404.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     Error404PageRoutingModule
   ],
   declarations: [Error404Page]

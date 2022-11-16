@@ -3,7 +3,16 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Perfil</ion-title>
+    <ion-title class="title-p0">
+      <ion-row>
+        <ion-col class="ion-text-end col-title" >
+          Perfil
+        </ion-col>
+        <ion-col class="col-title-clima">
+          <clima-component></clima-component>
+        </ion-col>
+      </ion-row>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -31,7 +40,7 @@
     </div>
   </div>
   <!--PROFILE DATA-->
-    <form id="profile-form" #form="ngForm" (ngSubmit)="register(form)">
+    <form id="profile-form" #form="ngForm" (ngSubmit)="editProfile(form)">
       <ion-grid>
         <ion-row color="primary" justify-content-center>
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
