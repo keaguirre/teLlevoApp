@@ -1,13 +1,12 @@
 # Programacion Movil Changelog
 
 # To Do:
-- [ ] Que el metodo diferencie entre usuarios normales y conductores para
-redirigirlos a su propio home segun quien logee.
-- [ ] Agregar boton hamburguesa en inicio conductor
-- [ ] Agregar el usuario al sidebar y lo almacene
-- [ ] Consumir api del clima con geolocalizacion
+- [ ] Investigar e implementar las sesiones en ionic
+    - [ ] Agregar el usuario al sidebar y lo almacene(LocalStorage/CurrentSession?)
 - [ ] Consumir api de conversion de divisas
-- [ ] Crear Django Backend
+- [ ] Implementar update de imagen de perfil, camara o upload file(Backend?Firebase?, Cifrado de img a str)
+- [ ] Bcrypt para el proyecto
+
 
 ## 07/oct
 - Ajuste de estilos a enlaces en login y registro
@@ -37,6 +36,25 @@ redirigirlos a su propio home segun quien logee.
 - Arreglados los botones iconos del home
 
 ## 10/11
+<<<<<<< Updated upstream
 -Comienza el desarrollo del backend de django
 -Comienza el consumo de api clima y divisas
 -Se crean servicios de clima y conversor
+=======
+- Comienza el desarrollo del backend de django
+- Comienza el consumo de api clima y divisas
+- Se crean servicios de clima y conversor
+
+## 13/11
+-Correccion de logo en modo no movil para poder hacer usable la app
+
+## 23/11
+- [x] Crear Django Backend
+- [x] Consumir api del clima con geolocalizacion
+- [x] Que el metodo diferencie entre usuarios normales y conductores para
+redirigirlos a su propio home segun quien logee.
+- terminado el backend con su apiRest, consulta, registro y login
+
+## 23/11
+- [x] Agregar boton hamburguesa en inicio conductor
+>>>>>>> Stashed changes
