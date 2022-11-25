@@ -6,9 +6,8 @@ redirigirlos a su propio home segun quien logee.
 - [ ] Agregar boton hamburguesa en inicio conductor
 - [ ] Agregar el usuario al sidebar y lo almacene
 - [ ] Consumir api del clima con geolocalizacion
-- [ ] Consumir api de conversion de divisas
 - [ ] Crear Django Backend
-
+- [ ] Integrar camara con Firebase
 ## 07/oct
 - Ajuste de estilos a enlaces en login y registro
 - Ajuste de lugar de los formularios en Login y registro
@@ -40,3 +39,8 @@ redirigirlos a su propio home segun quien logee.
 -Comienza el desarrollo del backend de django
 -Comienza el consumo de api clima y divisas
 -Se crean servicios de clima y conversor
+
+## 25/11 [@JDN2377](https://github.com/JDN2377)
+- [x] Consumir api de conversion de divisas
+- Comieza el desarrollo de la Camara con Firebase
+
