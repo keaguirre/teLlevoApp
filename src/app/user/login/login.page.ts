@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AdminUsuariosService } from '../../services/adminUsuarios/admin-usuarios.service'
+import { AdminUsuariosService } from '../../services/adminUsuarios/admin-usuarios.service';
 import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
@@ -31,7 +31,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit(): void {
     this.presentLoading('<img src="../../../assets/duocLogo/fondo-transparente.png">'); //llama al metodo de carga con el logo del duoc onInit
-
     this.pasajeroLogin = this.formBuilder.group({
       p_email: new FormControl('', [Validators.required, Validators.email]),
       p_password: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -51,7 +50,7 @@ export class LoginPage implements OnInit {
     await this.loading.present();
   }
 
-  onPasajerosLogin(){ 
+  onPasajerosLogin(){
     this.response = this.adminUsuarios.obtenerPasajeroLogin(this.pasajeroLogin.value.p_email).then(respuesta => {
       this.response = respuesta;
       if (respuesta['p_email'] == this.pasajeroLogin.value.p_email && respuesta['p_password'] == this.pasajeroLogin.value.p_password){
@@ -65,6 +64,7 @@ export class LoginPage implements OnInit {
       console.log(err)
     });
   }
+  
   async alertPresent(header:string,message:string){
     const alert = await this.alertCtrl.create({
       header:header,

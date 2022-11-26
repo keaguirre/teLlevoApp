@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 import { LoginPage } from './login.page';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AdminUsuariosService } from '../../services/adminUsuarios/admin-usuarios.service';
 
 @NgModule({
   imports: [
@@ -11,8 +13,10 @@ import { LoginPage } from './login.page';
     FormsModule,
     IonicModule,
     LoginPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
+  providers: [ HttpClientModule, AdminUsuariosService],
   declarations: [LoginPage]
 })
 export class LoginPageModule {}
