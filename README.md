@@ -1,12 +1,11 @@
 # Programacion Movil Changelog
 
 # To Do:
-- [ ] Investigar e implementar las sesiones en ionic
-    - [ ] Agregar el usuario al sidebar y lo almacene(LocalStorage/CurrentSession?)
-- [ ] Consumir api de conversion de divisas
+- [ ] Agregar el usuario al sidebar y lo almacene
+- [ ] Servicio de geolocalizacion(mapa?)
+- [ ] Agregar el usuario al sidebar y lo almacene(LocalStorage/CurrentSession?)
 - [ ] Implementar update de imagen de perfil, camara o upload file(Backend?Firebase?, Cifrado de img a str)
 - [ ] Bcrypt para el proyecto
-
 
 ## 07/oct [@keaguirre](https://github.com/keaguirre)
 - Ajuste de estilos a enlaces en login y registro
@@ -39,16 +38,15 @@
 -Comienza el desarrollo del backend de django
 -Comienza el consumo de api clima y divisas
 -Se crean servicios de clima y conversor
-- Comienza el desarrollo del backend de django
-- Comienza el consumo de api clima y divisas
-- Se crean servicios de clima y conversor
 
-## 13/11 [@keaguirre](https://github.com/keaguirre)
+## 13/11 [@BenjaminWuff](https://github.com/BenjaminWuff) & [@keaguirre](https://github.com/keaguirre)
+- [x] Consumir api del clima con geolocalizacion
+- Arreglos en el components module
+- Arreglo en el global css font(error al escribir monstserrat)
 -Correccion de logo en modo no movil para poder hacer usable la app
 
-## 23/11 [@keaguirre](https://github.com/keaguirre) & [@BenjaminWuff](https://github.com/BenjaminWuff)
+## 23/11 [@keaguirre](https://github.com/keaguirre)
 - [x] Crear Django Backend
-- [x] Consumir api del clima con geolocalizacion
 - [x] Que el metodo diferencie entre usuarios normales y conductores para
 redirigirlos a su propio home segun quien logee.
 - terminado el backend con su apiRest, consulta, registro y login.

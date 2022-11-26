@@ -7,7 +7,10 @@ import { AdminUsuariosService } from 'src/app/services/adminUsuarios/admin-usuar
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
 })
+
+
 export class PerfilPage implements OnInit {
+  editProfile: any;
   autos: any;
   conductores: any;
   pasajeros: any;

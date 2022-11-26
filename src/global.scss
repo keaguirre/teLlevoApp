@@ -163,6 +163,7 @@
 	--ion-color-tint: var(--ion-color-duoc-dark-tint);
 }
 
+
 //Bloque1 inicio homepage
 :root {
 	--ion-color-bloque1: #ffe8ff
@@ -291,4 +292,31 @@ ion-alert.custom-alert {
 
   .spinner-color{
     --spinner-color: var(--ion-color-duoc-primary);
+}
+
+//title
+.title-p0{
+	padding: 0;
+}
+
+.col-title{
+	padding: 0;
+	margin-top: 15px;
+}
+
+.col-title-clima{
+	padding: 0;
+	min-width: 50%;
+}
+
+.cli-comp-p{
+	margin-bottom: 10px;
+	margin-left: 40px;
+	margin-top: 15px;
+}
+
+.cli-comp-img{
+	max-width: 35px;
+	max-height: 38px;
+	margin-top: 5px;
 }

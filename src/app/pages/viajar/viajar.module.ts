@@ -7,10 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { ViajarPageRoutingModule } from './viajar-routing.module';
 
 import { ViajarPage } from './viajar.page';
-
+import { ComponentsModule } from '../../components/components.module'
 @NgModule({
   imports: [
     CommonModule,
+    ComponentsModule,
     FormsModule,
     IonicModule,
     ViajarPageRoutingModule
