@@ -15,51 +15,5 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
   }
   constructor(private adminServ:AdminUsuariosService, private loadingCtrl:LoadingController) {
-    this.listarAutos();
    }
-
-   listarAutos(){
-    this.adminServ.obtenerListadoAutos()
-    .then(respuesta => {
-      this.autos = respuesta;
-      console.log(respuesta)
-    },
-    (error) => {
-      console.log(error);
-    });
-    
-  }
-
-  listarConductores(){
-    this.adminServ.obtenerListadoConductores()
-    .then(respuesta => {
-      this.conductores = respuesta;
-      console.log(respuesta)
-    },
-    (error) => {
-      console.log(error);
-    });
-  }
-  listarPasajeros(){
-    this.adminServ.obtenerListadoPasajeros()
-    .then(respuesta => {
-      this.pasajeros = respuesta;
-      console.log(respuesta)
-    },
-    (error) => {
-      console.log(error);
-    });
-  }
-  listarViajes(){
-    this.adminServ.obtenerListadoViajes()
-    .then(respuesta => {
-      this.viajes = respuesta;
-      console.log(respuesta)
-    },
-    (error) => {
-      console.log(error);
-    });
-  }
-  
-
 }
