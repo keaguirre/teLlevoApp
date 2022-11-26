@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
+  
   apiClimaKey: 'ca1342264d761f5b055eaa6e87fed887',
   apiClimaUrl: 'https://api.openweathermap.org/data/2.5/'
+  baseUrl: 'https://mindicador.cl/api',
 };
 
 /*

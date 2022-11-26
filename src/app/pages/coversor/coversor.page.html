@@ -18,9 +18,27 @@
 
 <ion-content>
   <viaje-component></viaje-component>
-  <div id="container">
-    <img src="https://img.icons8.com/color/96/000000/hammer.png"/>
-    <p>Página en contrucción.</p>
-    <p>Volver a <a rel="noopener noreferrer" routerLink="/inicio">Inicio</a></p>
+  <div class="contents">
+
+    <ion-item>
+      <ion-label>Pesos (CLP)</ion-label>
+      <ion-input type="number" class="value-input" [(ngModel)]="toValue" placeholder="from" (keyup)="convertDolarTwo()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Dolar (USD)</ion-label>
+      <ion-input type="number" class="value-input" [(ngModel)]="fromValue" placeholder="to" (keyup)="convertDolarOne()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pesos (CLP)</ion-label>
+      <ion-input type="number" class="value-input" [(ngModel)]="toValue2" placeholder="from" (keyup)="convertYuro2()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Euro (EUR)</ion-label>
+      <ion-input type="number" class="value-input" [(ngModel)]="fromValue2" placeholder="to" (keyup)="convertYuro1()"></ion-input>
+    </ion-item>
+
+    <p>Dolar = {{doular}}</p>
+    <p>Yuro = {{yuro}}</p>
   </div>
 </ion-content>

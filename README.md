@@ -1,11 +1,19 @@
 # Programacion Movil Changelog
 
+## Estudiantes:
+[Johan Dahlbokum: @JDN2377](https://github.com/JDN2377)
+[Benjamin Paredes: @BenjaminWuff](https://github.com/BenjaminWuff)
+[Kevin Aguirre: @keaguirre](https://github.com/keaguirre)
+
+
+
 # To Do:
-- [ ] Agregar el usuario al sidebar y lo almacene
 - [ ] Servicio de geolocalizacion(mapa?)
 - [ ] Agregar el usuario al sidebar y lo almacene(LocalStorage/CurrentSession?)
-- [ ] Implementar update de imagen de perfil, camara o upload file(Backend?Firebase?, Cifrado de img a str)
-- [ ] Bcrypt para el proyecto
+- [ ] Implementar update de imagen de perfil, 
+- [ ] Camara o upload file(Firebase)
+- [ ] Bcrypt para contraseñas.
+
 
 ## 07/oct [@keaguirre](https://github.com/keaguirre)
 - Ajuste de estilos a enlaces en login y registro
@@ -53,3 +61,8 @@ redirigirlos a su propio home segun quien logee.
 
 ## 23/11 [@keaguirre](https://github.com/keaguirre)
 - [x] Agregar boton hamburguesa en inicio conductor.
+
+## 25/11 [@JDN2377](https://github.com/JDN2377)
+- [x] Consumir api de conversion de divisas
+- Comieza el desarrollo de la Camara con Firebase (Rama Camara)
+- Comienza desarrollo de Sesiones (Rama Sesiones)
