@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
+import { AdminUsuariosService } from 'src/app/services/adminUsuarios/admin-usuarios.service';
 
 @Component({
   selector: 'app-perfil',
@@ -8,13 +10,13 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class PerfilPage implements OnInit {
-  editProfile: any
+  editProfile: any;
+  autos: any;
+  conductores: any;
+  pasajeros: any;
+  viajes: any;
   ngOnInit() {
   }
-  constructor() {
+  constructor(private adminServ:AdminUsuariosService, private loadingCtrl:LoadingController) {
    }
-
-
-  
-
 }

@@ -61,9 +61,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
   {
+    path: 'registro-conductor',
+    loadChildren: () => import('./user/registro-conductor/registro-conductor.module').then( m => m.RegistroConductorPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
-  }
+  },
 ];
 
 @NgModule({

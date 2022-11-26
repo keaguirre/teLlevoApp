@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
-import { AlertController, IonRouterOutlet, MenuController, NavController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AdminUsuariosService } from '../../services/adminUsuarios/admin-usuarios.service';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,117 +12,65 @@ import { LoadingController } from '@ionic/angular';
 })
 
 export class LoginPage implements OnInit {
-  pageTitle = 'home';
-  isNotHome = false;
   loading : HTMLIonLoadingElement;
   isTextFieldType: boolean;
-
-  //Model
-  user : any =
-    {
-    nombre: '',
-    password : ''
-    };
-
-  field: string = '';
-  username: string = '';
-
-  constructor(private loadingCtrl: LoadingController, private alertCtrl: AlertController,
-    private menu: MenuController,private toastCtrl: ToastController,private router: Router) {
-    this.menu.enable(false);
-  }/*this.menu.enable(false); desactiva el SideMenu en esta pagina*/
-
-
-    ionViewDidEnter(){
-      this.menu.enable(false);/*this.menu.enable(false); desactiva el SideMenu en esta pagina (cuando se vuelve a entrar)*/
-    }
-     ngOnInit(): void {
-      
-      this.cargarLoading('<img src="../../../assets/duocLogo/fondo-transparente.png">');
-    }
-
-    togglePasswordFieldType(){
-      this.isTextFieldType = !this.isTextFieldType;
-    }
-
-    login(){
-      if(this.validateModel(this.user)){
-        this.presentAlert('Bienvenido ' + this.user.nombre);
-        this.username = this.user.nombre;
-        this.router.navigateByUrl(`/inicio/${this.username}`);
-        //this.router.navigate(['inicio']);
-      }
-      else{
-        this.presentToast('Datos no validos');
-      }
-    }
-
-    validateModel(model: any){
-      for(var[key,value] of Object.entries(model)){
-        if(this.user.nombre == 'ADMIN' || this.user.nombre == 'USER' && this.user.password == '123')/*el nombre debe ser ADMIN o USER y la contraseña debe ser 123*/
-        {
-          this.field = key;
-          return true;
-        }
-      }
-      return false;
-    }
+  pasajeroLogin: FormGroup;
+  c_email: string;
+  c_password: any;
+  email:any;
+  response: any;
   
-    cargarLoading(mensaje: string){
-      this.presentLoading(mensaje);
-      setTimeout(() => {
-        this.loading.dismiss();
-      }, 2000);
-    }
-  
-    async presentAlert(message: string) {
-      const alert =await this.alertCtrl.create({
-        header: 'Bienvenido',
-        message:message,
-        cssClass: 'custom-alert',
-        
-        buttons: [
-          {
-            text: 'Gracias!',
-            cssClass: 'alert-button-confirm',
-          },
-        ],
-      });
-      alert.present();
-    }
-
-    async presentToast(message: string, duration?: number){
-      const toast = await this.toastCtrl.create({
-        message:message,
-        duration:duration?duration:2000
-      });
-      toast.present();
-    }
-
-    // async presentLoading(message: string) {
-    //   this.loading = await this.loadingCtrl.create({
-    //     message,
-    //   });
-  
-    //   await this.loading.present();
-    // }
-     async presentLoading(message: string) {
-       this.loading = await this.loadingCtrl.create({
-         message,
-         spinner: 'circular',
-         cssClass: 'spinner-color'
-         
-       });
-  
-       await this.loading.present();
-     }
-
-     
-     //-----------------------------------
-    //  userToHome(){
-    //   this.router.navigateByUrl(`/inicio/${this.username}`);
-    //  }
-
+  constructor(private formBuilder:FormBuilder,
+    private adminUsuarios: AdminUsuariosService,
+    private loadingCtrl: LoadingController,
+    private menu: MenuController,
+    private router: Router,
+    private alertCtrl:AlertController) {
+    this.menu.enable(false); //desactiva el SideMenu en esta pagina (cuando se vuelve a entrar)
   }
 
+  ngOnInit(): void {
+    this.presentLoading('<img src="../../../assets/duocLogo/fondo-transparente.png">'); //llama al metodo de carga con el logo del duoc onInit
+    this.pasajeroLogin = this.formBuilder.group({
+      p_email: new FormControl('', [Validators.required, Validators.email]),
+      p_password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    });
+  }
+  togglePasswordFieldType(){//Ojito de passwd
+    this.isTextFieldType = !this.isTextFieldType;
+  }
+
+  async presentLoading(message: string) { //Carga logo duoc al iniciar
+    this.loading = await this.loadingCtrl.create({
+      message,
+      spinner: 'circular',
+      cssClass: 'spinner-color',
+      duration: 2000
+    });
+    await this.loading.present();
+  }
+
+  onPasajerosLogin(){
+    this.response = this.adminUsuarios.obtenerPasajeroLogin(this.pasajeroLogin.value.p_email).then(respuesta => {
+      this.response = respuesta;
+      if (respuesta['p_email'] == this.pasajeroLogin.value.p_email && respuesta['p_password'] == this.pasajeroLogin.value.p_password){
+        this.router.navigateByUrl('inicio');
+      }
+      else{
+        this.alertPresent('Login fallido','Intente nuevamente');
+      }
+    },
+    (err) => {
+      console.log(err)
+    });
+  }
   
+  async alertPresent(header:string,message:string){
+    const alert = await this.alertCtrl.create({
+      header:header,
+      message:message,
+      buttons:['OK'],
+    });
+    alert.present();
+  }
+}

@@ -1,0 +1,97 @@
+<ion-header class="p-top c-header" [translucent]="true">
+  <img class="m-logo" src="https://www.duoc.cl/wp-content/themes/wordpress-duoc-cl/images/logo-duoc.svg" alt="">
+</ion-header>
+<ion-content color="light" padding>
+  <form [formGroup]="c_signup" (ngSubmit)="onSubmit()" class="m-form">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3 class="ion-text-center"><strong>Registro Conductor</strong></h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input formControlName="c_email"  type="email" placeholder="usuario@tucorreo.cl" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="c_name" type="text" placeholder="Nombre" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="c_lastname" type="text" placeholder="Apellido"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="c_password" type="password" placeholder="Contraseña" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="c_password_confirm" type="password" placeholder="Confirmar contraseña" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="c_pnumber" type="text" placeholder="+56"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+              <ion-input formControlName="c_image" type="text" placeholder="Img"></ion-input>
+            </ion-item> -->
+          </div>
+          <div padding>
+            <ion-button id="open-modal" expand="block" class="m-button" color="duoc-secondary" size="large" type="submit" expand="block">Continuar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="div-hyperlink">
+            <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/login']">Volver al login</a></div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <!--ION MODAL---------------------------------------->
+      <ion-modal #modal trigger="open-modal" [canDismiss]="true" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
+        <ng-template>
+          <!--modal content-->
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Auto</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="modal.dismiss()">Cancelar</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <form [formGroup]="a_signup" (ngSubmit)="onCarSubmit()" class="m-form">
+              <ion-grid>
+                <ion-row color="primary" justify-content-center>
+                  <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                    <div text-center>
+                      <h3 class="ion-text-center"><strong>Registro Auto</strong></h3>
+                    </div>
+                    <div padding>
+                      <ion-item>
+                        <ion-input formControlName="a_id" type="text" placeholder="Patente" required></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-input formControlName="a_brand" type="text" placeholder="Marca del auto" required></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-input formControlName="a_model" type="text" placeholder="Modelo del auto"></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-input formControlName="a_color" type="text" placeholder="Color del auto" required></ion-input>
+                      </ion-item>
+                      <!-- <ion-item>
+                        <ion-input formControlName="a_state" type="text" placeholder="Estado" required></ion-input>
+                      </ion-item> -->
+                    </div>
+                    <div padding>
+                      <ion-button class="m-button" color="duoc-secondary" size="large"
+                        type="submit" expand="block">Registrarme</ion-button>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
+          </ion-content>
+        </ng-template>
+        </ion-modal>
+    </ion-content>
