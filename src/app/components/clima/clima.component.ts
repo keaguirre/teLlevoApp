@@ -24,17 +24,13 @@ export class ClimaComponent implements OnInit {
   
   constructor(private router: Router,public httpClient:HttpClient) {
     this.fetchLocation()
-    
    }
 
    async fetchLocation(){
     const location = await Geolocation.getCurrentPosition();
-      console.log('location = ', location);
-      this.coordenadas = location['coords']
-      this.latitud = this.coordenadas['latitude']
-      this.longitud = this.coordenadas['longitude']
-      console.log('latitud = ',this.latitud);
-      console.log('longitud = ',this.longitud);
+      this.coordenadas = location['coords'];
+      this.latitud = this.coordenadas['latitude'];
+      this.longitud = this.coordenadas['longitude'];
       this.loadData();
   }
 
@@ -43,12 +39,9 @@ export class ClimaComponent implements OnInit {
 
   loadData(){
       this.httpClient.get(`${apiClimaUrl}/weather?lat=${this.latitud}&lon=${this.longitud}&appid=${apiClimaKey}&units=metric`).subscribe(results =>{
-      console.log(results);
-      this.weatherTemp = results['main']
-      this.weatherDescription = results['weather']
-      this.weatherDescription = this.weatherDescription['0']
-      console.log(this.weatherTemp);
-      console.log(this.weatherDescription);
+      this.weatherTemp = results['main'];
+      this.weatherDescription = results['weather'];
+      this.weatherDescription = this.weatherDescription['0'];
     })
   }
 

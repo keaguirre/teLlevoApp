@@ -6,13 +6,15 @@
 [Kevin Aguirre: @keaguirre](https://github.com/keaguirre)
 
 
-
 # To Do:
 - [ ] Servicio de geolocalizacion(mapa?)
 - [ ] Agregar el usuario al sidebar y lo almacene(LocalStorage/CurrentSession?)
 - [ ] Implementar update de imagen de perfil, 
 - [ ] Camara o upload file(Firebase)
 - [ ] Bcrypt para contraseñas.
+- [ ] Migrar la geolocalización a un servicio.
+- [ ] Refactorizar, ClimaApi para quitar la carga cada vez que se cambia de página.
+- [ ] Refactorizar, las url del servicio adminusuario a Environments.
 
 
 ## 07/oct [@keaguirre](https://github.com/keaguirre)
@@ -66,3 +68,7 @@ redirigirlos a su propio home segun quien logee.
 - [x] Consumir api de conversion de divisas
 - Comieza el desarrollo de la Camara con Firebase (Rama Camara)
 - Comienza desarrollo de Sesiones (Rama Sesiones)
+
+## 25/11 Ajustes entre merge [@keaguirre](https://github.com/keaguirre)
+-Error de edit de merge
+-Quitados los console log del componente clima
