@@ -46,7 +46,7 @@
 ## 13/11 [@keaguirre](https://github.com/keaguirre)
 -Correccion de logo en modo no movil para poder hacer usable la app
 
-## 23/11 [@keaguirre](https://github.com/keaguirre] & (@BenjaminWuff)[https://github.com/BenjaminWuff)
+## 23/11 [@keaguirre](https://github.com/keaguirre) & [@BenjaminWuff](https://github.com/BenjaminWuff)
 - [x] Crear Django Backend
 - [x] Consumir api del clima con geolocalizacion
 - [x] Que el metodo diferencie entre usuarios normales y conductores para
@@ -55,4 +55,3 @@ redirigirlos a su propio home segun quien logee.
 
 ## 23/11 [@keaguirre](https://github.com/keaguirre)
 - [x] Agregar boton hamburguesa en inicio conductor.
->>>>>>> Stashed changes
