@@ -1,8 +1,8 @@
 <ion-header class="p-top c-header" [translucent]="true">
-  <img class="m-logo" src="../../../assets/duocLogo/duoc.png" alt="">
+  <img class="m-logo" src="../../../assets/duocLogo/duoc.svg" alt="">
 </ion-header>
 <ion-content color="light" padding >
-  <form class="m-form" #form="ngForm"><!--(ngSubmit)="form.reset();"-->
+  <form class="m-form" [formGroup]="pasajeroLogin" (ngSubmit)="onPasajerosLogin()">
     <ion-grid>
       <ion-row justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -11,30 +11,17 @@
           </div>
           <div padding>
             <ion-item lines="none">
-              <ion-input  placeholder="Usuario"
-                          name="username" 
-                          type="username" 
-                          [(ngModel)]="user.nombre" 
-                          required>
-              </ion-input>
+              <ion-input formControlName="p_email" placeholder="usuario@tucorreo.cl" type="email" required></ion-input>
             </ion-item>
             <ion-item lines="none">
-              <ion-input
-                          name="password" 
-                          [type]="isTextFieldType ? 'text' : 'password'"
-                          placeholder="Contraseña"
-                          [(ngModel)]="user.password"
-                          required
-                          pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{4,8}$">
-              </ion-input>
+              <ion-input formControlName="p_password" [type]="isTextFieldType ? 'text' : 'password'" placeholder="Contraseña" required></ion-input>
               <div id="eyeToggle" color="duoc-primary" (click)="togglePasswordFieldType()">
-                <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'">
-                </ion-icon>
-              </div><!--Si cambio estos div a button tambien queda bien, so discutir design-->
+                <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'"></ion-icon>
+              </div>
             </ion-item>
           </div>
           <div padding>
-            <ion-button [routerLink]="['/', 'inicio', 'id']" class="m-button" color="duoc-secondary" size="large" type="submit" expand="block" (click)="login()">Ingresar</ion-button>
+            <ion-button type="submit" class="m-button" color="duoc-secondary" size="large"  expand="block">Ingresar</ion-button>
           </div>
         </ion-col>
       </ion-row>
@@ -43,8 +30,8 @@
           <div id="conductor"><a class="hyperlink" [routerLink]="['/login-conductor']">Soy conductor</a></div>
           <div class="div-hyperlink">
             <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/faq']">Olvidé mi contraseña</a></div>
-            <!-- <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/faq']">Olvidé mi cuenta</a></div> -->
             <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/registro']">Registrate aquí!</a></div>
+            <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/registro-conductor']">Quiero ser conductor!</a></div>
           </div>
         </ion-col>
       </ion-row>

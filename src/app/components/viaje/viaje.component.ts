@@ -9,7 +9,7 @@ import { IonicModule } from '@ionic/angular';
 })
 export class ViajeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(public router: Router) { }//puse el router publico para poder acceder desde los componentes
   ngOnInit() {}
 
   goToPage(viajar:string){

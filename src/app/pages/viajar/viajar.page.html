@@ -3,12 +3,20 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Viajar</ion-title>
+    <ion-title class="title-p0">
+      <ion-row>
+        <ion-col class="ion-text-end col-title" >
+          Viajar
+        </ion-col>
+        <ion-col class="col-title-clima">
+          <clima-component></clima-component>
+        </ion-col>
+      </ion-row>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <viaje-component></viaje-component>
   <div id="container">
     <img src="../../../assets/icon/logistica.svg"/>
     <p>Página en contrucción.</p>

@@ -50,3 +50,18 @@
 #eyeToggle{
 color: #002E53;
 }
+
+@media only screen and (min-width: 768px) {
+    .m-logo {
+      width: 500px;
+      padding-bottom: 5%;
+    }
+    .p-top{
+        padding-top: 5%;
+    }
+    .m-form{
+        margin-top: 5%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+  }

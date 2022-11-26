@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
   {
     path: 'error404',
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
+  },
+  {
+    path: 'registro-conductor',
+    loadChildren: () => import('./user/registro-conductor/registro-conductor.module').then( m => m.RegistroConductorPageModule)
   },
   {
     path: '**',

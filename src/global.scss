@@ -39,7 +39,7 @@
 	src: url('/src/assets/fonts/Montserrat/static/Montserrat-Light.ttf');
   }
   @font-face {   
-	font-family: 'Montserra-Bold';
+	font-family: 'Montserrat-Bold';
 	src: url('/src/assets/fonts/Montserrat/static/Montserrat-Bold.ttf');
   }
 
@@ -83,6 +83,7 @@
 	font-family: 'NotoSans-Bold';
 	src: url('/src/assets/fonts/Noto_Sans/NotoSans-Bold.ttf');
   }
+
  :root {
   	--ion-font-family:Montserrat;
   }
@@ -161,6 +162,7 @@
 	--ion-color-shade: var(--ion-color-duoc-dark-shade);
 	--ion-color-tint: var(--ion-color-duoc-dark-tint);
 }
+
 
 //Bloque1 inicio homepage
 :root {
@@ -290,4 +292,31 @@ ion-alert.custom-alert {
 
   .spinner-color{
     --spinner-color: var(--ion-color-duoc-primary);
+}
+
+//title
+.title-p0{
+	padding: 0;
+}
+
+.col-title{
+	padding: 0;
+	margin-top: 15px;
+}
+
+.col-title-clima{
+	padding: 0;
+	min-width: 50%;
+}
+
+.cli-comp-p{
+	margin-bottom: 10px;
+	margin-left: 40px;
+	margin-top: 15px;
+}
+
+.cli-comp-img{
+	max-width: 35px;
+	max-height: 38px;
+	margin-top: 5px;
 }

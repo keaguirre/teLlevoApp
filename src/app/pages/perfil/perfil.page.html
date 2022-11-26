@@ -3,7 +3,16 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Perfil</ion-title>
+    <ion-title class="title-p0">
+      <ion-row>
+        <ion-col class="ion-text-end col-title" >
+          Perfil
+        </ion-col>
+        <ion-col class="col-title-clima">
+          <clima-component></clima-component>
+        </ion-col>
+      </ion-row>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -31,23 +40,76 @@
     </div>
   </div>
   <!--PROFILE DATA-->
-    <form id="profile-form" #form="ngForm" (ngSubmit)="register(form)">
+    <form id="profile-form" #form="ngForm" (ngSubmit)="editProfile(form)">
       <ion-grid>
         <ion-row color="primary" justify-content-center>
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
             <div padding>
-              <ion-item>
-                <ion-input class="ion-text-center" name="name" type="text" placeholder="Armando" ngModel required></ion-input>
+              <ion-item >
+                <ion-input type="email" placeholder="usuario@tucorreo.cl"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input class="ion-text-center" name="email" type="email" placeholder="Casas user" ngModel required></ion-input>
+                <ion-input type="text" placeholder="Nombre" required></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input class="ion-text-center" name="password" type="password" placeholder="Contraseña" ngModel required></ion-input>
+                <ion-input type="text" placeholder="Apellido"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input class="ion-text-center" name="confirm" type="password" placeholder="Confirmar contraseña" ngModel required></ion-input>
+                <ion-input type="password" placeholder="Contraseña" required></ion-input>
               </ion-item>
+              <ion-item>
+                <ion-input type="text" placeholder="+56"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="text" placeholder="Img URL/uploadBtn/photoBtn"></ion-input>
+              </ion-item>
+              <!--
+                 <form [formGroup]="signup" (ngSubmit)="onSubmit()" class="m-form">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3 class="ion-text-center"><strong>Registro</strong></h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input formControlName="p_email"  type="email" placeholder="usuario@tucorreo.cl" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="p_name" type="text" placeholder="Nombre" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="p_lastname" type="text" placeholder="Apellido"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="p_password" type="password" placeholder="Contraseña" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="p_password_confirm" type="password" placeholder="Confirmar contraseña" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="p_pnumber" type="text" placeholder="+56"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="p_image" type="text" placeholder="Img"></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button class="m-button" color="duoc-secondary" size="large" type="submit" expand="block">Registrarme</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="div-hyperlink">
+            <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/login']">Volver al login</a></div>
+            <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/login']">Quiero ser conductor</a></div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+              -->
             </div>
           </ion-col>
         </ion-row>
