@@ -11,9 +11,16 @@ export class AdminUsuariosService {
   urlConductor: string = 'http://127.0.0.1:8000/api/conductor/';
   urlPasajero: string = 'http://127.0.0.1:8000/api/pasajero/';
   urlViaje: string = 'http://127.0.0.1:8000/api/viaje/';
-
-  constructor(private httpClient:HttpClient) { }
-
+  user: any;
+  loadedUser: any;
+  constructor( private httpClient:HttpClient) {
+    this.user = localStorage.getItem("logged-usr");
+  }
+  onUserSession(){
+    this.loadedUser = this.obtenerPasajeroLogin(this.user).then(respuesta => {
+      console.log(respuesta);
+    });
+  }
 //Listados---------------------------------------
 
   obtenerListadoConductores(): Promise<any> {
@@ -236,55 +243,5 @@ export class AdminUsuariosService {
       });
     });
   }
-
-  /*
-    obtenerListadoPersonas(): Promise<any> {
-    return new Promise((resolve,reject) => {
-      this.httpClient.get(this.urlEndPoint)
-      .subscribe(respuesta => {
-        resolve(respuesta);
-      },
-      (err) => {
-        reject(err)
-      });
-    });
-  };
-
-  createPersona(persona:any): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.httpClient.post(this.urlEndPoint,persona)
-      .subscribe(respuesta => {
-        resolve(respuesta);
-      },
-      (err) => {
-        reject(err);
-      });
-    });
-  };
-
-  updatePersona(idPersona: string, persona: any): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.httpClient.put(this.urlEndPoint + idPersona,persona)
-      .subscribe(respuesta => {
-      resolve(respuesta);
-      },
-      (err) => {
-        reject(err);
-      });
-    });    
-  };
-
-  deletePersona(idPersona: string): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.httpClient.delete(this.urlEndPoint + idPersona)
-      .subscribe(respuesta => {
-        resolve(respuesta);
-      },
-      (err) => {
-        reject(err);
-      });
-    });
-  }
-  */
 
 }

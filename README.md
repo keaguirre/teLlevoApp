@@ -70,5 +70,14 @@ redirigirlos a su propio home segun quien logee.
 - Comienza desarrollo de Sesiones (Rama Sesiones)
 
 ## 25/11 Ajustes entre merge [@keaguirre](https://github.com/keaguirre)
--Error de edit de merge
--Quitados los console log del componente clima
+- Error de edit de merge
+- Quitados los console log del componente clima
+
+## 26/11 LocalStorage [@keaguirre](https://github.com/keaguirre)
+- npm install @ionic/storage-angular
+
+## 28/11 [@keaguirre](https://github.com/keaguirre)
+- Creado el guard llamado authGuard
+- Sesiones creadas
+- Protección de rutas mediante guard
+- Botón de logout funcional

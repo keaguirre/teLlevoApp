@@ -42,10 +42,10 @@ export class CoversorPage implements OnInit {
     this.conversorService.getDolar().subscribe(
       (res) => {
 
-        console.log(res);
+        //console.log(res);
         this.currRate = res['serie']
         this.doular = this.currRate[0].valor;
-        console.log(this.doular)
+        //console.log(this.doular)
 
       }
     )
@@ -55,10 +55,10 @@ export class CoversorPage implements OnInit {
     this.conversorService.getYuro().subscribe(
       (res) => {
 
-        console.log(res);
+        //console.log(res);
         this.currRate = res['serie']
         this.yuro = this.currRate[0].valor;
-        console.log(this.yuro)
+        //console.log(this.yuro)
       }
     )
   }
