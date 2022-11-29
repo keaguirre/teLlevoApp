@@ -5,6 +5,7 @@ import { LoadingController } from '@ionic/angular';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminUsuariosService } from '../../services/adminUsuarios/admin-usuarios.service';
 import { AlertController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -19,13 +20,15 @@ export class LoginPage implements OnInit {
   c_password: any;
   email:any;
   response: any;
+  fbUser:any;
   
   constructor(private formBuilder:FormBuilder,
     private adminUsuarios: AdminUsuariosService,
     private loadingCtrl: LoadingController,
     private menu: MenuController,
     private router: Router,
-    private alertCtrl:AlertController) {
+    private alertCtrl:AlertController,
+    private authService:AuthService) {
     this.menu.enable(false); //desactiva el SideMenu en esta pagina (cuando se vuelve a entrar)
   }
 
@@ -39,6 +42,8 @@ export class LoginPage implements OnInit {
   togglePasswordFieldType(){//Ojito de passwd
     this.isTextFieldType = !this.isTextFieldType;
   }
+
+
 
   async presentLoading(message: string) { //Carga logo duoc al iniciar
     this.loading = await this.loadingCtrl.create({
@@ -65,6 +70,15 @@ export class LoginPage implements OnInit {
       if (respuesta['p_email'] == this.pasajeroLogin.value.p_email && respuesta['p_password'] == this.pasajeroLogin.value.p_password){
         localStorage.setItem('currentSession', "true");
         localStorage.setItem('logged-usr', respuesta['p_email']); //Almacenamos la pk del pasajero en ls
+        //Firebase-----------------------------------------------------------------------
+         this.fbUser = this.authService.login(respuesta['p_email'],respuesta['p_password']).then(resp =>{
+          this.fbUser = resp;
+         },
+         (err)=> {
+          console.log("error: "+err);
+         });
+         
+        //-----------------------------------------------------------------------
         this.pasajeroLogin.reset(); //limpia el formulario dsp del submit
         this.router.navigateByUrl('inicio');
       }

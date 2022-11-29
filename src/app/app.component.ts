@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { AdminUsuariosService } from './services/adminUsuarios/admin-usuarios.service';
+import { AuthService } from './services/auth/auth.service';
+import { AvatarService }  from './services/avatar/avatar.service';
 
 @Component({
   selector: 'app-root',
@@ -13,13 +15,16 @@ export class AppComponent {
   user:any;
   loadedUser:any;
   currentUser:any;
+  profile: any = null;
 
-  constructor(private router: Router, private adminServ: AdminUsuariosService, private route: ActivatedRoute) {
+  constructor(private avatarService: AvatarService, private router: Router, private adminServ: AdminUsuariosService, private route: ActivatedRoute) 
+  {this.cargarAvatar();
   }
 
   ngOnInit() {
     this.currentUser = localStorage.getItem('logged-usr');
     this.onLoadUsr();
+    this.cargarAvatar();
   }
   onLogout(){
     localStorage.clear();
@@ -46,7 +51,11 @@ export class AppComponent {
     {title: 'Blackboard', url: 'about', icon: 'bookmark'},
   ];
   
-
+  cargarAvatar(){
+    this.avatarService.getUserProfile().subscribe(respuesta => {
+      this.profile = respuesta;
+    })
+  }
 
 
 }

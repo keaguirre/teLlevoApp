@@ -3,7 +3,8 @@ import { MenuController, NavController } from '@ionic/angular';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminUsuariosService } from 'src/app/services/adminUsuarios/admin-usuarios.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-registro',
@@ -26,7 +27,9 @@ export class RegistroPage implements OnInit {
     private alertCtrl:AlertController,
     private adminUsuarios: AdminUsuariosService,
     private formBuilder:FormBuilder,
-    private menu: MenuController) {
+    private menu: MenuController,
+    private loadingCtrl:LoadingController,
+    private authService: AuthService) {
     this.menu.enable(false); //desactive el swipe sidebar en el registro
   }
   ngOnInit() {
@@ -41,6 +44,15 @@ export class RegistroPage implements OnInit {
     });
   }
 
+  
+  async register(){
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
+
+    const user = await this.authService.register(this.signup.value['p_email'],this.signup.value['p_password']);
+    await loading.dismiss();
+  }
+
   onSubmit(){
     //asigna imagen por default al usuario que podra cambiar en su perfil
     const default_image = 'https://ionicframework.com/docs/img/demos/avatar.svg';
@@ -50,7 +62,9 @@ export class RegistroPage implements OnInit {
       this.pasajero = this.signup.value;
       this.adminUsuarios.createPasajero(this.pasajero)
       this.alertPresent('Registro','Registrado correctamente');
+      this.register();
       this.router.navigateByUrl('login');
+      
     }
     catch{
       this.alertPresent('Error en el registro','Intente nuevamente');

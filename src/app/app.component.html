@@ -5,7 +5,8 @@
         <ion-list id="inbox-list">
           <ion-item lines="none">
             <ion-avatar id="sidebar-image" slot="start">
-              <img alt="Silhouette of a person" src="{{currentUser.p_image}}" />
+              <!-- <img alt="Silhouette of a person" src="{{currentUser.p_image}}" /> -->
+              <img *ngIf="profile?.imageUrl;" [src]="profile.imageUrl" alt="foto-perfil">
             </ion-avatar>
             <ion-label>{{currentUser.p_name}}</ion-label>
           </ion-item>

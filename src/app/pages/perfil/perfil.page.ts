@@ -3,6 +3,9 @@ import { ActionSheetController, AlertController, LoadingController } from '@ioni
 import { AdminUsuariosService } from 'src/app/services/adminUsuarios/admin-usuarios.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AvatarService } from 'src/app/services/avatar/avatar.service';
+import { Camera } from '@capacitor/camera';
+import { CameraResultType, CameraSource } from '@capacitor/camera/dist/esm/definitions';
 
 @Component({
   selector: 'app-perfil',
@@ -22,14 +25,17 @@ export class PerfilPage implements OnInit {
   updateInfoUser :FormGroup;
   pasajero: any;
   presentingElement = undefined;
+  profile: any = null;
 
   constructor(private adminServ:AdminUsuariosService,
     private loadingCtrl:LoadingController,
     private formBuilder:FormBuilder,
     private actionSheetCtrl: ActionSheetController,
     private alertCtrl:AlertController,
-    private router: Router) {
-   }
+    private avatarService: AvatarService,
+    private router: Router)
+    {this.cargarAvatar();
+    }
 
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');
@@ -45,6 +51,7 @@ export class PerfilPage implements OnInit {
       p_image: new FormControl('',[Validators.minLength(1), Validators.maxLength(54)])
     });
     this.onLoadUsr();
+    this.cargarAvatar();
   }
   onLoadUsr(){
     this.user = localStorage.getItem("logged-usr");
@@ -136,5 +143,29 @@ export class PerfilPage implements OnInit {
       ]
     });
     await alert.present();
+  }
+
+  cargarAvatar(){
+    this.avatarService.getUserProfile().subscribe(respuesta => {
+      this.profile = respuesta;
+    })
+  }
+  
+  async uploadAvatar(){
+    const avatar = await Camera.getPhoto({
+      quality:90,
+      allowEditing:false,
+      resultType:CameraResultType.Base64,
+      source:CameraSource.Camera //Photo o prompt
+      
+    });
+    if(avatar){
+      const loading = await this.loadingCtrl.create();
+      const result = await this.avatarService.uploadAvatar(avatar);
+
+      if(!result){
+        this.alertPresent('Carga avatar fallida','Se ha producido un error, inténtelo más rato.');
+      }
+    }
   }
 }
