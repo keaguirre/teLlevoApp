@@ -70,5 +70,4 @@ export class LoginConductorPage implements OnInit {
     });
     alert.present();
   }
-
 }

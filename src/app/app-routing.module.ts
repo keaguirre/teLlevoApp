@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { AuthUserGuard } from './guards/authUser/auth-user.guard';
+// import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   {
@@ -14,27 +16,33 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'inicio/:id',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'viajar',
-    loadChildren: () => import('./pages/viajar/viajar.module').then( m => m.ViajarPageModule)
+    loadChildren: () => import('./pages/viajar/viajar.module').then( m => m.ViajarPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'faq',
-    loadChildren: () => import('./pages/faq/faq.module').then( m => m.FaqPageModule)
+    loadChildren: () => import('./pages/faq/faq.module').then( m => m.FaqPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'login',
@@ -46,7 +54,8 @@ const routes: Routes = [
   },
   {
     path: 'coversor',
-    loadChildren: () => import('./pages/coversor/coversor.module').then( m => m.CoversorPageModule)
+    loadChildren: () => import('./pages/coversor/coversor.module').then( m => m.CoversorPageModule),
+    canLoad: [AuthUserGuard]
   },
   {
     path: 'login-conductor',
@@ -54,7 +63,8 @@ const routes: Routes = [
   },
   {
     path: 'inicio-conductor',
-    loadChildren: () => import('./pages/inicio-conductor/inicio-conductor.module').then( m => m.InicioConductorPageModule)
+    loadChildren: () => import('./pages/inicio-conductor/inicio-conductor.module').then( m => m.InicioConductorPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'error404',

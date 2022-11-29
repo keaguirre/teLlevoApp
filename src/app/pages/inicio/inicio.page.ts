@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonRouterOutlet, MenuController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AdminUsuariosService } from 'src/app/services/adminUsuarios/admin-usuarios.service';
 
 @Component({
   selector: 'app-inicio',
@@ -11,14 +12,23 @@ export class InicioPage implements OnInit {
   loading : HTMLIonLoadingElement;
   user = this.route.snapshot.paramMap.get('id');
 
+  usr:any;
+  loadedUser:any;
+  currentUser:any;
+  
 
-  constructor(private router: Router, private route: ActivatedRoute, private menu: MenuController, private routerOutlet: IonRouterOutlet) {
+  constructor(private adminServ: AdminUsuariosService, private router: Router, private route: ActivatedRoute, private menu: MenuController, private routerOutlet: IonRouterOutlet) {
     this.menu.enable(true);
   }
 
   ngOnInit() {
     this.routerOutlet.swipeGesture = false;
-    //const user = this.route.snapshot.paramMap.get('id');
-    //console.log(`id: ${this.user}`)
+    this.onLoadUsr();
+  }
+  onLoadUsr(){
+    this.usr = localStorage.getItem("logged-usr");
+    this.loadedUser = this.adminServ.obtenerPasajeroLogin(this.usr).then(respuesta => {
+    this.currentUser = respuesta;
+    });
   }
 }

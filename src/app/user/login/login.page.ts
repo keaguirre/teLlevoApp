@@ -45,26 +45,11 @@ export class LoginPage implements OnInit {
       message,
       spinner: 'circular',
       cssClass: 'spinner-color',
-      duration: 2000
+      duration: 500
     });
     await this.loading.present();
   }
 
-  onPasajerosLogin(){
-    this.response = this.adminUsuarios.obtenerPasajeroLogin(this.pasajeroLogin.value.p_email).then(respuesta => {
-      this.response = respuesta;
-      if (respuesta['p_email'] == this.pasajeroLogin.value.p_email && respuesta['p_password'] == this.pasajeroLogin.value.p_password){
-        this.router.navigateByUrl('inicio');
-      }
-      else{
-        this.alertPresent('Login fallido','Intente nuevamente');
-      }
-    },
-    (err) => {
-      console.log(err)
-    });
-  }
-  
   async alertPresent(header:string,message:string){
     const alert = await this.alertCtrl.create({
       header:header,
@@ -72,5 +57,23 @@ export class LoginPage implements OnInit {
       buttons:['OK'],
     });
     alert.present();
+  }
+
+  onPasajerosLogin(){
+    this.response = this.adminUsuarios.obtenerPasajeroLogin(this.pasajeroLogin.value.p_email).then(respuesta => {
+      this.response = respuesta;
+      if (respuesta['p_email'] == this.pasajeroLogin.value.p_email && respuesta['p_password'] == this.pasajeroLogin.value.p_password){
+        localStorage.setItem('currentSession', "true");
+        localStorage.setItem('logged-usr', respuesta['p_email']); //Almacenamos la pk del pasajero en ls
+        this.pasajeroLogin.reset(); //limpia el formulario dsp del submit
+        this.router.navigateByUrl('inicio');
+      }
+      else{
+        this.alertPresent('Login fallido','Intente nuevamente');
+      }
+    },
+    (err) => {
+      this.alertPresent('Login fallido','Intente nuevamente');
+    });
   }
 }
