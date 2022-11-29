@@ -32,7 +32,7 @@
     <div class="border-yellow">
       <div class="border-white">
         <div class="img-box">
-          <img src="{{pasajero.p_image}}" alt="foto-perfil">
+          <img *ngIf="profile?.imageUrl;" [src]="profile.imageUrl" alt="foto-perfil">
         </div>
       </div>
     </div>
@@ -113,7 +113,7 @@
                     </ion-item>
                     <ion-item>
                       <ion-input formControlName="p_image" type="text"></ion-input>
-                      <ion-button id="eyeToggle" color="duoc-primary">
+                      <ion-button (click)="uploadAvatar()" id="eyeToggle" color="duoc-primary">
                         <ion-icon name="camera-outline"></ion-icon>
                       </ion-button>
                     </ion-item>

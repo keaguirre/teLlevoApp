@@ -76,8 +76,10 @@ redirigirlos a su propio home segun quien logee.
 ## 26/11 LocalStorage [@keaguirre](https://github.com/keaguirre)
 - npm install @ionic/storage-angular
 
-## 28/11 [@keaguirre](https://github.com/keaguirre)
+## 28/11 [@keaguirre](https://github.com/keaguirre) & [@JDN2377](https://github.com/JDN2377)
 - Creado el guard llamado authGuard
 - Sesiones creadas
 - Protección de rutas mediante guard
 - Botón de logout funcional
+- Funcionalidad de la cámara
+- Subida y carga de imagenes mediante firebase

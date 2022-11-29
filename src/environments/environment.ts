@@ -7,7 +7,16 @@ export const environment = {
   
   apiClimaKey: 'ca1342264d761f5b055eaa6e87fed887',
   apiClimaUrl: 'https://api.openweathermap.org/data/2.5/',
-  baseUrl: 'https://mindicador.cl/api'
+  baseUrl: 'https://mindicador.cl/api',
+  firebaseConfig: {
+    apiKey: "AIzaSyDKRplySkK7hdY5JRCEpXQhFDDt7jBuqhc",
+    authDomain: "backendimg.firebaseapp.com",
+    projectId: "backendimg",
+    storageBucket: "backendimg.appspot.com",
+    messagingSenderId: "791778332028",
+    appId: "1:791778332028:web:2d6ca5a1022c9f1bfc28f9",
+    measurementId: "G-Q01JRGGG0E"
+  }
 };
 
 /*
