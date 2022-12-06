@@ -1,20 +1,24 @@
 # Programacion Movil Changelog
 
 ## Estudiantes:
-[Johan Dahlbokum: @JDN2377](https://github.com/JDN2377)
-[Benjamin Paredes: @BenjaminWuff](https://github.com/BenjaminWuff)
+[Johan Dahlbokum: @JDN2377](https://github.com/JDN2377)<br>
+[Benjamin Paredes: @BenjaminWuff](https://github.com/BenjaminWuff)<br>
 [Kevin Aguirre: @keaguirre](https://github.com/keaguirre)
 
 
 # To Do:
-- [ ] Servicio de geolocalizacion(mapa?)
-- [ ] Agregar el usuario al sidebar y lo almacene(LocalStorage/CurrentSession?)
-- [ ] Implementar update de imagen de perfil, 
-- [ ] Camara o upload file(Firebase)
-- [ ] Bcrypt para contraseñas.
 - [ ] Migrar la geolocalización a un servicio.
+- [ ] Implementar update de imagen de perfil
+- [ ] Correccion de modal con cancelar, al registrar el auto y registrarse conductor, bajar el modal.
+- [ ] Correccion de modal con cancelar, al actualizar el perfil de un pasajero y/o conductor, bajar el modal.
 - [ ] Refactorizar, ClimaApi para quitar la carga cada vez que se cambia de página.
+- [ ] Refactorizar, ConversorApi para que suba la img solo con el identificador de su correo.
 - [ ] Refactorizar, las url del servicio adminusuario a Environments.
+- [ ] Conductor sidePage
+    - [ ] Crear pagina perfil para conductor(que pueda visualizar la data del auto(Stand by: actualizar))
+    - [ ] Crear pagina de viaje para el conductor
+- [ ] Crear pagina de viaje para pasajero y lógica de los mockups [Mockup Imagen](https://cdn.discordapp.com/attachments/707842934417915946/1049823609914396732/New_Wireframe_1.png)
+- [ ] Bcrypt para contraseñas.
 
 
 ## 07/oct [@keaguirre](https://github.com/keaguirre)
@@ -82,4 +86,5 @@ redirigirlos a su propio home segun quien logee.
 - Protección de rutas mediante guard
 - Botón de logout funcional
 - Funcionalidad de la cámara
-- Subida y carga de imagenes mediante firebase
+- [x] Subida y carga de imagenes mediante firebase
+- [x] Agregar el usuario al sidebar y lo almacene(LocalStorage/CurrentSession?)
