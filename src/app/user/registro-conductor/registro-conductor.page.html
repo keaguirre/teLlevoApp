@@ -47,14 +47,14 @@
     </ion-grid>
   </form>
   <!--ION MODAL---------------------------------------->
-      <ion-modal #modal trigger="open-modal" [canDismiss]="true" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
+      <ion-modal #modal trigger="open-modal" [canDismiss]="true" [presentingElement]="presentingElement">
         <ng-template>
           <!--modal content-->
           <ion-header>
             <ion-toolbar>
               <ion-title>Auto</ion-title>
               <ion-buttons slot="end">
-                <ion-button (click)="modal.dismiss()">Cancelar</ion-button>
+                <ion-button (click)="dismissCancelar()">Cancelar</ion-button>
               </ion-buttons>
             </ion-toolbar>
           </ion-header>
@@ -84,7 +84,7 @@
                       </ion-item> -->
                     </div>
                     <div padding>
-                      <ion-button class="m-button" color="duoc-secondary" size="large"
+                      <ion-button (onClick)="modal.dismiss()" class="m-button" color="duoc-secondary" size="large"
                         type="submit" expand="block">Registrarme</ion-button>
                     </div>
                   </ion-col>

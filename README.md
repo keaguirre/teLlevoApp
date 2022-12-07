@@ -7,13 +7,8 @@
 
 
 # To Do:
-- [ ] Migrar la geolocalización a un servicio.
-- [ ] Implementar update de imagen de perfil
-- [ ] Correccion de modal con cancelar, al registrar el auto y registrarse conductor, bajar el modal.
-- [ ] Correccion de modal con cancelar, al actualizar el perfil de un pasajero y/o conductor, bajar el modal.
+- [ ] Migrar la geolocalización a un servicio de clima.
 - [ ] Refactorizar, ClimaApi para quitar la carga cada vez que se cambia de página.
-- [ ] Refactorizar, ConversorApi para que suba la img solo con el identificador de su correo.
-- [ ] Refactorizar, las url del servicio adminusuario a Environments.
 - [ ] Conductor sidePage
     - [ ] Crear pagina perfil para conductor(que pueda visualizar la data del auto(Stand by: actualizar))
     - [ ] Crear pagina de viaje para el conductor
@@ -88,3 +83,10 @@ redirigirlos a su propio home segun quien logee.
 - Funcionalidad de la cámara
 - [x] Subida y carga de imagenes mediante firebase
 - [x] Agregar el usuario al sidebar y lo almacene(LocalStorage/CurrentSession?)
+
+## 06/12 Empieza la entrega final [@keaguirre](https://github.com/keaguirre) & [@JDN2377](https://github.com/JDN2377)
+### Dia de fixes
+- [x] Correccion de modal con cancelar, al registrar el auto y registrarse conductor, bajar el modal.
+- [x] Correccion de modal con cancelar, al actualizar el perfil de un pasajero y/o conductor, bajar el modal.
+- [x] Refactorizar, Firebase para que suba la img solo con el identificador de su correo.
+- [x] Refactorizar, las url del servicio adminusuario a Environments.

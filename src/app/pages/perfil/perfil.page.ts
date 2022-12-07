@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController, AlertController, LoadingController } from '@ionic/angular';
+import { ActionSheetController, AlertController, LoadingController, ModalController } from '@ionic/angular';
 import { AdminUsuariosService } from 'src/app/services/adminUsuarios/admin-usuarios.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -33,7 +33,8 @@ export class PerfilPage implements OnInit {
     private actionSheetCtrl: ActionSheetController,
     private alertCtrl:AlertController,
     private avatarService: AvatarService,
-    private router: Router)
+    private router: Router,
+    private modalCtrl: ModalController)
     {this.cargarAvatar();
     }
 
@@ -76,6 +77,7 @@ export class PerfilPage implements OnInit {
     try{
       this.adminServ.updatePasajero(this.pasajero['p_email'],this.updateInfoUser.value);
       this.alertPresent("Datos","Actualización realizada");
+      return this.modalCtrl.dismiss(null, 'confirm');
     }
     catch{
       this.alertPresent("Datos","Ha habido un error, inténtelo nuevamente");
@@ -91,26 +93,24 @@ export class PerfilPage implements OnInit {
     alert.present();
   }
 
-  canDismiss = async () => {
+  async dismissCancelar(){
     const actionSheet = await this.actionSheetCtrl.create({
       header: 'Deseas cancelar la edición?',
       buttons: [
         {
           text: 'Si',
           role: 'confirm',
+          handler: () =>{
+            return this.modalCtrl.dismiss(null, 'confirm');
+          }
         },
         {
           text: 'No',
-          role: 'cancel',
+          role: 'cancel'
         },
       ],
     });
-
     actionSheet.present();
-
-    const { role } = await actionSheet.onWillDismiss();
-
-    return role === 'confirm';
   };
 
   async mostrarAlertaEliminarUsuario(){

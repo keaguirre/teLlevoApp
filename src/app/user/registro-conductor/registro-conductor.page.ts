@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, NavController } from '@ionic/angular';
+import { MenuController, ModalController, NavController } from '@ionic/angular';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminUsuariosService } from 'src/app/services/adminUsuarios/admin-usuarios.service';
 import { ActionSheetController } from '@ionic/angular';
@@ -39,7 +39,8 @@ export class RegistroConductorPage implements OnInit {
     private actionSheetCtrl: ActionSheetController,
     private adminUsuarios: AdminUsuariosService,
     private formBuilder:FormBuilder,
-    private menu: MenuController) {
+    private menu: MenuController,
+    private modalCtrl: ModalController) {
     this.menu.enable(false);
   }
   ngOnInit() {
@@ -67,25 +68,6 @@ export class RegistroConductorPage implements OnInit {
 
   }//fin ngOnInit
 
-  canDismiss = async () => { //cancelar el modal de registro de auto
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Estás seguro?',
-      buttons: [
-        {
-          text: 'Si',
-          role: 'confirm',
-        },
-        {
-          text: 'No',
-          role: 'cancel',
-        },
-      ],
-    });
-    actionSheet.present();
-    const { role } = await actionSheet.onWillDismiss();
-    return role === 'confirm';
-  };
-
   //conductor
   onSubmit(){
       this.conductor = this.c_signup.value;//guarda los valores del conductor en un arreglo
@@ -107,6 +89,7 @@ export class RegistroConductorPage implements OnInit {
       this.adminUsuarios.createConductor(this.c_signup.value);//post
       this.alertPresent('Registro','Registrado correctamente');
       this.router.navigateByUrl('login-conductor');
+      return this.modalCtrl.dismiss(null, 'confirm');
     }
     catch{
       this.alertPresent('Error en el registro','Intente nuevamente');
@@ -120,4 +103,24 @@ export class RegistroConductorPage implements OnInit {
     });
     alert.present();
   }
+
+  async dismissCancelar(){
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Deseas cancelar la edición?',
+      buttons: [
+        {
+          text: 'Si',
+          role: 'confirm',
+          handler: () =>{
+            return this.modalCtrl.dismiss(null, 'confirm');
+          }
+        },
+        {
+          text: 'No',
+          role: 'cancel'
+        },
+      ],
+    });
+    actionSheet.present();
+  };
 }

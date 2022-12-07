@@ -74,13 +74,13 @@
       </ion-grid>
     </div>
     <!-- Modal update-->
-    <ion-modal #modal trigger="open-modal" [canDismiss]="true" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
+    <ion-modal #modal trigger="open-modal" [canDismiss]="true" [presentingElement]="presentingElement">
       <ng-template>
         <ion-header>
           <ion-toolbar>
             <ion-title>Actualizar</ion-title>
             <ion-buttons slot="end">
-              <ion-button (click)="modal.dismiss()">Cancelar</ion-button>
+              <ion-button (click)="dismissCancelar()">Cancelar</ion-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
@@ -119,7 +119,7 @@
                     </ion-item>
                   </div>
                   <div padding>
-                    <ion-button class="m-button" color="duoc-secondary" size="large" type="submit" expand="block">Actualizar</ion-button>
+                    <ion-button class="m-button" color="duoc-secondary" size="large" (onClick)="modal.dismiss()" type="submit" expand="block">Actualizar</ion-button>
                   </div>
                 </ion-col>
               </ion-row>
