@@ -145,9 +145,10 @@ export class PerfilPage implements OnInit {
     await alert.present();
   }
 
-  cargarAvatar(){
+  async cargarAvatar(){
     this.avatarService.getUserProfile().subscribe(respuesta => {
       this.profile = respuesta;
+      console.log(this.profile)
     })
   }
   

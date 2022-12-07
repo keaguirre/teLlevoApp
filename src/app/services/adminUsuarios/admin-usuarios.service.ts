@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,10 @@ import { Injectable } from '@angular/core';
 
 export class AdminUsuariosService {
 
-  urlAuto: string = 'http://127.0.0.1:8000/api/auto/';
-  urlConductor: string = 'http://127.0.0.1:8000/api/conductor/';
-  urlPasajero: string = 'http://127.0.0.1:8000/api/pasajero/';
-  urlViaje: string = 'http://127.0.0.1:8000/api/viaje/';
+  urlAuto: string = environment.urlAuto;
+  urlConductor: string = environment.urlConductor;
+  urlPasajero: string = environment.urlPasajero;
+  urlViaje: string = environment.urlViaje;
   user: any;
   loadedUser: any;
   constructor( private httpClient:HttpClient) {
