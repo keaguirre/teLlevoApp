@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment';
 })
 
 export class AdminUsuariosService {
-
   urlAuto: string = environment.urlAuto;
   urlConductor: string = environment.urlConductor;
   urlPasajero: string = environment.urlPasajero;
