@@ -16,7 +16,11 @@ export const environment = {
     messagingSenderId: "791778332028",
     appId: "1:791778332028:web:2d6ca5a1022c9f1bfc28f9",
     measurementId: "G-Q01JRGGG0E"
-  }
+  },
+  urlAuto:'http://127.0.0.1:8000/api/auto/',
+  urlConductor:'http://127.0.0.1:8000/api/conductor/',
+  urlPasajero:'http://127.0.0.1:8000/api/pasajero/',
+  urlViaje: 'http://127.0.0.1:8000/api/viaje/'
 };
 
 /*

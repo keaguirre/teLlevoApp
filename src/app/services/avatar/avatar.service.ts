@@ -13,24 +13,25 @@ import { Auth } from '@angular/fire/auth';
 
 export class AvatarService {
 
+
   constructor(private firestore: Firestore, private storage:Storage, private auth:Auth) { }
 
   getUserProfile(){
-    const user = this.auth.currentUser;
-    const userDocRef = doc(this.firestore, `foto_usuarios/${user?.uid}`);
+    const user = localStorage.getItem('logged-usr');
+    const userDocRef = doc(this.firestore, `foto_usuarios/${user}`);
     return docData(userDocRef);
   }
 
   async uploadAvatar(cameraFile: Photo){
-    const user = this.auth.currentUser;
-    const path = `foto_usuarios/${user?.uid}/profile.png`;
+    const user = localStorage.getItem('logged-usr');
+    const path = `foto_usuarios/${user}/profile.png`;
     const storageRef = ref(this.storage, path);
 
     try {
       await uploadString(storageRef, cameraFile.base64String || '' ,'base64');
 
       const imageUrl = await getDownloadURL(storageRef);
-      const userDocRef = doc(this.firestore, `foto_usuarios/${user?.uid}`);
+      const userDocRef = doc(this.firestore, `foto_usuarios/${user}`);
       await setDoc(userDocRef,{
         imageUrl,
       });
