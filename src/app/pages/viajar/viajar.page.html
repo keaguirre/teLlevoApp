@@ -15,11 +15,37 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-  <div id="container">
+<ion-content color="duoc-primary">
+  <form (ngSubmit)="onQuehue()" id="list" hidden="false" [formGroup]="onDestination">
+    <h2 id="form-title">A dónde vamos?</h2>
+    <ion-select id="comunaDestino" formControlName="p_comuna" cancelText="Cancelar" placeholder="Comuna de destino">
+      <ion-select-option *ngFor="let c of comunas"  [value]="c.p_comuna">
+        {{c.p_comuna}}
+      </ion-select-option>
+    </ion-select>
+    <ion-item>
+      <ion-label position="stacked">Ingrese dirección de destino</ion-label>
+      <ion-input formControlName="p_calle" [clearInput]="true" placeholder="Calle falsificada #123" value=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Acompañantes</ion-label>
+      <ion-input formControlName="p_acompanantes" type="number" max="3" min="0"></ion-input>
+    </ion-item>
+    <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button [disabled]="onDestination.invalid" type="submit" size="medium" color="duoc-secondary" (click)="onQuehue();onSearch()">viajar</ion-fab-button>
+    </ion-fab>
+  </form>
+  <div hidden="true" id="loader">
+    <div class="loader"></div>
+    <h3 id="buscando1" >Buscando</h3>
+    <h3 id="buscando2">conductores</h3>
+    <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button size="medium" color="duoc-secondary" (click)="onSearch()">Cancelar</ion-fab-button>
+    </ion-fab>
+  </div>
+  <!-- <div id="container">
     <img src="../../../assets/icon/logistica.svg"/>
     <p>Página en contrucción.</p>
     <ion-label [routerLink]="['/inicio']" routerLinkActive="router-link-active" >Volver a <a target="_blank" rel="noopener noreferrer">Inicio</a></ion-label>
-  </div>
+  </div> -->
 </ion-content>

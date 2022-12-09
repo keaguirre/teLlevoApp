@@ -25,3 +25,69 @@
   .color{
     background-color: green;
   }
+
+  #comunaDestino{
+    background-color: #fff;
+    color: #002e53;
+  }
+  #form-title{
+    padding-left: 40px;
+  }
+
+  ion-fab.fab-horizontal-center {
+    margin-inline-start: -50px;
+  }
+  //btn submit
+  ion-fab-button{
+    font-weight:500;
+    width: 100px;
+    height: 100px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #002e53;
+    border-radius: 50%;
+}
+#fab-btn{
+    margin-right: 50px;
+}
+#list{
+  margin-top: 50%;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+//loader
+.loader {
+  margin-left: 50%;
+  margin-top: 60%;
+  width: 8px;
+  height: 8px;
+  position: relative;
+  border-radius: 50%;
+  background: #fff;
+  animation: wave 1s ease-in infinite;
+}
+#buscando1{
+  padding-top: 20%;
+  margin-left: 35%;
+}
+#buscando2{
+  margin-left: 30%;
+}
+
+@keyframes wave {
+ 0% {  box-shadow:
+  0 0 0 0px rgba(255, 255,255, 1),
+  0 0 0 20px rgba(255, 255,255, 0.2),
+  0 0 0 40px rgba(255, 255,255, 0.6),
+  0 0 0 60px rgba(255, 255,255, 0.4),
+  0 0 0 80px rgba(255, 255,255, 0.2)
+  }
+  100% {  box-shadow:
+    0 0 0 80px rgba(255, 255,255, 0),
+    0 0 0 60px rgba(255, 255,255, 0.2),
+    0 0 0 40px rgba(255, 255,255, 0.4),
+    0 0 0 20px rgba(255, 255,255, 0.6),
+    0 0 0 0px rgba(255, 255,255, 1)
+  }
+}  
