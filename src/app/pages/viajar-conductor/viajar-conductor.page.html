@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-p0">
+      <ion-row>
+        <ion-col class="ion-text-end col-title" >
+          Viajes
+        </ion-col>
+        <ion-col class="col-title-clima">
+          <clima-component></clima-component>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+<label for="toggle">
+  <input class="input" type="checkbox" id="toggle"/>
+  <div class="toggle-wrapper" style="margin-top: 30px;" ><span class="selector"></span></div>
+  <p class="notification centrado">Estado de conductor: <span class="selected"></span></p>
+</label>
+
+<hr class="rounded">
+<h5 class="pasajerosdisp">Pasajeros disponibles:</h5>
+
+
+<!-- HAY QUE IMPLEMENTAR QUE CARGUE CARTAS DE LOS USUARIOS BUSCANDO VIAJE -->
+<!-- Carta de pasajero -->
+<ion-row>
+  <ion-card class="cartaUsuario" >
+    <ion-grid [fixed]="true" class="cardGrid">
+      <ion-row>
+        <ion-col class="colCartaImagenUsuario" >
+            <!-- imagen del usuario -->
+            <img alt="user image" class="cartaUserImage" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-col>
+    
+        <ion-col class="ColCartaInfoUsuario">
+          <!-- info del usuario -->
+          <p class="cartaTextoTitulo">Nombre: </p>
+          <p class="cartaTexto">Numero de acompañantes:  <br> Comuna: <br> Direccion: </p>
+          <ion-button color="duoc-secondary" (click)="presentAlert()" shape="round" class="btoCarta">Ofertar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-row>
+
+
+
+
+
+</ion-content>

@@ -75,9 +75,21 @@ const routes: Routes = [
     loadChildren: () => import('./user/registro-conductor/registro-conductor.module').then( m => m.RegistroConductorPageModule)
   },
   {
+    path: 'viajar-conductor',
+    loadChildren: () => import('./pages/viajar-conductor/viajar-conductor.module').then( m => m.ViajarConductorPageModule)
+  },
+  {
+    path: 'perfil-conductor',
+    loadChildren: () => import('./pages/perfil-conductor/perfil-conductor.module').then( m => m.PerfilConductorPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
+ 
+
+  
+
 ];
 
 @NgModule({
