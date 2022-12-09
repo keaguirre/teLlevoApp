@@ -7,14 +7,15 @@
 
 
 # To Do:
-- [ ] Migrar la geolocalización a un servicio de clima.
-- [ ] Refactorizar, ClimaApi para quitar la carga cada vez que se cambia de página.
-- [ ] Conductor sidePage
-    - [ ] Crear pagina perfil para conductor(que pueda visualizar la data del auto(Stand by: actualizar))
-    - [ ] Crear pagina de viaje para el conductor
+- [ ] Quehue del conductor
+- [ ] Creacion del viaje
+- [ ] Creacion del viaje
 - [ ] Crear pagina de viaje para pasajero y lógica de los mockups [Mockup Imagen](https://cdn.discordapp.com/attachments/707842934417915946/1049823609914396732/New_Wireframe_1.png)
-- [ ] Bcrypt para contraseñas.
 
+## Pendientes si hay tiempo libre:
+- [ ] Carga de imagenes para los usuarios. !important
+- [ ] Refactorizar, ClimaApi para quitar la carga cada vez que se cambia de página.
+- [ ] Bcrypt para contraseñas.
 
 ## 07/oct [@keaguirre](https://github.com/keaguirre)
 - Ajuste de estilos a enlaces en login y registro
@@ -90,3 +91,10 @@ redirigirlos a su propio home segun quien logee.
 - [x] Correccion de modal con cancelar, al actualizar el perfil de un pasajero y/o conductor, bajar el modal.
 - [x] Refactorizar, Firebase para que suba la img solo con el identificador de su correo.
 - [x] Refactorizar, las url del servicio adminusuario a Environments.
+
+## 08/12 Se sigue con el side pasajero y conductor para poder hacer la conversacion entre ambos [@BenjaminWuff](https://github.com/BenjaminWuff) & [@keaguirre](https://github.com/keaguirre)
+- [x] Migrar la geolocalización a un servicio de clima.
+- [x] Conductor sidePage
+    - [x] Crear pagina perfil para conductor(que pueda visualizar la data del auto(Stand by: actualizar))
+    - [x] Crear pagina de viaje para el conductor
+- [x] Quehue del pasajero
