@@ -5,6 +5,7 @@ import { LoadingController } from '@ionic/angular';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminUsuariosService } from '../../services/adminUsuarios/admin-usuarios.service'
 import { AlertController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth/auth.service';
 @Component({
   selector: 'app-login-conductor',
   templateUrl: './login-conductor.page.html',
@@ -14,17 +15,17 @@ export class LoginConductorPage implements OnInit {
   loading : HTMLIonLoadingElement;
   isTextFieldType: boolean;
   conductorLogin: FormGroup;
-  p_email: string;
-  p_password: any;
   email:any;
   response: any;
+  fbUser:any;
 
   constructor(private formBuilder:FormBuilder,
     private adminUsuarios: AdminUsuariosService,
     private loadingCtrl: LoadingController,
     private menu: MenuController,
     private router: Router,
-    private alertCtrl:AlertController) {
+    private alertCtrl:AlertController,
+    private authService:AuthService) {
     this.menu.enable(false); //desactiva el SideMenu en esta pagina (cuando se vuelve a entrar)
   }
   ngOnInit(): void {
@@ -47,10 +48,23 @@ export class LoginConductorPage implements OnInit {
     });
     await this.loading.present();
   }
+ 
   onConductoresLogin(){
     this.response = this.adminUsuarios.obtenerConductorLogin(this.conductorLogin.value.c_email).then(respuesta => {
       this.response = respuesta;
       if (respuesta['c_email'] == this.conductorLogin.value.c_email && respuesta['c_password'] == this.conductorLogin.value.c_password){
+        localStorage.setItem('currentSession', "true");
+        localStorage.setItem('c_logged-usr', respuesta['c_email']); //Almacenamos la pk del conductor en ls
+        //Firebase-----------------------------------------------------------------------
+         this.fbUser = this.authService.login(respuesta['c_email'],respuesta['c_password']).then(resp =>{
+          this.fbUser = resp;
+         },
+         (err)=> {
+          console.log("error: "+err);
+         });
+         
+        //-----------------------------------------------------------------------
+        this.conductorLogin.reset(); //limpia el formulario dsp del submit
         this.router.navigateByUrl('inicio');
       }
       else{
@@ -58,7 +72,7 @@ export class LoginConductorPage implements OnInit {
       }
     },
     (err) => {
-      console.log(err)
+      this.alertPresent('Login fallido','Intente nuevamente');
     });
   }
 

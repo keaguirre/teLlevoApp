@@ -6,7 +6,7 @@
     <ion-title class="title-p0">
       <ion-row>
         <ion-col class="ion-text-end col-title" >
-          Perfil
+          Perfil conductor
         </ion-col>
         <ion-col class="col-title-clima">
           <clima-component></clima-component>
@@ -16,7 +16,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="pasajero">
+<ion-content *ngIf="conductor">
   <viaje-component></viaje-component>
   <!------------------------------------>
   <ion-fab vertical="top" horizontal="end" slot="fixed">
@@ -49,23 +49,27 @@
             <div padding>
               <ion-item lines="none">
                 <ion-label position="stacked">Email</ion-label>
-                <ion-item lines="none" placeholder="Enter text">{{pasajero.p_email}}</ion-item>
+                <ion-item lines="none" placeholder="Enter text">{{conductor.c_email}}</ion-item>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">Nombre</ion-label>
-                <ion-item lines="none">{{pasajero.p_name}}</ion-item>
+                <ion-item lines="none">{{conductor.c_name}}</ion-item>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">Apellido</ion-label>
-                <ion-item lines="none">{{pasajero.p_lastname}}</ion-item>
+                <ion-item lines="none">{{conductor.c_lastname}}</ion-item>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">Contraseña</ion-label>
-                <ion-item lines="none">{{pasajero.p_password}}</ion-item>
+                <ion-item lines="none">{{conductor.c_password}}</ion-item>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">Teléfono</ion-label>
-                <ion-item lines="none">{{pasajero.p_pnumber}}</ion-item>
+                <ion-item lines="none">{{conductor.c_pnumber}}</ion-item>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Automovil</ion-label>
+                <ion-item lines="none">{{conductor.c_car}}</ion-item>
               </ion-item>
             </div>
             <div padding>
@@ -96,25 +100,25 @@
                   </div>
                   <div padding>
                     <ion-item>
-                      <ion-input formControlName="p_email" type="email" required></ion-input>
+                      <ion-input formControlName="c_email" type="email" required></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_name" type="text" required></ion-input>
+                      <ion-input formControlName="c_name" type="text" required></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_lastname" type="text"></ion-input>
+                      <ion-input formControlName="c_lastname" type="text"></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_password" type="password" required></ion-input>
+                      <ion-input formControlName="c_password" type="password" required></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_password_confirm" type="password" required></ion-input>
+                      <ion-input formControlName="c_password_confirm" type="password" required></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_pnumber" type="text"></ion-input>
+                      <ion-input formControlName="c_pnumber" type="text"></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_image" type="text"></ion-input>
+                      <ion-input formControlName="c_image" type="text"></ion-input>
                       <ion-button (click)="uploadAvatar()" id="eyeToggle" color="duoc-primary">
                         <ion-icon name="camera-outline"></ion-icon>
                       </ion-button>

@@ -71,6 +71,18 @@ export class AdminUsuariosService {
       });
     });
   };
+
+  obtenerAutoDetalle(auto:any): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.httpClient.get(this.urlAuto+auto)
+      .subscribe(respuesta => {
+        resolve(respuesta);
+      },
+      (err) => {
+        reject(err);
+      });
+    });
+  };
   
   obtenerListadoAutos(): Promise<any> {
     return new Promise((resolve,reject) => {
