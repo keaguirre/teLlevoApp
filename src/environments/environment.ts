@@ -20,7 +20,8 @@ export const environment = {
   urlAuto:'http://127.0.0.1:8000/api/auto/',
   urlConductor:'http://127.0.0.1:8000/api/conductor/',
   urlPasajero:'http://127.0.0.1:8000/api/pasajero/',
-  urlViaje: 'http://127.0.0.1:8000/api/viaje/'
+  urlViaje: 'http://127.0.0.1:8000/api/viaje/',
+  urlSolicitud: 'http://127.0.0.1:8000/api/solicitud/'
 };
 
 /*

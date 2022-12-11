@@ -48,7 +48,6 @@ export class RegistroPage implements OnInit {
   async register(){
     const loading = await this.loadingCtrl.create();
     await loading.present();
-
     const user = await this.authService.register(this.signup.value['p_email'],this.signup.value['p_password']);
     await loading.dismiss();
   }

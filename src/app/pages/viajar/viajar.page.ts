@@ -14,6 +14,7 @@ private listHidden1: boolean = true;
 onDestination :FormGroup;
 usr:any;
 usr_solicitud:any;
+response:any;
 
 comunas: any = [
     {p_comuna:'San Joaquin'},
@@ -32,17 +33,24 @@ comunas: any = [
 
   onQuehue(){//si el formulario es valido, agregar usr-logged al form
     if(this.onDestination.valid){
-      this.usr = localStorage.getItem('logged-usr')
-      // Object.assign(this.onDestination.value,{p_email:this.usr})
-      //console.log(this.onDestination.value);
-      this.viaje.onPasajeroQueue(this.onDestination.value);
-      console.log(this.viaje.onConductorListado());
+      this.viaje.createSolicitud(this.onDestination.value);
       this.onDestination.reset();
+      this.onSolicitudListTest();
     }
     else{
       //submit vacio alerta o algun feedback
       this.presentToast();
     }
+  }
+
+  onSolicitudListTest(){
+    this.response = this.viaje.obtenerListadoSolicitudes().then(respuesta => {
+      this.response = respuesta;
+    },
+    (err) => {
+      console.log(err);
+    });
+    console.log(this.response);
   }
 
   async presentToast() {
