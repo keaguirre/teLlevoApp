@@ -1,0 +1,39 @@
+.homeImage {
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 40%;
+    background-color: #ffe8ff;
+    border-radius: 2%;
+
+    --box-shadow: 0 1px 6px 0 rgb(0, 0, 0, 0.25);
+    --ripple-color: deeppink;
+    --padding-top: 10px;
+  }
+
+#b-2{
+    height: 150px;
+    background-color: #00b28f;
+}
+#b-3{
+    background-color: #ffdfca;
+}
+#b-4{
+    background-color: #ffa77f;
+}
+.home-images{
+    width: 100%;
+    height: 100%;
+    border-radius: 3%;
+    --box-shadow: 0 1px 6px 0 rgb(0, 0, 0, 0.25);
+    --ripple-color: deeppink;
+}
+.row-3{
+    margin-top: 6%;
+    margin-left: 3%;
+    margin-right: 4%;
+}
+.btn-txt{
+    color: #002e53;
+}

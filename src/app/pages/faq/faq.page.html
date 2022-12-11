@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-p0">
+      <ion-row>
+        <ion-col class="ion-text-end col-title" >
+          Ayuda
+        </ion-col>
+        <ion-col class="col-title-clima">
+          <clima-component></clima-component>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <viaje-component></viaje-component>
+  <ion-accordion-group [multiple]="true">
+    <ion-accordion toggleIcon="add-circle-outline" value="first">
+      <ion-item class="border-white" slot="header" color="duoc-dark">
+        <ion-label>¿Cómo hacer un viaje?</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">En el botón en la esquina inferior derecha pues o en el sidebar</div>
+    </ion-accordion>
+    <ion-accordion toggleIcon="add-circle-outline" value="second">
+      <ion-item class="border-white" slot="header" color="duoc-dark">
+        <ion-label>Olvidé mi usuario</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Puedes recuperar tu usuario contactandote mediante gmail con <a type="email">soporte@tellevoapp.com</a></div>
+    </ion-accordion>
+    <ion-accordion toggleIcon="add-circle-outline" value="third">
+      <ion-item class="border-white" slot="header" color="duoc-dark">
+        <ion-label>Olvidé mi contraseña, cómo la recupero?</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Apreta en <a style="text-decoration: none;" [routerLink]="['/forgot_password']">Recuperar contraseña</a> Para recuperar tu contraseña</div>
+    </ion-accordion>
+    <ion-accordion toggleIcon="add-circle-outline" value="fourth">
+      <ion-item class="border-white" slot="header" color="duoc-dark">
+        <ion-label>Cuarta pregunta</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Cuarta respuesta</div>
+    </ion-accordion>
+    <ion-accordion toggleIcon="add-circle-outline" value="fifth">
+      <ion-item class="border-white" slot="header" color="duoc-dark">
+        <ion-label>Quinta pregunta</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Quinta respuesta</div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

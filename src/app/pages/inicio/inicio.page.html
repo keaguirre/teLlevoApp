@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="title-p0">
+      <ion-row>
+        <ion-col class="ion-text-end col-title" >
+          Inicio
+          <!-- {{currentUser.p_name}} -->
+        </ion-col>
+        <ion-col class="col-title-clima">
+          <clima-component></clima-component>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!--TABS-->
+  <ion-tabs>
+    <ion-tab-bar color="duoc-primary" slot="bottom">
+      <ion-tab-button>
+        <ion-icon [routerLink]="['/perfil']" color="light" name="person-circle"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+      <ion-tab-button id="top-center">
+        <ion-icon color="light" name="notifications-outline"></ion-icon>
+        <ion-label>Notificaciones</ion-label>
+        <ion-badge color="duoc-secondary">1</ion-badge>
+      </ion-tab-button>
+      <!------------------------------>
+      <ion-tab-button>
+        <!--Tab Vacio-->
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <!--END TABS-->
+  <ion-row>
+    <ion-button color="bloque1" class="homeImage" routerLink="/viajar"><!--Bloque1-->
+      <ion-img src='../../../assets/icon/viajar2.svg'></ion-img>
+      <span class="btn-txt" >Viajas?</span>
+    </ion-button>
+  </ion-row>
+  <ion-row>
+    <ion-button id="b-2" color="bloque2" class="homeImage" routerLink="/placeholder"><!--Bloque2-->
+      <ion-img  src='../../../assets/icon/logistica.svg'></ion-img>
+      <span>Placeholder</span>
+    </ion-button>
+  </ion-row>
+  <ion-row class="row-3">
+      <ion-col>
+        <ion-button id="b-3" color="bloque3" class="home-images" routerLink="/faq"><!--Bloque3-->
+          <ion-img  src='../../../assets/icon/faq.svg'></ion-img>
+          <span>FAQ</span>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="b-4" color="bloque4" class="home-images" routerLink="/about">
+          <ion-img  src='../../../assets/icon/team.svg'></ion-img>
+          <span>Equipo</span>
+        </ion-button>
+      </ion-col>
+  </ion-row>
+  <viaje-component></viaje-component>
+</ion-content>

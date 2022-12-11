@@ -1,0 +1,122 @@
+
+.cartaUsuario {
+background-color: rgb(253, 253, 253);
+width: 95%;
+box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.317);
+}
+
+.cartaTexto {
+  font-size: medium;
+  margin: 0;
+  font-weight: 300;
+  color: rgb(16, 16, 16);
+}
+
+.cartaTextoTitulo {
+  font-size: large;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 300;
+  color: rgb(16, 16, 16);
+}
+
+.cartaUserImage {
+  border-radius: 10%;
+  display: block;
+  height: 100%;
+  width: 100%;
+
+}
+
+.btoCarta {
+  float: right;
+}
+
+.colCartaImagenUsuario {
+  min-width: 35%;
+  max-width: 35%;
+  
+}
+
+.colCartaInfoUsuario {
+  min-width: 60%;
+  max-width: 60%;
+}
+
+.cardGrid {
+  padding: 0;
+  min-height: 100%;
+}
+
+.pasajerosdisp {
+  margin-left: 9px;
+}
+
+ion-content {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  background-color: #fefefe;
+}
+
+.centrado{
+  text-align: center;
+  font-weight: 500;
+}
+
+
+hr.rounded {
+  border-top: 6px solid rgb(255, 184, 0);
+  border-radius: 5px;
+}
+
+
+label {
+  pointer-events: none;
+}
+label .input {
+  display: none;
+}
+label .input:checked + .toggle-wrapper {
+  
+  box-shadow: 0 8px 14px 0 rgba(18, 51, 215, 0.12);
+}
+label .input:checked + .toggle-wrapper > .selector {
+  
+  left: calc(100% - 50px);
+  background-color: rgb(255, 184, 0);
+}
+label .input:checked ~ .notification > .selected:before {
+  content: "Disponible";
+}
+label .toggle-wrapper {
+  position: relative;
+  width: 120px;
+  height: 60px;
+  background-color: rgb(0, 25, 48);
+  border-radius: 999px;
+  margin: auto;
+  cursor: pointer;
+  pointer-events: all;
+  box-shadow: 0 8px 14px 0 rgba(18, 51, 215, 0.12);
+}
+label .toggle-wrapper .selector {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background-color: rgb(0, 48, 92);
+  transition: left 0.25s ease;
+  border-radius: 50%;
+}
+label .notification {
+  font-size: 20px;
+  width: 100%;
+}
+label .notification .selected:before {
+  content: "No disponible";
+  font-size: 20px;
+
+}

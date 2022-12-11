@@ -1,0 +1,311 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+
+//Custom fonts--
+//Funcionando: Montserrat y Opensans
+
+@font-face {   
+	font-family: 'Montserrat-Regular';
+	src: url('/src/assets/fonts/Montserrat/static/Montserrat-Regular.ttf');
+  }
+  @font-face {   
+	font-family: 'Montserrat-Light';
+	src: url('/src/assets/fonts/Montserrat/static/Montserrat-Light.ttf');
+  }
+  @font-face {   
+	font-family: 'Montserrat-Bold';
+	src: url('/src/assets/fonts/Montserrat/static/Montserrat-Bold.ttf');
+  }
+
+//-------------------------------------------------------------
+@font-face {   
+	font-family: 'Roboto-Regular';
+	src: url('/src/assets/fonts/Roboto/Roboto-Regular.ttf');
+  }
+  @font-face {   
+	font-family: 'Roboto-Light';
+	src: url('/src/assets/fonts/Roboto/Roboto-Light.ttf');
+  }
+  @font-face {   
+	font-family: 'Roboto-Bold';
+	src: url('/src/assets/fonts/Roboto/Roboto-Bold.ttf');
+  }
+//------------------------------------------------------------
+@font-face {   
+	font-family: 'OpenSans-Regular';
+	src: url('/src/assets/fonts/Open_Sans/static/OpenSans/OpenSans-Regular.ttf');
+  }
+  @font-face {   
+	font-family: 'OpenSans-Light';
+	src: url('/src/assets/fonts/Open_Sans/static/OpenSans/OpenSans-Light.ttf');
+  }
+  @font-face {   
+	font-family: 'OpenSans-Bold';
+	src: url('/src/assets/fonts/Open_Sans/static/OpenSans/OpenSans-Bold.ttf');
+  }
+
+//---------------------------------------------------------------
+@font-face {   
+	font-family: 'NotoSans-Regular';
+	src: url('/src/assets/fonts/Noto_Sans/NotoSans-Regular.ttf');
+  }
+  @font-face {   
+	font-family: 'NotoSans-Light';
+	src: url('/src/assets/fonts/Noto_Sans/NotoSans-Light.ttf');
+  }
+  @font-face {   
+	font-family: 'NotoSans-Bold';
+	src: url('/src/assets/fonts/Noto_Sans/NotoSans-Bold.ttf');
+  }
+
+ :root {
+  	--ion-font-family:Montserrat;
+  }
+
+//--Custom Colors--
+//duoc-primary:
+:root {
+	--ion-color-duoc-primary: #002E53
+;
+	--ion-color-duoc-primary-rgb: 0,46,83
+;
+	--ion-color-duoc-primary-contrast: #ffffff
+;
+	--ion-color-duoc-primary-contrast-rgb: 255,255,255
+;
+	--ion-color-duoc-primary-shade: #002849
+;
+	--ion-color-duoc-primary-tint: #1a4364
+;
+}
+
+.ion-color-duoc-primary {
+	--ion-color-base: var(--ion-color-duoc-primary);
+	--ion-color-base-rgb: var(--ion-color-duoc-primary-rgb);
+	--ion-color-contrast: var(--ion-color-duoc-primary-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-duoc-primary-contrast-rgb);
+	--ion-color-shade: var(--ion-color-duoc-primary-shade);
+	--ion-color-tint: var(--ion-color-duoc-primary-tint);
+}
+//duoc-secondary
+:root {
+	--ion-color-duoc-secondary: #FFB800
+;
+	--ion-color-duoc-secondary-rgb: 255,184,0
+;
+	--ion-color-duoc-secondary-contrast: #000000
+;
+	--ion-color-duoc-secondary-contrast-rgb: 0,0,0
+;
+	--ion-color-duoc-secondary-shade: #e0a200
+;
+	--ion-color-duoc-secondary-tint: #ffbf1a
+;
+}
+
+.ion-color-duoc-secondary {
+	--ion-color-base: var(--ion-color-duoc-secondary);
+	--ion-color-base-rgb: var(--ion-color-duoc-secondary-rgb);
+	--ion-color-contrast: var(--ion-color-duoc-secondary-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-duoc-secondary-contrast-rgb);
+	--ion-color-shade: var(--ion-color-duoc-secondary-shade);
+	--ion-color-tint: var(--ion-color-duoc-secondary-tint);
+}
+
+//duoc-dark
+:root {
+	--ion-color-duoc-dark: #1a1a1a
+;
+	--ion-color-duoc-dark-rgb: 26,26,26
+;
+	--ion-color-duoc-dark-contrast: #ffffff
+;
+	--ion-color-duoc-dark-contrast-rgb: 255,255,255
+;
+	--ion-color-duoc-dark-shade: #171717
+;
+	--ion-color-duoc-dark-tint: #313131
+;
+}
+
+.ion-color-duoc-dark {
+	--ion-color-base: var(--ion-color-duoc-dark);
+	--ion-color-base-rgb: var(--ion-color-duoc-dark-rgb);
+	--ion-color-contrast: var(--ion-color-duoc-dark-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-duoc-dark-contrast-rgb);
+	--ion-color-shade: var(--ion-color-duoc-dark-shade);
+	--ion-color-tint: var(--ion-color-duoc-dark-tint);
+}
+
+
+//Bloque1 inicio homepage
+:root {
+	--ion-color-bloque1: #ffe8ff
+;
+	--ion-color-bloque1-rgb: 255,232,255
+;
+	--ion-color-bloque1-contrast: #000000
+;
+	--ion-color-bloque1-contrast-rgb: 0,0,0
+;
+	--ion-color-bloque1-shade: #e0cce0
+;
+	--ion-color-bloque1-tint: #ffeaff
+;
+}
+
+.ion-color-bloque1 {
+	--ion-color-base: var(--ion-color-bloque1);
+	--ion-color-base-rgb: var(--ion-color-bloque1-rgb);
+	--ion-color-contrast: var(--ion-color-bloque1-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-bloque1-contrast-rgb);
+	--ion-color-shade: var(--ion-color-bloque1-shade);
+	--ion-color-tint: var(--ion-color-bloque1-tint);
+}
+
+//Bloque2 inicio homepage
+:root {
+	--ion-color-bloque2: #00b28f
+;
+	--ion-color-bloque2-rgb: 0,178,143
+;
+	--ion-color-bloque2-contrast: #ffffff
+;
+	--ion-color-bloque2-contrast-rgb: 255,255,255
+;
+	--ion-color-bloque2-shade: #009d7e
+;
+	--ion-color-bloque2-tint: #1aba9a
+;
+}
+
+.ion-color-bloque2 {
+	--ion-color-base: var(--ion-color-bloque2);
+	--ion-color-base-rgb: var(--ion-color-bloque2-rgb);
+	--ion-color-contrast: var(--ion-color-bloque2-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-bloque2-contrast-rgb);
+	--ion-color-shade: var(--ion-color-bloque2-shade);
+	--ion-color-tint: var(--ion-color-bloque2-tint);
+}
+
+//Bloque3 inicio homepage
+:root {
+	--ion-color-bloque3: #ffdfca
+;
+	--ion-color-bloque3-rgb: 255,223,202
+;
+	--ion-color-bloque3-contrast: #000000
+;
+	--ion-color-bloque3-contrast-rgb: 0,0,0
+;
+	--ion-color-bloque3-shade: #e0c4b2
+;
+	--ion-color-bloque3-tint: #ffe2cf
+;
+}
+
+.ion-color-bloque3 {
+	--ion-color-base: var(--ion-color-bloque3);
+	--ion-color-base-rgb: var(--ion-color-bloque3-rgb);
+	--ion-color-contrast: var(--ion-color-bloque3-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-bloque3-contrast-rgb);
+	--ion-color-shade: var(--ion-color-bloque3-shade);
+	--ion-color-tint: var(--ion-color-bloque3-tint);
+}
+
+//Bloque4 inicio homepage
+:root {
+	--ion-color-bloque4: #ffa77f
+;
+	--ion-color-bloque4-rgb: 255,167,127
+;
+	--ion-color-bloque4-contrast: #000000
+;
+	--ion-color-bloque4-contrast-rgb: 0,0,0
+;
+	--ion-color-bloque4-shade: #e09370
+;
+	--ion-color-bloque4-tint: #ffb08c
+;
+}
+
+.ion-color-bloque4 {
+	--ion-color-base: var(--ion-color-bloque4);
+	--ion-color-base-rgb: var(--ion-color-bloque4-rgb);
+	--ion-color-contrast: var(--ion-color-bloque4-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-bloque4-contrast-rgb);
+	--ion-color-shade: var(--ion-color-bloque4-shade);
+	--ion-color-tint: var(--ion-color-bloque4-tint);
+}
+
+//INICIO CUSTOM BIENVENIDO BUTTON
+ion-alert.custom-alert {
+	--backdrop-opacity: 0.7;
+  }
+
+  .custom-alert .alert-button-group {
+	padding: 8px;
+  }
+  
+  button.alert-button.alert-button-confirm {
+	background-color: var(--ion-color-duoc-secondary);
+	color: var(--ion-color-duoc-primary);
+	
+  }
+  
+  .md button.alert-button.alert-button-confirm {
+	border-radius: 5px;
+	
+  }
+  .ios button.alert-button.alert-button-confirm {
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+  }
+
+  .spinner-color{
+    --spinner-color: var(--ion-color-duoc-primary);
+}
+
+//title
+.title-p0{
+	padding: 0;
+}
+
+.col-title{
+	padding: 0;
+	margin-top: 15px;
+}
+
+.col-title-clima{
+	padding: 0;
+	min-width: 50%;
+}
+

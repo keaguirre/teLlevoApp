@@ -1,0 +1,137 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="duoc-primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-p0">
+      <ion-row>
+        <ion-col class="ion-text-end col-title" >
+          Perfil conductor
+        </ion-col>
+        <ion-col class="col-title-clima">
+          <clima-component></clima-component>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="conductor">
+  <viaje-component></viaje-component>
+  <!------------------------------------>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button id="open-modal" expand="block" (click)="onLoadForm" color="light">
+      <ion-icon name="pencil-sharp"></ion-icon>
+      <!-- PARA GUARDAR POST ACTIVAR EL EDIT <ion-icon name="save"></ion-icon> -->
+    </ion-fab-button>
+  </ion-fab>
+  <!------------------------------------->
+  <!--header bloque color + profile-img-->
+  <div class="profile-header">
+    <div class="profile-header"></div>
+  </div>
+  <div class="flex">
+    <div class="border-yellow">
+      <div class="border-white">
+        <div class="img-box">
+          <img *ngIf="profile?.imageUrl;" [src]="profile.imageUrl" alt="foto-perfil">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--PROFILE DATA-->
+    <div (ngSubmit)="onUpdate()" class="m-form">
+      <ion-grid>
+        <ion-row color="primary" justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div text-center>
+            </div>
+            <div padding>
+              <ion-item lines="none">
+                <ion-label position="stacked">Email</ion-label>
+                <ion-item lines="none" placeholder="Enter text">{{conductor.c_email}}</ion-item>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Nombre</ion-label>
+                <ion-item lines="none">{{conductor.c_name}}</ion-item>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Apellido</ion-label>
+                <ion-item lines="none">{{conductor.c_lastname}}</ion-item>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Contraseña</ion-label>
+                <ion-item lines="none">{{conductor.c_password}}</ion-item>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Teléfono</ion-label>
+                <ion-item lines="none">{{conductor.c_pnumber}}</ion-item>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Automovil</ion-label>
+                <ion-item lines="none">{{conductor.c_car}}</ion-item>
+              </ion-item>
+            </div>
+            <div padding>
+              <ion-button class="l-btn" color="danger" (click)="mostrarAlertaEliminarUsuario();">Eliminar mi cuenta</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!-- Modal update-->
+    <ion-modal #modal trigger="open-modal" [canDismiss]="true" [presentingElement]="presentingElement">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Actualizar</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="dismissCancelar()">Cancelar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <form [formGroup]="updateInfoUser" (ngSubmit)="onUpdate()" class="m-form">
+            <ion-grid>
+              <ion-row color="primary" justify-content-center>
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                  <div text-center>
+                    <h3 class="ion-text-center"><strong>Tus datos</strong></h3>
+                  </div>
+                  <div padding>
+                    <ion-item>
+                      <ion-input formControlName="c_email" type="email" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input formControlName="c_name" type="text" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input formControlName="c_lastname" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input formControlName="c_password" type="password" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input formControlName="c_password_confirm" type="password" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input formControlName="c_pnumber" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input formControlName="c_image" type="text"></ion-input>
+                      <ion-button (click)="uploadAvatar()" id="eyeToggle" color="duoc-primary">
+                        <ion-icon name="camera-outline"></ion-icon>
+                      </ion-button>
+                    </ion-item>
+                  </div>
+                  <div padding>
+                    <ion-button class="m-button" color="duoc-secondary" size="large" (onClick)="modal.dismiss()" type="submit" expand="block">Actualizar</ion-button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+</ion-content>

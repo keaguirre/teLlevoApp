@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-p0">
+      <ion-row>
+        <ion-col class="ion-text-end col-title" >
+          Viajar
+        </ion-col>
+        <ion-col class="col-title-clima">
+          <clima-component></clima-component>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="duoc-primary">
+  <form (ngSubmit)="onQuehue()" id="list" hidden="false" [formGroup]="onDestination">
+    <h2 id="form-title">A dónde vamos?</h2>
+    <ion-select id="comunaDestino" formControlName="p_comuna_destino" cancelText="Cancelar" placeholder="Comuna de destino">
+      <ion-select-option *ngFor="let c of comunas"  [value]="c.p_comuna">
+        {{c.p_comuna}}
+      </ion-select-option>
+    </ion-select>
+    <ion-item>
+      <ion-label position="stacked">Ingrese dirección de destino</ion-label>
+      <ion-input formControlName="p_direccion_destino" [clearInput]="true" placeholder="Calle falsificada #123" value=""></ion-input>
+    </ion-item>
+    <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button [disabled]="onDestination.invalid" type="submit" size="medium" color="duoc-secondary" (click)="onQuehue();onSearch()">viajar</ion-fab-button>
+    </ion-fab>
+  </form>
+  <div hidden="true" id="loader">
+    <div class="loader"></div>
+    <h3 id="buscando1" >Buscando</h3>
+    <h3 id="buscando2">conductores</h3>
+    <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button size="medium" color="duoc-secondary" (click)="onSearch()">Cancelar</ion-fab-button>
+    </ion-fab>
+  </div>
+  <!-- <div id="container">
+    <img src="../../../assets/icon/logistica.svg"/>
+    <p>Página en contrucción.</p>
+    <ion-label [routerLink]="['/inicio']" routerLinkActive="router-link-active" >Volver a <a target="_blank" rel="noopener noreferrer">Inicio</a></ion-label>
+  </div> -->
+</ion-content>

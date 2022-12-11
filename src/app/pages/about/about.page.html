@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-p0">
+      <ion-row>
+        <ion-col class="ion-text-end col-title" >
+          Equipo
+        </ion-col>
+        <ion-col class="col-title-clima">
+          <clima-component></clima-component>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <viaje-component></viaje-component>
+    <ion-grid id="row-m-top">
+      <ion-row>
+        <ion-item lines="none">
+          <ion-avatar id="b-1" slot="start">
+            <img alt="Silhouette of a person's head" src="../../../assets/icon/avatar_placeholder1.svg" />
+          </ion-avatar>
+          <ion-label>Benjamín Paredes</ion-label>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item lines="none">
+          <ion-avatar id="b-2" slot="start">
+            <img alt="Silhouette of a person's head" src="../../../assets/icon/avatar_placeholder2.svg" />
+          </ion-avatar>
+          <ion-label>Kevin Aguirre</ion-label>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item lines="none">
+          <ion-avatar id="b-3" slot="start">
+            <img alt="Silhouette of a person's head" src="../../../assets/icon/avatar_placeholder3.svg" />
+          </ion-avatar>
+          <ion-label>Johan Dahlbokum</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+</ion-content>

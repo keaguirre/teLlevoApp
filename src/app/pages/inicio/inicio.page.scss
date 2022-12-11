@@ -1,0 +1,38 @@
+.homeImage {
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 40%;
+    border-radius: 5%;
+
+    --box-shadow: 0 1px 6px 0 rgb(0, 0, 0, 0.25);
+    --ripple-color: deeppink;
+    --padding-top: 10px;
+  }
+
+#b-2{
+    height: 150px;
+}
+
+#b-3{
+    height: 65px;
+}
+#b-4{
+    height: 65px;
+}
+.home-images{
+    width: 100%;
+    height: 100%;
+    border-radius: 3%;
+    --box-shadow: 0 1px 6px 0 rgb(0, 0, 0, 0.25);
+    --ripple-color: deeppink;
+}
+.row-3{
+    margin-top: 6%;
+    margin-left: 3%;
+    margin-right: 4%;
+}
+.btn-txt{
+    color: #002e53;
+}

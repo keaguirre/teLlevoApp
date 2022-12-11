@@ -1,0 +1,40 @@
+<ion-header class="p-top c-header" [translucent]="true">
+  <img class="m-logo" src="../../../assets/duocLogo/duoc.svg" alt="">
+</ion-header>
+<ion-content color="light" padding >
+  <form class="m-form" [formGroup]="pasajeroLogin" (ngSubmit)="onPasajerosLogin()">
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3><strong>Inicio de sesión</strong></h3>
+          </div>
+          <div padding>
+            <ion-item lines="none">
+              <ion-input formControlName="p_email" placeholder="usuario@tucorreo.cl" type="email" required></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-input formControlName="p_password" [type]="isTextFieldType ? 'text' : 'password'" placeholder="Contraseña" required></ion-input>
+              <div id="eyeToggle" color="duoc-primary" (click)="togglePasswordFieldType()">
+                <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'"></ion-icon>
+              </div>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button type="submit" class="m-button" color="duoc-secondary" size="large"  expand="block">Ingresar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div id="conductor"><a class="hyperlink" [routerLink]="['/login-conductor']">Soy conductor</a></div>
+          <div class="div-hyperlink">
+            <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/faq']">Olvidé mi contraseña</a></div>
+            <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/registro']">Registrate aquí!</a></div>
+            <div class="hyperlink-txt"><a class="hyperlink" [routerLink]="['/registro-conductor']">Quiero ser conductor!</a></div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
