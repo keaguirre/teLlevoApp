@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActionSheetController, AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ViajesService } from 'src/app/services/viajes/viajes.service';
-
 @Component({
   selector: 'app-viajar',
   templateUrl: './viajar.page.html',
@@ -15,6 +14,7 @@ private listHidden1: boolean = true;
 onDestination :FormGroup;
 usr:any;
 usr_solicitud:any;
+
 comunas: any = [
     {p_comuna:'San Joaquin'},
     {p_comuna:'Macul'},

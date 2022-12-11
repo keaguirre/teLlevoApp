@@ -8,7 +8,7 @@ urlpatterns = [
     path('pasajero/', pasajeros_list),
     path('pasajero/<str:p_email>', pasajero_detail),
     path('viaje/', viajes_list),
-    path('viaje/<str:v_viaje_id>', viaje_detail), 
+    path('viaje/<str:v_viaje_id>', viaje_detail),
     path('solicitud/', solicitud_list), 
     path('solicitud/<int:id_solicitud>', solicitud_detail)
 ]
