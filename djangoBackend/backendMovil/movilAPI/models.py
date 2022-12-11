@@ -78,7 +78,8 @@ class Solicitud(models.Model):
     precio_oferta = models.IntegerField(default=0, verbose_name='Valor')
     p_comuna_destino = models.CharField(max_length=30, verbose_name='Comuna destino')
     p_direccion_destino = models.CharField(max_length=30, verbose_name='Dirección de destino')
-    p_email = models.ForeignKey(Pasajero, on_delete=models.CASCADE, null = False, related_name='PK_Conductor_Solicitud')
+    p_email = models.ForeignKey(Pasajero, on_delete=models.CASCADE, null = False, related_name='PK_pasajero_Solicitud')
+    p_name = models.CharField(null=True,max_length=30, verbose_name='Nombre pasajero')
 
     class Meta:
         verbose_name='Solicitud'
