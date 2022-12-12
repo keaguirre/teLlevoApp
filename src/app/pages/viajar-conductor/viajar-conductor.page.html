@@ -32,28 +32,25 @@
 <ion-modal [isOpen]="isModalOpen" (willDismiss)="onWillDismiss($event)">
   <ng-template>
     <ion-header>
-      
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button (click)="cancelar();setOpen(false)">Cancelar</ion-button>
-          </ion-buttons>
-          <ion-title>Precio del viaje</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="ofertar();setOpen(false)" [strong]="true">Ofertar</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancelar();setOpen(false)">Cancelar</ion-button>
+        </ion-buttons>
+        <ion-title>Precio del viaje</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="ofertar();setOpen(false)" [strong]="true">Ofertar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <form (ngSubmit)="onLoadSolicitud()" [formGroup]="ofertaDePrecioForm">
-        <ion-item>
-          <ion-label position="stacked">Oferta un precio</ion-label>
-          <ion-input formControlName="precio_oferta" type="text" placeholder="Por ejemplo: 2000" type="number"></ion-input>
-        </ion-item>
-      </form>    
+      <ion-item>
+        <ion-label position="stacked">Oferta un precio</ion-label>
+        <ion-input type="text" placeholder="Por ejemplo: 2000" [(ngModel)]="precio" type="number"></ion-input>
+      </ion-item>
     </ion-content>
   </ng-template>
 </ion-modal>
-ion
+
 
 <!-- Carta de Solicitud iterando del listadoSolicitudes -->
 <ion-list id="listaDeSolicitudes" hidden="true" >
@@ -68,9 +65,9 @@ ion
             </ion-col>
             <ion-col class="ColCartaInfoUsuario">
               <!-- info del usuario -->
-              <p class="cartaTextoTitulo">Nombre: {{solicitud.p_email}}</p>
+              <p class="cartaTextoTitulo">Nombre: {{solicitud.p_name}}</p>
               <p class="cartaTexto">Comuna: {{solicitud.p_comuna_destino}}<br> Direccion: {{solicitud.p_direccion_destino}}</p>
-              <ion-button color="duoc-secondary"  expand="block" shape="round" (click)="setOpen(true)" class="btoCarta">Ofertar</ion-button>
+              <ion-button color="duoc-secondary"  expand="block" shape="round" (click)="setOpen(true);onSolicitudSelected(solicitud)" class="btoCarta">Ofertar</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -78,10 +75,5 @@ ion
     </ion-row>
   </ion-item>
 </ion-list>
-
-
-
-
-
 
 </ion-content>
