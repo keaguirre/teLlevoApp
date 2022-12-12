@@ -10,5 +10,5 @@ urlpatterns = [
     path('viaje/', viajes_list),
     path('viaje/<str:v_viaje_id>', viaje_detail),
     path('solicitud/', solicitud_list), 
-    path('solicitud/<int:id_solicitud>', solicitud_detail)
+    path('solicitud/<str:p_email>', solicitud_detail)
 ]
