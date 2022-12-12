@@ -101,18 +101,11 @@ export class ViajarConductorPage implements OnInit {
   this.solicitud = solicitud
  }
 
-
-
-
-
-
-
   //Modal
   cancelar() {
     this.modal.dismiss(null, 'cancelar');
     this.precio = null;
   }
-
   ofertar() {
     this.modal.dismiss(null, 'ofertar');
     this.onLoadForm();
