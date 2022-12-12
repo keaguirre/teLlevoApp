@@ -70,6 +70,7 @@ export class LoginPage implements OnInit {
       if (respuesta['p_email'] == this.pasajeroLogin.value.p_email && respuesta['p_password'] == this.pasajeroLogin.value.p_password){
         localStorage.setItem('currentSession', "true");
         localStorage.setItem('logged-usr', respuesta['p_email']); //Almacenamos la pk del pasajero en ls
+        localStorage.setItem('logged-name', respuesta['p_name']); //Almacenamos la pk del pasajero en ls
         //Firebase-----------------------------------------------------------------------
          this.fbUser = this.authService.login(respuesta['p_email'],respuesta['p_password']).then(resp =>{
           this.fbUser = resp;

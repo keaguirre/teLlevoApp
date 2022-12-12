@@ -74,16 +74,17 @@ class Viaje(models.Model):
         return self.v_viaje_id
 
 class Solicitud(models.Model):
-    id_solicitud = models.AutoField(primary_key=True, null=False, blank=False, verbose_name='ID_solicitud')
+    p_email = models.EmailField(primary_key=True,max_length=254, null=False, blank=False, verbose_name='Email_pasajero')
     precio_oferta = models.IntegerField(default=0, verbose_name='Valor')
     p_comuna_destino = models.CharField(max_length=30, verbose_name='Comuna destino')
     p_direccion_destino = models.CharField(max_length=30, verbose_name='Dirección de destino')
-    p_email = models.ForeignKey(Pasajero, on_delete=models.CASCADE, null = False, related_name='PK_Conductor_Solicitud')
+    p_name = models.CharField(null=True,max_length=30, verbose_name='Nombre pasajero')
+    solicitud_estado = models.CharField(null=True,max_length=30, verbose_name='Estado solicitud')
 
     class Meta:
         verbose_name='Solicitud'
         verbose_name_plural='Solicitudes'
-        ordering=['id_solicitud','p_email']
+        ordering=['p_email']
 
     def __int__(self):
-        return self.id_solicitud
+        return self.p_email

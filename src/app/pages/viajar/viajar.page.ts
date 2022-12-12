@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActionSheetController, AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ViajesService } from 'src/app/services/viajes/viajes.service';
+import { AdminUsuariosService } from 'src/app/services/adminUsuarios/admin-usuarios.service';
 @Component({
   selector: 'app-viajar',
   templateUrl: './viajar.page.html',
@@ -14,7 +15,11 @@ private listHidden1: boolean = true;
 onDestination :FormGroup;
 usr:any;
 usr_solicitud:any;
-response:any;
+listado:any;
+listadoCheck:any;
+c_usr:any;
+p_name:any;
+name_solicitud: string;
 
 comunas: any = [
     {p_comuna:'San Joaquin'},
@@ -23,7 +28,7 @@ comunas: any = [
     {p_comuna:'Santiago'}
 ];
 
-  constructor(private viaje:ViajesService, private toast:ToastController ,private loadingCtrl:LoadingController, private formBuilder:FormBuilder) { }
+  constructor(private adminService: AdminUsuariosService, private viaje:ViajesService, private toast:ToastController ,private loadingCtrl:LoadingController, private formBuilder:FormBuilder) { }
 
 
   ngOnInit() {
@@ -33,9 +38,9 @@ comunas: any = [
 
   onQuehue(){//si el formulario es valido, agregar usr-logged al form
     if(this.onDestination.valid){
+      console.log(this.onDestination.value);
       this.viaje.createSolicitud(this.onDestination.value);
       this.onDestination.reset();
-      this.onSolicitudListTest();
     }
     else{
       //submit vacio alerta o algun feedback
@@ -43,14 +48,13 @@ comunas: any = [
     }
   }
 
-  onSolicitudListTest(){
-    this.response = this.viaje.obtenerListadoSolicitudes().then(respuesta => {
-      this.response = respuesta;
+  onSolicitudList(){ //listado solicitudes de viajes para el benja, chofer debe updatear el valor
+    this.listado = this.viaje.obtenerListadoSolicitudes().then(respuesta => {
+      this.listado = respuesta; //iterar sobre this.listado
     },
     (err) => {
-      console.log(err);
+      console.log("Error: "+err);
     });
-    console.log(this.response);
   }
 
   async presentToast() {
@@ -65,10 +69,12 @@ comunas: any = [
 
   onForm(){
     this.usr_solicitud = localStorage.getItem('logged-usr');
+    this.name_solicitud = localStorage.getItem('logged-name');
     //Formulario
     this.onDestination = this.formBuilder.group({
       precio_oferta: new FormControl(0, [Validators.required]),
       p_email: new FormControl(this.usr_solicitud, [Validators.required]),
+      p_name: new FormControl(this.name_solicitud, [Validators.required]),
       p_comuna_destino: new FormControl('', [Validators.required]),
       p_direccion_destino: new FormControl('', [Validators.required, Validators.maxLength(32)])
     });

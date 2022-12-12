@@ -214,9 +214,9 @@ def solicitud_list(request):
         return Response({'message:','{} Solicitudes han sido eliminadas de la base de datos'.format(count[0])},status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET','PUT','DELETE'])
-def solicitud_detail(request,id_solicitud):
+def solicitud_detail(request,p_email):
     try:
-        solicitud = Solicitud.objects.get(id_solicitud=id_solicitud)
+        solicitud = Solicitud.objects.get(p_email=p_email)
     except Solicitud.DoesNotExist:
         return Response({'messaje':'La solicitud buscada no existe en nuestros registros'},status=status.HTTP_404_NOT_FOUND)
 
