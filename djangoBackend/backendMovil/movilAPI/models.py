@@ -79,6 +79,7 @@ class Solicitud(models.Model):
     p_comuna_destino = models.CharField(max_length=30, verbose_name='Comuna destino')
     p_direccion_destino = models.CharField(max_length=30, verbose_name='Dirección de destino')
     p_name = models.CharField(null=True,max_length=30, verbose_name='Nombre pasajero')
+    solicitud_estado = models.CharField(null=True,max_length=30, verbose_name='Estado solicitud')
 
     class Meta:
         verbose_name='Solicitud'
