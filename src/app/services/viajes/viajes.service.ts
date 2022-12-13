@@ -61,9 +61,9 @@ constructor(private httpClient:HttpClient) { }
     });
   };
 
-  updateSolicitud(id_solicitud: string, solicitud: any): Promise<any> {
+  updateSolicitud(p_email: string, solicitud: any): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.httpClient.put(this.urlSolicitud + id_solicitud,solicitud)
+      this.httpClient.put(this.urlSolicitud + p_email,solicitud)
       .subscribe(respuesta => {
       resolve(respuesta);
       },
@@ -73,9 +73,9 @@ constructor(private httpClient:HttpClient) { }
     });    
   };
 
-  deleteSolicitud(id_solicitud: string): Promise<any> {
+  deleteSolicitud(p_email: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.httpClient.delete(this.urlSolicitud + id_solicitud)
+      this.httpClient.delete(this.urlSolicitud + p_email)
       .subscribe(respuesta => {
         resolve(respuesta);
       },

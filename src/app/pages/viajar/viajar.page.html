@@ -36,12 +36,25 @@
     <h3 id="buscando1" >Buscando</h3>
     <h3 id="buscando2">conductores</h3>
     <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
-      <ion-fab-button size="medium" color="duoc-secondary" (click)="onSearch()">Cancelar</ion-fab-button>
+      <ion-fab-button size="medium" color="duoc-secondary" (click)="onSearch();onCancelTrip();">Cancelar</ion-fab-button>
     </ion-fab>
   </div>
-  <!-- <div id="container">
-    <img src="../../../assets/icon/logistica.svg"/>
-    <p>Página en contrucción.</p>
-    <ion-label [routerLink]="['/inicio']" routerLinkActive="router-link-active" >Volver a <a target="_blank" rel="noopener noreferrer">Inicio</a></ion-label>
-  </div> -->
-</ion-content>
+  <!--Modal-->
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Oferta</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false);onCancelTrip();">Cancelar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div *ngIf="precioOferta">
+          <ion-title class="ion-text center">{{precioOferta}}</ion-title>
+        </div>
+        <ion-button color="duoc-secondary" (click)="onLoadSolicitud();">Aceptar oferta</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
