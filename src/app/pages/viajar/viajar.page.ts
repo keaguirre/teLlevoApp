@@ -35,7 +35,11 @@ comunas: any = [
 ];
 
 
-  constructor(private adminService: AdminUsuariosService, private viaje:ViajesService, private toast:ToastController ,private loadingCtrl:LoadingController, private formBuilder:FormBuilder) { }
+  constructor(private adminService: AdminUsuariosService,
+    private viaje:ViajesService,
+    private toast:ToastController,
+    private loadingCtrl:LoadingController,
+    private formBuilder:FormBuilder){}
 
 
   ngOnInit() {

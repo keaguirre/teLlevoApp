@@ -9,19 +9,22 @@ export const environment = {
   apiClimaUrl: 'https://api.openweathermap.org/data/2.5/',
   baseUrl: 'https://mindicador.cl/api',
   firebaseConfig: {
-    apiKey: "AIzaSyDKRplySkK7hdY5JRCEpXQhFDDt7jBuqhc",
-    authDomain: "backendimg.firebaseapp.com",
-    projectId: "backendimg",
-    storageBucket: "backendimg.appspot.com",
-    messagingSenderId: "791778332028",
-    appId: "1:791778332028:web:2d6ca5a1022c9f1bfc28f9",
-    measurementId: "G-Q01JRGGG0E"
+    apiKey: "AIzaSyCwViIca9zjl9uXbsGdIUiIdoBAkPKMeA0",
+    authDomain: "backhybrid-11097.firebaseapp.com",
+    projectId: "backhybrid-11097",
+    storageBucket: "backhybrid-11097.appspot.com",
+    messagingSenderId: "421630961199",
+    appId: "1:421630961199:web:6610e47b845c60421b48da"
   },
-  urlAuto:'http://127.0.0.1:8000/api/auto/',
-  urlConductor:'http://127.0.0.1:8000/api/conductor/',
-  urlPasajero:'http://127.0.0.1:8000/api/pasajero/',
-  urlViaje: 'http://127.0.0.1:8000/api/viaje/',
-  urlSolicitud: 'http://127.0.0.1:8000/api/solicitud/'
+  urlAuto:'https://backend-mobile.onrender.com/api/auto/',
+  urlConductor:'https://backend-mobile.onrender.com/api/conductor/',
+  urlPasajero:'https://backend-mobile.onrender.com/api/pasajero/',
+  urlViaje: 'https://backend-mobile.onrender.com/api/viaje/',
+  urlSolicitud: 'https://backend-mobile.onrender.com/api/solicitud/'
+  //urlAuto:'http://127.0.0.1:8000/api/auto/',
+  // urlPasajero:'http://127.0.0.1:8000/api/pasajero/',
+  //urlViaje: 'http://127.0.0.1:8000/api/viaje/',
+  //urlSolicitud: 'http://127.0.0.1:8000/api/solicitud/'
 };
 
 /*
