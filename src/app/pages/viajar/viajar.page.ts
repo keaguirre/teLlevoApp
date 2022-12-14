@@ -43,6 +43,11 @@ comunas: any = [
     this.onForm();
   }
 
+  ngOnDestroy(){ //Al dejar la pagina se ejecutan estos eventos
+    clearTimeout(this.timer);
+    this.viaje.deleteSolicitud(this.usr_solicitud);
+  }
+
   onQuehue(){//Crea la solicitud en la bd
     if(this.onDestination.valid){
       this.viaje.createSolicitud(this.onDestination.value);
@@ -61,9 +66,9 @@ comunas: any = [
    }
 
   async onWaiting(){
+    console.log("probando probando")
      this.solicitud = await this.viaje.obtenerSolicitud(localStorage.getItem('logged-usr')).then(respuesta => {
        this.solicitud = respuesta;
-       console.log(this.solicitud['precio_oferta'])
        if(this.solicitud['precio_oferta'] > 0){
         this.precioOferta = this.solicitud['precio_oferta'];
          this.setOpen(true);//Abre el modal
