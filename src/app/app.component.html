@@ -8,7 +8,7 @@
               <!-- <img alt="Silhouette of a person" src="{{currentUser.p_image}}" /> -->
               <img *ngIf="profile?.imageUrl;" [src]="profile.imageUrl" alt="foto-perfil">
             </ion-avatar>
-            <ion-label>{{currentUser.p_name}}</ion-label>
+            <ion-label>{{currentUser}}</ion-label>
           </ion-item>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">

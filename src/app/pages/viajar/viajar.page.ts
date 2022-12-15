@@ -70,7 +70,6 @@ comunas: any = [
    }
 
   async onWaiting(){
-    console.log("probando probando")
      this.solicitud = await this.viaje.obtenerSolicitud(localStorage.getItem('logged-usr')).then(respuesta => {
        this.solicitud = respuesta;
        if(this.solicitud['precio_oferta'] > 0){

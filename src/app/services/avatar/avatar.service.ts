@@ -9,11 +9,7 @@ import { Auth } from '@angular/fire/auth';
   providedIn: 'root'
 })
 
-
-
 export class AvatarService {
-
-
   constructor(private firestore: Firestore, private storage:Storage, private auth:Auth) { }
 
   getUserProfile(){

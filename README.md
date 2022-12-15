@@ -5,15 +5,12 @@
 [Benjamin Paredes: @BenjaminWuff](https://github.com/BenjaminWuff)<br>
 [Kevin Aguirre: @keaguirre](https://github.com/keaguirre)
 
-
 # To Do:
 - [ ] Quehue del conductor
-- [ ] Creacion del viaje
 - [ ] Creacion del viaje
 - [ ] Crear pagina de viaje para pasajero y lógica de los mockups [Mockup Imagen](https://cdn.discordapp.com/attachments/707842934417915946/1049823609914396732/New_Wireframe_1.png)
 
 ## Pendientes si hay tiempo libre:
-- [ ] Carga de imagenes para los usuarios. !important
 - [ ] Refactorizar, ClimaApi para quitar la carga cada vez que se cambia de página.
 - [ ] Bcrypt para contraseñas.
 
@@ -46,12 +43,36 @@
 
 ## 10/11 [@keaguirre](https://github.com/keaguirre)
 -Comienza el desarrollo del backend de django
--Comienza el consumo de api clima y divisas
--Se crean servicios de clima y conversor
+-Comienza el consumo de api clima y divisas## 28/11 [@keaguirre](https://github.com/keaguirre) & [@JDN2377](https://github.com/JDN2377)
+- Creado el guard llamado authGuard
+- Sesiones creadas
+- Protección de rutas mediante guard
+- Botón de logout funcional
+- Funcionalidad de la cámara
+- [x] Subida y carga de imagenes mediante firebase
+- [x] Agregar el usuario al sidebar y lo almacene(LocalStorage/CurrentSession?)
 
-## 13/11 [@BenjaminWuff](https://github.com/BenjaminWuff) & [@keaguirre](https://github.com/keaguirre)
-- [x] Consumir api del clima con geolocalizacion
-- Arreglos en el components module
+## 06/12 Empieza la entrega final [@keaguirre](https://github.com/keaguirre) & [@JDN2377](https://github.com/JDN2377)
+### Dia de fixes
+- [x] Correccion de modal con cancelar, al registrar el auto y registrarse conductor, bajar el modal.
+- [x] Correccion de modal con cancelar, al actualizar el perfil de un pasajero y/o conductor, bajar el modal.
+- [x] Refactorizar, Firebase para que suba la img solo con el identificador de su correo.
+- [x] Refactorizar, las url del servicio adminusuario a Environments.
+
+## 08/12 Se sigue con el side pasajero y conductor para poder hacer la conversacion entre ambos [@BenjaminWuff](https://github.com/BenjaminWuff) & [@keaguirre](https://github.com/keaguirre)
+- [x] Migrar la geolocalización a un servicio de clima.
+- [x] Conductor sidePage
+    - [x] Crear pagina perfil para conductor(que pueda visualizar la data del auto(Stand by: actualizar))
+    - [x] Crear pagina de viaje para el conductor
+- [x] Quehue del pasajero
+
+## 12/12 Carga de imagenes arreglada [@JDN2377](https://github.com/JDN2377)
+- [x] Carga de imagenes para los usuarios.
+
+## 13/12 Se termina el side del pasajero para la solicitud [@keaguirre](https://github.com/keaguirre) & [@BenjaminWuff](https://github.com/BenjaminWuff)
+- Creado el side de la solicitud del pasajero(Pasajero levanta solicitud al conductor y acepta el viaje).
+
+- Arreglado el error de carga del sidebar con el nombre de usuario y la foto que fue quitada del sidebar
 - Arreglo en el global css font(error al escribir monstserrat)
 -Correccion de logo en modo no movil para poder hacer usable la app
 
@@ -98,3 +119,10 @@ redirigirlos a su propio home segun quien logee.
     - [x] Crear pagina perfil para conductor(que pueda visualizar la data del auto(Stand by: actualizar))
     - [x] Crear pagina de viaje para el conductor
 - [x] Quehue del pasajero
+
+## 12/12 Carga de imagenes arreglada [@JDN2377](https://github.com/JDN2377)
+- [x] Carga de imagenes para los usuarios.
+
+## 13/12 Se termina el side del pasajero para la solicitud [@keaguirre](https://github.com/keaguirre) & [@BenjaminWuff](https://github.com/BenjaminWuff)
+- Creado el side de la solicitud del pasajero(Pasajero levanta solicitud al conductor y acepta el viaje).
+- Arreglado el error de carga del sidebar con el nombre de usuario y la foto que fue quitada del sidebar

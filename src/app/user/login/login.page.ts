@@ -39,11 +39,10 @@ export class LoginPage implements OnInit {
       p_password: new FormControl('', [Validators.required, Validators.minLength(5)]),
     });
   }
+  
   togglePasswordFieldType(){//Ojito de passwd
     this.isTextFieldType = !this.isTextFieldType;
   }
-
-
 
   async presentLoading(message: string) { //Carga logo duoc al iniciar
     this.loading = await this.loadingCtrl.create({

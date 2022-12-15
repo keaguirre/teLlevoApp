@@ -17,24 +17,29 @@ export class AppComponent {
   currentUser:any;
   profile: any = null;
 
-  constructor(private avatarService: AvatarService, private router: Router, private adminServ: AdminUsuariosService, private route: ActivatedRoute) 
-  {this.cargarAvatar();
+  constructor(private avatarService: AvatarService, private router: Router, private adminServ: AdminUsuariosService, private route: ActivatedRoute) {}
+
+  ngDoCheck(){
+    this.currentUser = localStorage?.getItem('logged-name');
+    // if (localStorage?.getItem('currentSession')){
+    //   this.cargarAvatar();
+    // }
   }
 
   ngOnInit() {
-    this.currentUser = localStorage.getItem('logged-usr');
-    this.onLoadUsr();
-    this.cargarAvatar();
   }
   onLogout(){
     localStorage.clear();
     this.router.navigateByUrl('login');
   }
+
   onLoadUsr(){
     this.user = localStorage.getItem("logged-usr");
-    this.loadedUser = this.adminServ.obtenerPasajeroLogin(this.user).then(respuesta => {
-    this.currentUser = respuesta;
-    });
+    if(this.user != null){
+      this.loadedUser = this.adminServ.obtenerPasajeroLogin(this.user).then(respuesta => {
+        this.currentUser = respuesta;
+        });
+    }
   }
 
 
