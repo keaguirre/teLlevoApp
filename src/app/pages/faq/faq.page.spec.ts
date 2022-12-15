@@ -1,24 +1,21 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { FaqPage } from './faq.page';
 
 describe('FaqPage', () => {
   let component: FaqPage;
   let fixture: ComponentFixture<FaqPage>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ FaqPage ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
-
+      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [FaqPage]
+    });
     fixture = TestBed.createComponent(FaqPage);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  });
 
-  it('should create', () => {
+  it('can load instance', () => {
     expect(component).toBeTruthy();
   });
 });

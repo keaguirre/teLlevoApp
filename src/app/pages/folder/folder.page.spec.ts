@@ -1,24 +1,26 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FolderPage } from './folder.page';
 
 describe('FolderPage', () => {
   let component: FolderPage;
   let fixture: ComponentFixture<FolderPage>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
+    const activatedRouteStub = () => ({
+      snapshot: { paramMap: { get: () => ({}) } }
+    });
     TestBed.configureTestingModule({
-      declarations: [ FolderPage ],
-      imports: [IonicModule.forRoot(), RouterModule.forRoot([])]
-    }).compileComponents();
-
+      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [FolderPage],
+      providers: [{ provide: ActivatedRoute, useFactory: activatedRouteStub }]
+    });
     fixture = TestBed.createComponent(FolderPage);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  });
 
-  it('should create', () => {
+  it('can load instance', () => {
     expect(component).toBeTruthy();
   });
 });

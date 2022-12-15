@@ -21,13 +21,13 @@ export class ConversorService {
 
   getDolar(): Observable<ApiResult> {
     return this.http.get<ApiResult>(
-      `${environment.baseUrl}/dolar/${this.fecha.toLocaleDateString()}`
+      `${environment.baseUrl}/dolar`
     )
   }
 
   getYuro(): Observable<ApiResult> {
     return this.http.get<ApiResult>(
-      `${environment.baseUrl}/euro/${this.fecha.toLocaleDateString()}`
+      `${environment.baseUrl}/euro`
     )
   }
 

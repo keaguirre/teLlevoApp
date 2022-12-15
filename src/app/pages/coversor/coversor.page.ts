@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConversorService } from 'src/app/services/conversor/conversor.service';
-import { OverlayEventDetail } from '@ionic/core';
+
 
 export interface Serie {
   fecha: Date;
@@ -12,6 +12,7 @@ export interface Serie {
   templateUrl: './coversor.page.html',
   styleUrls: ['./coversor.page.scss'],
 })
+
 export class CoversorPage implements OnInit {
 
 
