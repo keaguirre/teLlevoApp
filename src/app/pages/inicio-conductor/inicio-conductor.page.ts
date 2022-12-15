@@ -10,6 +10,7 @@ export class InicioConductorPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

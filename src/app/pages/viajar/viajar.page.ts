@@ -26,6 +26,11 @@ timer:any;
 precioOferta: any;
 cancelTrip= false;
 solicitudForm: any;
+userLogeado:any;
+solicitudDelUsuario:any;
+patente:any = 'PN123'; // ESTO SE DEBE ELIMINAR EN CASO DE PODER RECUPERAR LA PATENTE REAL DEL AUTO DEL CONDUCTOR
+roleMessage = '';
+handlerMessage = '';
 
 comunas: any = [
     {p_comuna:'San Joaquin'},
@@ -34,18 +39,30 @@ comunas: any = [
     {p_comuna:'Santiago'}
 ];
 
-
   constructor(private adminService: AdminUsuariosService,
+    private alertController: AlertController,
     private viaje:ViajesService,
     private toast:ToastController,
     private loadingCtrl:LoadingController,
-    private formBuilder:FormBuilder){}
-
+    private formBuilder:FormBuilder
+    ){}
 
   ngOnInit() {
+    document.getElementById("viajando").hidden = true;
+    document.getElementById("viajar").hidden = false;
     document.getElementById("list").hidden = false;
     this.onForm();
+    
   }
+
+  // getSolicitudDeUsuario(){ IDEA: obtener la patente desde la solicitud para poder mostrarsela al usuario(la solicitud actualmente no tiene la patente)
+  //   this.userLogeado = localStorage.getItem("logged-usr");
+  //   if(this.userLogeado != null){
+  //     this.solicitudDelUsuario = this.viaje.obtenerSolicitud(this.userLogeado).then(respuesta => {
+  //       this.solicitudDelUsuario = respuesta;
+  //       });
+  //   }
+  // }
 
   ngOnDestroy(){ //Al dejar la pagina se ejecutan estos eventos
     clearTimeout(this.timer);
@@ -70,12 +87,13 @@ comunas: any = [
    }
 
   async onWaiting(){
+    console.log("probando probando")
      this.solicitud = await this.viaje.obtenerSolicitud(localStorage.getItem('logged-usr')).then(respuesta => {
        this.solicitud = respuesta;
        if(this.solicitud['precio_oferta'] > 0){
         this.precioOferta = this.solicitud['precio_oferta'];
-         this.setOpen(true);//Abre el modal
-         this.onSearch();//devuelve al form
+        this.presentAlert();
+         //this.onSearch();//devuelve al form
        }
      },
      (err) => {
@@ -107,23 +125,45 @@ comunas: any = [
     });
   }
 
-  onLoadSolicitud(){
+  onAceptarOferta(){
     this.solicitudForm = this.viaje.obtenerSolicitud(localStorage.getItem('logged-usr')).then(respuesta => {
       this.solicitudForm = respuesta;
-      this.onUpdateSolicitud();
+      this.onOfertaAceptada();
     });
   }
-  onUpdateSolicitud(){
+
+  onRechazarOferta(){
+    this.solicitudForm = this.viaje.obtenerSolicitud(localStorage.getItem('logged-usr')).then(respuesta => {
+      this.solicitudForm = respuesta;
+      this.onOfertaRechazada();
+    });
+  }
+  
+  onOfertaAceptada(){
       this.onDestination.patchValue({
         precio_oferta: this.solicitudForm['precio_oferta'],
         p_email: this.solicitudForm['p_email'],
         p_name: this.solicitudForm['p_name'],
         p_comuna_destino: this.solicitudForm['p_comuna_destino'],
         p_direccion_destino: this.solicitudForm['p_direccion_destino'],
-        solicitud_estado: 'aceptado',
+        solicitud_estado: 'aceptada',
       })
+      clearTimeout(this.timer);
       this.viaje.updateSolicitud(localStorage.getItem('logged-usr'), this.onDestination.value);
-      this.setOpen(false);
+      document.getElementById("viajar").hidden = true;
+      document.getElementById("viajando").hidden = false;
+  }
+
+  onOfertaRechazada(){
+    this.onDestination.patchValue({
+      precio_oferta: 0,
+      p_email: this.solicitudForm['p_email'],
+      p_name: this.solicitudForm['p_name'],
+      p_comuna_destino: this.solicitudForm['p_comuna_destino'],
+      p_direccion_destino: this.solicitudForm['p_direccion_destino'],
+      solicitud_estado: 'rechazada',
+    })
+    this.viaje.updateSolicitud(localStorage.getItem('logged-usr'),this.onDestination.value);
   }
 
   onCancelTrip(){
@@ -155,8 +195,36 @@ comunas: any = [
     }
   };
 
-  //Modal
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+   //alert
+   async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Valor del viaje: $'+this.precioOferta+' Pesos',
+      buttons: [
+        {
+          text: 'Rechazar',
+          role: 'cancel',
+          handler: () => {
+            this.onRechazarOferta();//esta borrando la solicitud, cambiar por volver a la cola
+          },
+        },
+        {
+          text: 'Confirmar',
+          role: 'confirm',
+          handler: () => {
+            this.onAceptarOferta();
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    this.roleMessage = `Dismissed with role: ${role}`;
   }
+
+  //Modal
+  // setOpen(isOpen: boolean) {
+  //   this.isModalOpen = isOpen;
+  // }
 }
