@@ -28,9 +28,10 @@ cancelTrip= false;
 solicitudForm: any;
 userLogeado:any;
 solicitudDelUsuario:any;
-patente:any = 'PN123'; // ESTO SE DEBE ELIMINAR EN CASO DE PODER RECUPERAR LA PATENTE REAL DEL AUTO DEL CONDUCTOR
+
 roleMessage = '';
 handlerMessage = '';
+autoDelConductor:any;
 
 comunas: any = [
     {p_comuna:'San Joaquin'},
@@ -48,6 +49,7 @@ comunas: any = [
     ){}
 
   ngOnInit() {
+    this.autoDelConductor = '';
     document.getElementById("viajando").hidden = true;
     document.getElementById("viajar").hidden = false;
     document.getElementById("list").hidden = false;
@@ -55,17 +57,19 @@ comunas: any = [
     
   }
 
-  // getSolicitudDeUsuario(){ IDEA: obtener la patente desde la solicitud para poder mostrarsela al usuario(la solicitud actualmente no tiene la patente)
-  //   this.userLogeado = localStorage.getItem("logged-usr");
-  //   if(this.userLogeado != null){
-  //     this.solicitudDelUsuario = this.viaje.obtenerSolicitud(this.userLogeado).then(respuesta => {
-  //       this.solicitudDelUsuario = respuesta;
-  //       });
-  //   }
-  // }
+  getSolicitudDeUsuario(){
+     this.userLogeado = localStorage.getItem("logged-usr");
+     if(this.userLogeado != null){
+       this.solicitudDelUsuario = this.viaje.obtenerSolicitud(this.userLogeado).then(respuesta => {
+       this.solicitudDelUsuario = respuesta;
+       this.autoDelConductor = this.solicitudDelUsuario['solicitud_car']
+         });
+     }
+   }
 
   ngOnDestroy(){ //Al dejar la pagina se ejecutan estos eventos
     clearTimeout(this.timer);
+    this.autoDelConductor = '';
     this.viaje.deleteSolicitud(this.usr_solicitud);
   }
 
@@ -129,6 +133,7 @@ comunas: any = [
     this.solicitudForm = this.viaje.obtenerSolicitud(localStorage.getItem('logged-usr')).then(respuesta => {
       this.solicitudForm = respuesta;
       this.onOfertaAceptada();
+      this.getSolicitudDeUsuario();
     });
   }
 

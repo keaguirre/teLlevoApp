@@ -20,10 +20,15 @@ export class AppComponent {
   constructor(private avatarService: AvatarService, private router: Router, private adminServ: AdminUsuariosService, private route: ActivatedRoute) {}
 
   ngDoCheck(){
-    this.currentUser = localStorage?.getItem('logged-name');
-    // if (localStorage?.getItem('currentSession')){
-    //   this.cargarAvatar();
-    // }
+    if (localStorage?.getItem('currentSession') == 'true'){
+      if(localStorage?.getItem('logged-name')){
+        this.currentUser = localStorage?.getItem('logged-name');
+      }
+      else if(localStorage?.getItem('c_logged-name')){
+        this.currentUser = localStorage?.getItem('c_logged-name');
+      }
+       //this.cargarAvatar();
+    }
   }
 
   ngOnInit() {

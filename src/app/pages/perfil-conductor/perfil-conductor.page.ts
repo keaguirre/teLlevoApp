@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AvatarService } from 'src/app/services/avatar/avatar.service';
 import { Camera } from '@capacitor/camera';
 import { CameraResultType, CameraSource } from '@capacitor/camera/dist/esm/definitions';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil-conductor',
@@ -24,7 +25,8 @@ export class PerfilConductorPage implements OnInit {
   presentingElement = undefined;
   profile: any = null;
 
-  constructor(private adminServ:AdminUsuariosService,
+  constructor(private menu: MenuController,
+    private adminServ:AdminUsuariosService,
     private loadingCtrl:LoadingController,
     private formBuilder:FormBuilder,
     private actionSheetCtrl: ActionSheetController,
@@ -34,6 +36,7 @@ export class PerfilConductorPage implements OnInit {
     private modalCtrl: ModalController) {this.cargarAvatar(); }
 
   ngOnInit() {
+    //this.menu.enable(false);
     this.presentingElement = document.querySelector('.ion-page');
     //load usr
     //build form
