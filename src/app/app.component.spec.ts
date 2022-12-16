@@ -1,46 +1,78 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
-
-import { RouterTestingModule } from '@angular/router/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { AdminUsuariosService } from './services/adminUsuarios/admin-usuarios.service';
+import { AvatarService } from './services/avatar/avatar.service';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
 
-
-  beforeEach(waitForAsync(() => {
-
+  beforeEach(() => {
+    const activatedRouteStub = () => ({});
+    const routerStub = () => ({ navigateByUrl: string => ({}) });
+    const adminUsuariosServiceStub = () => ({
+      obtenerPasajeroLogin: user => ({ then: () => ({}) })
+    });
+    const avatarServiceStub = () => ({
+      getUserProfile: () => ({ subscribe: f => f({}) })
+    });
     TestBed.configureTestingModule({
+      schemas: [NO_ERRORS_SCHEMA],
       declarations: [AppComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [ RouterTestingModule.withRoutes([])],
-    }).compileComponents();
-  }));
+      providers: [
+        { provide: ActivatedRoute, useFactory: activatedRouteStub },
+        { provide: Router, useFactory: routerStub },
+        { provide: AdminUsuariosService, useFactory: adminUsuariosServiceStub },
+        { provide: AvatarService, useFactory: avatarServiceStub }
+      ]
+    });
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+  });
 
-  it('should create the app', waitForAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  it('can load instance', () => {
+    expect(component).toBeTruthy();
+  });
 
-  it('should have menu labels', waitForAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const app = fixture.nativeElement;
-    const menuItems = app.querySelectorAll('ion-label');
-    expect(menuItems.length).toEqual(12);
-    expect(menuItems[0].textContent).toContain('Inbox');
-    expect(menuItems[1].textContent).toContain('Outbox');
-  }));
+  it(`appPages has default value`, () => {
+    expect(component.appPages).toEqual([, , , , ,]);
+  });
 
-  it('should have urls', waitForAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const app = fixture.nativeElement;
-    const menuItems = app.querySelectorAll('ion-item');
-    expect(menuItems.length).toEqual(12);
-    expect(menuItems[0].getAttribute('ng-reflect-router-link')).toEqual('/folder/Inbox');
-    expect(menuItems[1].getAttribute('ng-reflect-router-link')).toEqual('/folder/Outbox');
-  }));
+  it(`labels has default value`, () => {
+    expect(component.labels).toEqual([,]);
+  });
 
+  describe('onLogout', () => {
+    it('makes expected calls', () => {
+      const routerStub: Router = fixture.debugElement.injector.get(Router);
+      spyOn(routerStub, 'navigateByUrl').and.callThrough();
+      component.onLogout();
+      expect(routerStub.navigateByUrl).toHaveBeenCalled();
+    });
+  });
+
+  describe('onLoadUsr', () => {
+    it('makes expected calls', () => {
+      const adminUsuariosServiceStub: AdminUsuariosService = fixture.debugElement.injector.get(
+        AdminUsuariosService
+      );
+      spyOn(adminUsuariosServiceStub, 'obtenerPasajeroLogin').and.callThrough();
+      component.onLoadUsr();
+      expect(adminUsuariosServiceStub.obtenerPasajeroLogin).toHaveBeenCalled();
+    });
+  });
+
+  describe('cargarAvatar', () => {
+    it('makes expected calls', () => {
+      const avatarServiceStub: AvatarService = fixture.debugElement.injector.get(
+        AvatarService
+      );
+      spyOn(avatarServiceStub, 'getUserProfile').and.callThrough();
+      component.cargarAvatar();
+      expect(avatarServiceStub.getUserProfile).toHaveBeenCalled();
+    });
+  });
 });
