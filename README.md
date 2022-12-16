@@ -6,12 +6,8 @@
 [Kevin Aguirre: @keaguirre](https://github.com/keaguirre)
 
 # To Do:
-- [ ] Quehue del conductor
-- [ ] Creacion del viaje
-- [ ] Crear pagina de viaje para pasajero y lógica de los mockups [Mockup Imagen](https://cdn.discordapp.com/attachments/707842934417915946/1049823609914396732/New_Wireframe_1.png)
 
 ## Pendientes si hay tiempo libre:
-- [ ] Refactorizar, ClimaApi para quitar la carga cada vez que se cambia de página.
 - [ ] Bcrypt para contraseñas.
 
 ## 07/oct [@keaguirre](https://github.com/keaguirre)
@@ -123,6 +119,12 @@ redirigirlos a su propio home segun quien logee.
 ## 12/12 Carga de imagenes arreglada [@JDN2377](https://github.com/JDN2377)
 - [x] Carga de imagenes para los usuarios.
 
-## 13/12 Se termina el side del pasajero para la solicitud [@keaguirre](https://github.com/keaguirre) & [@BenjaminWuff](https://github.com/BenjaminWuff)
+## 13/12 Se termina el side del pasajero para la solicitud [@keaguirre](https://github.com/keaguirre) & [@BenjaminWuff](https://github.com/BenjaminWuff) & [@JDN2377](https://github.com/JDN2377)
 - Creado el side de la solicitud del pasajero(Pasajero levanta solicitud al conductor y acepta el viaje).
 - Arreglado el error de carga del sidebar con el nombre de usuario y la foto que fue quitada del sidebar
+- Realizadas pruebas unitarias
+
+## 16/12 Terminado todo para la entrega final del examen [@keaguirre](https://github.com/keaguirre) & [@BenjaminWuff](https://github.com/BenjaminWuff)
+- [x] Quehue del conductor
+- [x] Creacion del viaje
+- [x] Crear pagina de viaje para pasajero y lógica de los mockups [Mockup Imagen](https://cdn.discordapp.com/attachments/707842934417915946/1049823609914396732/New_Wireframe_1.png)
