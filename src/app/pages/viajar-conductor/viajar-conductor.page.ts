@@ -5,6 +5,7 @@ import { ViajesService } from 'src/app/services/viajes/viajes.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminUsuariosService } from 'src/app/services/adminUsuarios/admin-usuarios.service';
 import { stringify } from 'querystring';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-viajar-conductor',
@@ -38,12 +39,14 @@ export class ViajarConductorPage implements OnInit {
   solicitudEnBD:any;
   userLogeado:any;
 
-  constructor(private formBuilder:FormBuilder,
+  constructor(private menu: MenuController,
+    private formBuilder:FormBuilder,
     private alertController: AlertController,
     private viaje: ViajesService,
     private adminServ: AdminUsuariosService) { }
 
   ngOnInit() {
+  //this.menu.enable(false);
   this.formSolicitud();//inicializo el formulario para poder llenarlo
   this.formViaje();//inicializo from de viaje
   this.getUserLogeado();//obtiene el conductor logeado
@@ -113,7 +116,8 @@ export class ViajarConductorPage implements OnInit {
       p_comuna_destino: this.solicitud['p_comuna_destino'],
       p_direccion_destino: this.solicitud['p_direccion_destino'],
       p_name: this.solicitud['p_name'],
-      solicitud_estado: 'ofertada'
+      solicitud_estado: 'ofertada',
+      solicitud_car: this.Conductor['c_car']
     });
     this.viaje.updateSolicitud(this.solicitud['p_email'],this.ofertaDePrecioForm.value)
   }
@@ -125,7 +129,8 @@ export class ViajarConductorPage implements OnInit {
         p_comuna_destino: new FormControl('', [Validators.required]),
         p_direccion_destino: new FormControl('', [Validators.required, Validators.maxLength(32)]),
         p_name: new FormControl('', [Validators.required]),
-        solicitud_estado: new FormControl('en espera',[Validators.required])
+        solicitud_estado: new FormControl('en espera',[Validators.required]),
+        solicitud_car: new FormControl('',[Validators.required])
     });
  }
  formViaje(){

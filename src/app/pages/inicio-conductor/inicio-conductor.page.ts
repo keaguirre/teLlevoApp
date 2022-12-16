@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio-conductor',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioConductorPage implements OnInit {
 
-  constructor() { }
+  constructor(private menu: MenuController) { }
 
   ngOnInit() {
-    
+    //this.menu.enable(false);
   }
 
 }

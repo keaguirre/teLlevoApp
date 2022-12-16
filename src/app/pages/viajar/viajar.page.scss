@@ -90,6 +90,40 @@
     0 0 0 20px rgba(255, 255,255, 0.6),
     0 0 0 0px rgba(255, 255,255, 1)
   }
+}
 
-
-}  
+  //patente  
+  .frame {
+    width: 1200px;
+    background: white;
+    color: black;
+    border: 5px solid black;
+    text-transform: uppercase;
+    border-radius: 30px;
+    padding-top: 3px;
+    font-family: helvetica;
+    font-weight: 700;
+    height: 200px;
+    width: 360px;
+    margin: 40px auto;
+  }
+  
+  .frame .state {
+    text-transform: none;
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    margin: 0 160px;
+    padding-top: 50px;
+    margin-left: 22%;
+    font-size: 50px;
+    /*    position: absolute;*/
+  }
+  .frame .number {
+    font-size: 50px;
+    text-align: center;
+    transform: scale(1.2, 2.5);
+    padding-top: 20px;
+    padding-left: 10px;
+    -webkit-filter: invert(12%);
+  }
