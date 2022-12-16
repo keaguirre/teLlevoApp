@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { ViajarPageRoutingModule } from './viajar-routing.module';
 import { ViajarPage } from './viajar.page';
 import { ComponentsModule } from '../../components/components.module'
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   imports: [
     CommonModule,
@@ -12,7 +13,8 @@ import { ComponentsModule } from '../../components/components.module'
     ReactiveFormsModule,
     FormsModule,
     IonicModule,
-    ViajarPageRoutingModule
+    ViajarPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [ViajarPage]
 })

@@ -55,6 +55,8 @@ export class LoginConductorPage implements OnInit {
       if (respuesta['c_email'] == this.conductorLogin.value.c_email && respuesta['c_password'] == this.conductorLogin.value.c_password){
         localStorage.setItem('currentSession', "true");
         localStorage.setItem('c_logged-usr', respuesta['c_email']); //Almacenamos la pk del conductor en ls
+        localStorage.setItem('c_logged-name', respuesta['c_name']); //Almacenamos el nombre del conductor en ls
+        console.log(localStorage.getItem('c_logged-usr'))
         //Firebase-----------------------------------------------------------------------
          this.fbUser = this.authService.login(respuesta['c_email'],respuesta['c_password']).then(resp =>{
           this.fbUser = resp;
@@ -65,7 +67,7 @@ export class LoginConductorPage implements OnInit {
          
         //-----------------------------------------------------------------------
         this.conductorLogin.reset(); //limpia el formulario dsp del submit
-        this.router.navigateByUrl('inicio');
+        this.router.navigateByUrl('inicio-conductor');
       }
       else{
         this.alertPresent('Login fallido','Intente nuevamente');

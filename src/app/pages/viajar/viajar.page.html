@@ -15,46 +15,58 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content color="duoc-primary">
-  <form (ngSubmit)="onQuehue()" id="list" hidden="false" [formGroup]="onDestination">
-    <h2 id="form-title">A dónde vamos?</h2>
-    <ion-select id="comunaDestino" formControlName="p_comuna_destino" cancelText="Cancelar" placeholder="Comuna de destino">
-      <ion-select-option *ngFor="let c of comunas"  [value]="c.p_comuna">
-        {{c.p_comuna}}
-      </ion-select-option>
-    </ion-select>
-    <ion-item>
-      <ion-label position="stacked">Ingrese dirección de destino</ion-label>
-      <ion-input formControlName="p_direccion_destino" [clearInput]="true" placeholder="Calle falsificada #123" value=""></ion-input>
-    </ion-item>
-    <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
-      <ion-fab-button [disabled]="onDestination.invalid" type="submit" size="medium" color="duoc-secondary" (click)="onQuehue();onSearch()">viajar</ion-fab-button>
-    </ion-fab>
-  </form>
-  <div hidden="true" id="loader">
-    <div class="loader"></div>
-    <h3 id="buscando1" >Buscando</h3>
-    <h3 id="buscando2">conductores</h3>
-    <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
-      <ion-fab-button size="medium" color="duoc-secondary" (click)="onSearch();onCancelTrip();">Cancelar</ion-fab-button>
-    </ion-fab>
-  </div>
-  <!--Modal-->
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Oferta</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false);onCancelTrip();">Cancelar</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <div *ngIf="precioOferta">
-          <ion-title class="ion-text center">{{precioOferta}}</ion-title>
-        </div>
-        <ion-button color="duoc-secondary" (click)="onLoadSolicitud();">Aceptar oferta</ion-button>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+
+
+  <ion-content color="duoc-primary">
+    <span id="viajar">
+    <form (ngSubmit)="onQuehue()" id="list" hidden="false" [formGroup]="onDestination">
+      <h2 id="form-title">A dónde vamos?</h2>
+      <ion-select id="comunaDestino" formControlName="p_comuna_destino" cancelText="Cancelar" placeholder="Comuna de destino">
+        <ion-select-option *ngFor="let c of comunas"  [value]="c.p_comuna">
+          {{c.p_comuna}}
+        </ion-select-option>
+      </ion-select>
+      <ion-item>
+        <ion-label position="stacked">Ingrese dirección de destino</ion-label>
+        <ion-input formControlName="p_direccion_destino" [clearInput]="true" placeholder="Calle falsificada #123" value=""></ion-input>
+      </ion-item>
+      <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button [disabled]="onDestination.invalid" type="submit" size="medium" color="duoc-secondary" (click)="onQuehue();onSearch()">viajar</ion-fab-button>
+      </ion-fab>
+    </form>
+  
+    <div hidden="true" id="loader">
+      <div class="loader"></div>
+      <h3 id="buscando1" >Buscando</h3>
+      <h3 id="buscando2">conductores</h3>
+      <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button size="medium" color="duoc-secondary" (click)="onSearch();onCancelTrip();">Cancelar</ion-fab-button>
+      </ion-fab>
+    </div>
+  
+    
+    <!-- <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Oferta</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <div *ngIf="precioOferta">
+            <ion-title class="ion-text center">{{precioOferta}}</ion-title>
+          </div>
+          <ion-button color="duoc-secondary" (click)="onAceptarOferta();">Aceptar oferta</ion-button>
+          <ion-button color="duoc-secondary" (click)="onRechazarOferta();">Rechazar oferta</ion-button>
+        </ion-content>
+      </ng-template>
+    </ion-modal> -->
+  </span>
+
+  <span id="viajando" >
+    <h6 style="text-align: center;">El conductor te esta esperando en la calle San Juan :) <br> su patente es: {{this.patente}}</h6>
+  </span>
+
+  </ion-content>
+
+  
