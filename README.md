@@ -128,3 +128,11 @@ redirigirlos a su propio home segun quien logee.
 - [x] Quehue del conductor
 - [x] Creacion del viaje
 - [x] Crear pagina de viaje para pasajero y lógica de los mockups [Mockup Imagen](https://cdn.discordapp.com/attachments/707842934417915946/1049823609914396732/New_Wireframe_1.png)
+
+## 23/12 Cambios post entrega afinacion de detalles
+- Cambio de modal de oferta de precios
+- Ajuste de pagina de viajes conductor y pasajero
+- Aplicacion en modo blanco
+- Correccion de patente y bloque de viajando
+- Agregado el boton de finalizar al viajando para poder volver a viajar
+- Se agrega "Mapa" embed de placeholder a la página de viajes pasajero
