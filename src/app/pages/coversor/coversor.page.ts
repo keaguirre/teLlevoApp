@@ -88,5 +88,14 @@ export class CoversorPage implements OnInit {
     this.fromValue2 = num.toFixed(2)
   }
 
+  numberOnlyValidation(event: any) {
+    const pattern = /[0-9.,]/;
+    let inputChar = String.fromCharCode(event.charCode);
+
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+  }
 
 }

@@ -29,7 +29,6 @@ export class ViajarConductorPage implements OnInit {
   timer:any;
   checkDeSolicitudes:any;
   nombre:any;
-
   user:any;
   Conductor:any;
   auto:any;
@@ -38,6 +37,10 @@ export class ViajarConductorPage implements OnInit {
   solicitud:any;
   solicitudEnBD:any;
   userLogeado:any;
+  id_viaje:any;
+  viaje_detalle: any;
+  update_viajeForm: FormGroup;
+  showBackdrop?: boolean;
 
   constructor(private menu: MenuController,
     private formBuilder:FormBuilder,
@@ -46,13 +49,21 @@ export class ViajarConductorPage implements OnInit {
     private adminServ: AdminUsuariosService) { }
 
   ngOnInit() {
-  //this.menu.enable(false);
-  this.formSolicitud();//inicializo el formulario para poder llenarlo
-  this.formViaje();//inicializo from de viaje
-  this.getUserLogeado();//obtiene el conductor logeado
-  document.getElementById("viajando").hidden = true;
-  this.precio = '';
-  this.nombre = '';
+    //this.menu.enable(false);
+    this.formSolicitud();//inicializo el formulario para poder llenarlo
+    this.formViaje();//inicializo from de viaje
+    this.getUserLogeado();//obtiene el conductor logeado
+    document.getElementById("viajando").hidden = true;
+    document.getElementById("pasajeros-title").hidden = true;
+    this.precio = '';
+    this.nombre = '';
+  }
+  ngOnDestroy(){ //Al dejar la pagina se ejecutan estos eventos
+    clearTimeout(this.timer);
+    this.viajeForm.reset();
+    this.ofertaDePrecioForm.reset();
+    this.precio = '';
+    this.nombre = '';
   }
 
   getUserLogeado(){//Trae al objeto del usuario conductor logeado
@@ -77,15 +88,7 @@ export class ViajarConductorPage implements OnInit {
     });
     
   }
-
-  ngOnDestroy(){ //Al dejar la pagina se ejecutan estos eventos
-    clearTimeout(this.timer);
-    this.viajeForm.reset();
-    this.ofertaDePrecioForm.reset();
-    this.precio = '';
-    this.nombre = '';
-  }
-
+  
   onDisponible(){
     //form
     if(this.listHidden === false){
@@ -95,17 +98,9 @@ export class ViajarConductorPage implements OnInit {
     else if(this.listHidden === true){
       this.listHidden = false;
       document.getElementById("listaDeSolicitudes").hidden = false;
+      document.getElementById("pasajeros-title").hidden = false;
       this.onConductorDisponible();
     }
-    //loader
-    // if(this.listHidden1 === true){
-    //   this.listHidden1 = false;
-    //   document.getElementById("loader").hidden = false;
-    // }
-    // else if(this.listHidden1 === false){
-    //   this.listHidden1 = true;
-    //   document.getElementById("loader").hidden = true;
-    // }
   };
 
   loadFormSolicitud(){
@@ -168,13 +163,14 @@ loadFormViaje(){
 }
 
  async onWaitingForApproval(){
-  console.log("Esperando aprobacion de precio")
    this.solicitudEnBD = await this.viaje.obtenerSolicitud(this.solicitud['p_email']).then(respuesta => {
      this.solicitudEnBD = respuesta;
      if(this.solicitudEnBD['solicitud_estado'] == 'aceptada'){
       clearTimeout(this.timer);
       this.loadFormViaje();
-      this.adminServ.createViaje(this.viajeForm.value);
+      this.adminServ.createViaje(this.viajeForm.value).then(resp => {
+        this.id_viaje=resp['v_viaje_id'];
+      });
       this.viaje.deleteSolicitud(this.solicitudEnBD['p_email']);
       this.viajeForm.reset();
       this.ofertaDePrecioForm.reset();
@@ -199,6 +195,29 @@ loadFormViaje(){
    });
 }
 
+onLoadTrip(){
+  this.viaje_detalle = this.adminServ.obtenerViajeDetalle(this.id_viaje).then(response =>{
+    this.viaje_detalle = response;
+    this.onEndedTrip();
+  });
+}
+
+  onEndedTrip(){
+    this.update_viajeForm = this.formBuilder.group({
+      v_viaje_id: new FormControl(this.id_viaje),
+      v_com_dest: new FormControl(this.viaje_detalle['v_com_dest']),
+      v_dir_dest: new FormControl(this.viaje_detalle['v_dir_dest']),
+      v_val_trip: new FormControl(this.viaje_detalle['v_val_trip']),
+      v_state: new FormControl('Finalizado'),
+      v_conductor_id: new FormControl(this.viaje_detalle['v_conductor_id']),
+      v_pasajero_id: new FormControl(this.viaje_detalle['v_pasajero_id']),
+      v_auto_id: new FormControl(this.viaje_detalle['v_auto_id'])
+    });
+    this.adminServ.updateViaje(this.id_viaje, this.update_viajeForm.value)
+    document.getElementById("viajar-conductor").hidden = false;
+    document.getElementById("viajando").hidden = true;
+  }
+
   //Modal
   cancelar() {
     this.modal.dismiss(null, 'cancelar');
@@ -213,6 +232,7 @@ loadFormViaje(){
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+    this.showBackdrop= false;
   }
 
 
@@ -221,6 +241,16 @@ loadFormViaje(){
     // if (ev.detail.role === 'confirm') {
     //   this.message = `Hello, ${ev.detail.data}!`;
     // }
+  }
+
+  numberOnlyValidation(event: any) {
+    const pattern = /[0-9.,]/;
+    let inputChar = String.fromCharCode(event.charCode);
+
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
   }
 
   

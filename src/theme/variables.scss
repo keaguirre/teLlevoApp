@@ -5,7 +5,6 @@ ion-button {
   text-transform: none;
  }
 
-
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -81,7 +80,7 @@ ion-button {
   --ion-color-light-tint: #f5f6f9;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   /*
    * Dark Colors
    * -------------------------------------------

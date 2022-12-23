@@ -84,4 +84,16 @@ constructor(private httpClient:HttpClient) { }
       });
     });
   }
+
+  updateViaje(p_email: string, solicitud: any): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.httpClient.put(this.urlSolicitud + p_email,solicitud)
+      .subscribe(respuesta => {
+      resolve(respuesta);
+      },
+      (err) => {
+        reject(err);
+      });
+    });    
+  };
 }

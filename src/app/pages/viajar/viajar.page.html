@@ -15,18 +15,16 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-
-  <ion-content color="duoc-primary">
-    <span id="viajar">
+<ion-content>
+  <div id="viajar">
     <form (ngSubmit)="onQuehue()" id="list" hidden="false" [formGroup]="onDestination">
-      <h2 id="form-title">A dónde vamos?</h2>
+      <h2 class="ion-text-center">A dónde vamos?</h2>
       <ion-select id="comunaDestino" formControlName="p_comuna_destino" cancelText="Cancelar" placeholder="Comuna de destino">
         <ion-select-option *ngFor="let c of comunas"  [value]="c.p_comuna">
           {{c.p_comuna}}
         </ion-select-option>
       </ion-select>
-      <ion-item>
+      <ion-item id="input-dir">
         <ion-label position="stacked">Ingrese dirección de destino</ion-label>
         <ion-input formControlName="p_direccion_destino" [clearInput]="true" placeholder="Calle falsificada #123" value=""></ion-input>
       </ion-item>
@@ -34,44 +32,36 @@
         <ion-fab-button [disabled]="onDestination.invalid" type="submit" size="medium" color="duoc-secondary" (click)="onQuehue();onSearch()">viajar</ion-fab-button>
       </ion-fab>
     </form>
-  
+    <div id="blue-block"></div>
     <div hidden="true" id="loader">
       <div class="loader"></div>
-      <h3 id="buscando1" >Buscando</h3>
-      <h3 id="buscando2">conductores</h3>
       <ion-fab id="fab-btn" vertical="bottom" horizontal="center" slot="fixed">
         <ion-fab-button size="medium" color="duoc-secondary" (click)="onSearch();onCancelTrip();">Cancelar</ion-fab-button>
       </ion-fab>
     </div>
-  
-    
-    <!-- <ion-modal [isOpen]="isModalOpen">
-      <ng-template>
-        <ion-header>
-          <ion-toolbar>
-            <ion-title>Oferta</ion-title>
-          </ion-toolbar>
-        </ion-header>
-        <ion-content class="ion-padding">
-          <div *ngIf="precioOferta">
-            <ion-title class="ion-text center">{{precioOferta}}</ion-title>
-          </div>
-          <ion-button color="duoc-secondary" (click)="onAceptarOferta();">Aceptar oferta</ion-button>
-          <ion-button color="duoc-secondary" (click)="onRechazarOferta();">Rechazar oferta</ion-button>
-        </ion-content>
-      </ng-template>
-    </ion-modal> -->
-  </span>
-
-  <span id="viajando" >
-    <h6 style="text-align: center;">El conductor te esta esperando en la calle San Juan, detrás de la sede :)<br> su patente es: </h6><br>
+    <div id="txt-buscando">
+      <h3 id="buscando1" >Buscando</h3>
+      <h3 id="buscando2">conductores</h3>
+    </div>
+  </div>
+  <div id="placeholder-map" style="padding-left: 20px; padding-top: 20px; max-width:100%;overflow:hidden;color:red;width:300px;height:250px;"><div id="display-google-map" style="height:100%; width:100%;max-width:100%;"><iframe style="border-radius: 5px; height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Duoc+UC:+Sede+San+Joaquín+-+Vicuña+Mackenna,+San+Joaquín,+Chile&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="google-maps-html" href="https://www.bootstrapskins.com/themes" id="authorize-map-data">premium bootstrap themes</a><style>#display-google-map img.text-marker{max-width:none!important;background:none!important;}img{max-width:none}</style></div>
+  <div id="viajando">
+    <!--map embed-->
+    <div style="padding-top: 30px;padding-left:20px;padding-right:20px;overflow:hidden;max-width:100%;">
+      <div id="g-mapdisplay" style="height:100%; width:100%;max-width:100%;height:250px;">
+        <iframe style="border-radius: 5px;height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/directions?origin=duoc+san+joaquin&destination=PH551-San+Juan+Esq.+Raquel,+San+Joaquín,+Chile&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+        </iframe>
+      </div>
+      <style>#g-mapdisplay img{max-height:none;max-width:none!important;background:none!important;}</style>
+    </div>
+    <p class="texto-patente">El conductor te esta esperando en la calle San Juan, detrás de la sede :)</p>
+    <h3 id="txt-pat"  class="texto-patente">Su patente es:</h3>
     <div class="frame">
       <div class="number">{{this.autoDelConductor}}</div>
       <div class="state">CHILE</div>
     </div>
-    <div style="overflow:hidden;max-width:100%;width:400px;height:400px;"><div id="g-mapdisplay" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/directions?origin=duoc+san+joaquin&destination=PH551-San+Juan+Esq.+Raquel,+San+Joaquín,+Chile&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="embed-ded-maphtml" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="get-map-data">premium bootstrap themes</a><style>#g-mapdisplay img{max-height:none;max-width:none!important;background:none!important;}</style></div>
-  </span>
-
-  </ion-content>
+    <ion-button id="end-btn" color="duoc-secondary" (click)="onFinalizar()" size="default">Finalizar viaje</ion-button>
+  </div>
+</ion-content>
 
   

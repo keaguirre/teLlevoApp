@@ -107,6 +107,18 @@ export class AdminUsuariosService {
       });
     });
   };
+
+  obtenerViajeDetalle(viaje:any): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.httpClient.get(this.urlViaje+viaje)
+      .subscribe(respuesta => {
+        resolve(respuesta);
+      },
+      (err) => {
+        reject(err);
+      });
+    });
+  };
   
   
   //Crear---------------------------------------

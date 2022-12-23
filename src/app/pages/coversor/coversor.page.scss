@@ -30,25 +30,12 @@
   padding: 0 3%;
   color: #222;
   border-radius: 7px;
-  box-shadow: 0 10px 10px 0 rgba(34, 34, 34, 0.404);
-  border: solid 0.5px rgba(236, 236, 236, 0.65);
+  border: solid 1px rgb(189, 189, 189);
   background-color: #ffffff;
 }
-.select-list {
-    appearance: none;
-    margin: 5% auto;
-    padding: 15px;
-    display: block;
-    box-shadow: 0 10px 10px 0 rgba(34, 34, 34, 0.404);
-    background-color: #9700ed;
-    border: 0 transparent;
-    border-radius: 10px;
-    font-size: 40px;
-    color: #f3f3f3;
-  }
-
 .selectors {
   border-right: 1px solid #cbcbcb;
 }
-
-  
+.txt-center{
+  text-align: center;
+}

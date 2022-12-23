@@ -19,26 +19,25 @@
 <ion-content>
   <viaje-component></viaje-component>
   <div class="contents">
-
+    <h3 class="txt-center">Peso chileno a dolar</h3>
     <ion-item>
       <ion-label>Pesos (CLP)</ion-label>
-      <ion-input type="number" class="value-input" [(ngModel)]="toValue" placeholder="Entrada" (keyup)="convertDolarTwo()"></ion-input>
+      <ion-input type="number" class="value-input" [(ngModel)]="toValue" placeholder="Entrada" (keyup)="convertDolarTwo()" (keypress)="numberOnlyValidation($event)"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Dolar (USD)</ion-label>
-      <ion-input type="number" class="value-input" [(ngModel)]="fromValue" placeholder="Resultado" (keyup)="convertDolarOne()"></ion-input>
+      <ion-input type="number" class="value-input" [(ngModel)]="fromValue" placeholder="Resultado" (keyup)="convertDolarOne()" (keypress)="numberOnlyValidation($event)"></ion-input>
     </ion-item>
-
+    <h3 class="txt-center">Peso chileno a euro</h3>
     <ion-item>
       <ion-label>Pesos (CLP)</ion-label>
-      <ion-input type="number" class="value-input" [(ngModel)]="toValue2" placeholder="Entrada" (keyup)="convertYuro2()"></ion-input>
+      <ion-input type="number" class="value-input" [(ngModel)]="toValue2" placeholder="Entrada" (keyup)="convertYuro2()" (keypress)="numberOnlyValidation($event)"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Euro (EUR)</ion-label>
-      <ion-input type="number" class="value-input" [(ngModel)]="fromValue2" placeholder="Resultado" (keyup)="convertYuro1()"></ion-input>
+      <ion-input type="number" class="value-input" [(ngModel)]="fromValue2" placeholder="Resultado" (keyup)="convertYuro1()" (keypress)="numberOnlyValidation($event)"></ion-input>
     </ion-item>
-
-    <p>Dolar = {{doular}}</p>
-    <p>Yuro = {{yuro}}</p>
+    <p class="txt-center">Dolar = {{doular}}</p>
+    <p class="txt-center">Euro = {{yuro}}</p>
   </div>
 </ion-content>

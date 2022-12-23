@@ -1,4 +1,4 @@
-#container {
+  #container {
     text-align: center;
     position: absolute;
     left: 0;
@@ -27,12 +27,17 @@
   }
 
   #comunaDestino{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     background-color: #fff;
     color: #002e53;
   }
-  #form-title{
-    padding-left: 40px;
+  #input-dir{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
+
+
 
   ion-fab.fab-horizontal-center {
     margin-inline-start: -50px;
@@ -46,51 +51,69 @@
     border-width: 5px;
     border-color: #002e53;
     border-radius: 50%;
-}
-#fab-btn{
+  }
+  #fab-btn{
     margin-right: 50px;
-}
-#list{
-  margin-top: 50%;
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
-//loader
-.loader {
-  margin-left: 50%;
-  margin-top: 60%;
-  width: 8px;
-  height: 8px;
-  position: relative;
-  border-radius: 50%;
-  background: #fff;
-  animation: wave 1s ease-in infinite;
-}
-#buscando1{
-  padding-top: 20%;
-  margin-left: 35%;
-}
-#buscando2{
-  margin-left: 30%;
-}
-
-@keyframes wave {
- 0% {  box-shadow:
-  0 0 0 0px rgba(255, 255,255, 1),
-  0 0 0 20px rgba(255, 255,255, 0.2),
-  0 0 0 40px rgba(255, 255,255, 0.6),
-  0 0 0 60px rgba(255, 255,255, 0.4),
-  0 0 0 80px rgba(255, 255,255, 0.2)
   }
-  100% {  box-shadow:
-    0 0 0 80px rgba(255, 255,255, 0),
-    0 0 0 60px rgba(255, 255,255, 0.2),
-    0 0 0 40px rgba(255, 255,255, 0.4),
-    0 0 0 20px rgba(255, 255,255, 0.6),
-    0 0 0 0px rgba(255, 255,255, 1)
+  #list{
+    padding-top: 30px;
+    background-color: #002e53;
+    color: white;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 15px;
   }
-}
+
+  #blue-block{
+    height: 20px;
+    background-color:#002e53;
+    // border-top-left-radius: 10px;
+    // border-top-right-radius: 10px;
+  }
+
+  //loader
+  .loader {
+    margin-left: 50%;
+    margin-top: 60%;
+    width: 8px;
+    height: 8px;
+    position: relative;
+    border-radius: 50%;
+    background: #fff;
+    animation: wave 1s ease-in infinite;
+    margin-bottom: 100px;
+  }
+
+  #buscando1{
+    padding-top: 20%;
+    margin-left: 35%;
+  }
+  #buscando2{
+    margin-left: 30%;
+  }
+  #txt-buscando{
+    margin-top: 30px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  @keyframes wave {
+  0% {  box-shadow:
+    0 0 0 0px rgba(255, 255,255, 1),
+    0 0 0 20px rgba(255, 255,255, 0.2),
+    0 0 0 40px rgba(255, 255,255, 0.6),
+    0 0 0 60px rgba(255, 255,255, 0.4),
+    0 0 0 80px rgba(255, 255,255, 0.2)
+    }
+    100% {  box-shadow:
+      0 0 0 80px rgba(255, 255,255, 0),
+      0 0 0 60px rgba(255, 255,255, 0.2),
+      0 0 0 40px rgba(255, 255,255, 0.4),
+      0 0 0 20px rgba(255, 255,255, 0.6),
+      0 0 0 0px rgba(255, 255,255, 1)
+    }
+  }
 
   //patente  
   .frame {
@@ -99,13 +122,14 @@
     color: black;
     border: 5px solid black;
     text-transform: uppercase;
-    border-radius: 30px;
-    padding-top: 3px;
+    border-radius: 15px;
     font-family: helvetica;
-    font-weight: 700;
-    height: 200px;
-    width: 360px;
-    margin: 40px auto;
+    font-weight: 600;
+    height: 120px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
   }
   
   .frame .state {
@@ -114,16 +138,35 @@
     display: inline-block;
     width: 200px;
     margin: 0 160px;
-    padding-top: 50px;
-    margin-left: 22%;
-    font-size: 50px;
-    /*    position: absolute;*/
+    padding-top: 20px;
+    margin-left: 15%;
+    font-size: 20px;
   }
   .frame .number {
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
     transform: scale(1.2, 2.5);
-    padding-top: 20px;
+    margin-top: 30px;
     padding-left: 10px;
     -webkit-filter: invert(12%);
+  }
+  .texto-patente{
+    padding-left: 20px;
+  }
+  #txt-pat{
+    text-align: center;
+  }
+  #end-btn{
+    padding-left: 30%;
+  }
+  #viajar{
+    border-radius: 10px;
+    background-color:#002e53;
+  }
+  ion-select{
+    --placeholder-color: --duoc-primary;
+    --placeholder-opacity: 0.5;
+  }
+  h2{
+    margin-top: 0px;
   }

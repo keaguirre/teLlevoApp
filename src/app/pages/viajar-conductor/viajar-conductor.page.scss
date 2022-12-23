@@ -1,8 +1,13 @@
-
 .cartaUsuario {
 background-color: rgb(253, 253, 253);
 width: 95%;
 box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.317);
+}
+
+#viajar-conductor{
+  padding-top: 30px;
+  background-color: #002e53;
+  color: white;
 }
 
 .cartaTexto {
@@ -48,8 +53,22 @@ box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.317);
   min-height: 100%;
 }
 
+#pas-disp-block{
+  padding-top: 5px;
+  background-color: white;
+  color: #002e53;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#pasajeros-title{
+  background-color: white;
+}
+
 .pasajerosdisp {
   margin-left: 9px;
+  color: #002e53;
+  background-color: white;
 }
 
 ion-content {
@@ -64,13 +83,6 @@ ion-content {
   font-weight: 500;
 }
 
-
-hr.rounded {
-  border-top: 6px solid rgb(255, 184, 0);
-  border-radius: 5px;
-}
-
-
 label {
   pointer-events: none;
 }
@@ -78,11 +90,9 @@ label .input {
   display: none;
 }
 label .input:checked + .toggle-wrapper {
-  
   box-shadow: 0 8px 14px 0 rgba(18, 51, 215, 0.12);
 }
 label .input:checked + .toggle-wrapper > .selector {
-  
   left: calc(100% - 50px);
   background-color: rgb(255, 184, 0);
 }
@@ -93,7 +103,8 @@ label .toggle-wrapper {
   position: relative;
   width: 120px;
   height: 60px;
-  background-color: rgb(0, 25, 48);
+  background-color: rgb(255, 255, 255);
+  // background-color: rgb(0, 25, 48);
   border-radius: 999px;
   margin: auto;
   cursor: pointer;
@@ -118,5 +129,41 @@ label .notification {
 label .notification .selected:before {
   content: "No disponible";
   font-size: 20px;
+}
 
+.texto-patente{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#txt-pas{
+  text-align: center;
+}
+#end-btn{
+  margin-left: 30%;
+}
+
+ion-modal {
+  --height: 40%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --width: 95%
+}
+
+ion-modal ion-toolbar {
+  --height: 1px;
+  --background: #002e53;
+  --color: white;
+  // --min-height: var 0px;
+}
+
+ion-modal ion-toolbar:first-of-type{
+  padding-top: 0px
+}
+
+.modal-btns{
+  margin-top: 20px;
+}
+
+#ofertar-btn{
+  padding-left: 5px;
 }

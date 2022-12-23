@@ -44,7 +44,7 @@ export class LoginConductorPage implements OnInit {
       message,
       spinner: 'circular',
       cssClass: 'spinner-color',
-      duration: 2000
+      duration: 500
     });
     await this.loading.present();
   }
