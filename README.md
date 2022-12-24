@@ -129,10 +129,14 @@ redirigirlos a su propio home segun quien logee.
 - [x] Creacion del viaje
 - [x] Crear pagina de viaje para pasajero y lógica de los mockups [Mockup Imagen](https://cdn.discordapp.com/attachments/707842934417915946/1049823609914396732/New_Wireframe_1.png)
 
-## 23/12 Cambios post entrega afinacion de detalles
+## 23/12 Cambios post entrega afinacion de detalles [@keaguirre](https://github.com/keaguirre)
 - Cambio de modal de oferta de precios
 - Ajuste de pagina de viajes conductor y pasajero
 - Aplicacion en modo blanco
 - Correccion de patente y bloque de viajando
 - Agregado el boton de finalizar al viajando para poder volver a viajar
 - Se agrega "Mapa" embed de placeholder a la página de viajes pasajero
+- Se rediseña la página de conversor
+- Retoques al modal de editar información del perfil del pasajero
+- Imágenes cargadas de los integrantes del equipo provienen de sus github
+- Eliminados comentarios con bloques de código fuera de uso

@@ -38,8 +38,32 @@
     padding-top: 20%;
 }
 .l-btn{
+    margin-top: 5%;
     padding-left: 20%;
+    
 }
 .col-title{
     margin-left: 20px;
+}
+
+ion-modal ion-toolbar {
+    --background: #002E53;
+    --color: white;
+}
+
+ion-item{
+    align-items: initial;
+}
+#actFoto{
+    padding-right: 50px;
+}
+
+#edit-fab{
+    padding-left: 12%;
+}
+ion-fab-button{
+    border-style: solid;
+    border-width: 5px;
+    border-color: #002E53;
+    border-radius: 50%;
 }

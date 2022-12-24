@@ -15,17 +15,13 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content *ngIf="pasajero">
   <viaje-component></viaje-component>
-  <!------------------------------------>
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
+  <!-- <ion-fab vertical="top" horizontal="end" slot="fixed">
     <ion-fab-button id="open-modal" expand="block" (click)="onLoadForm" color="light">
       <ion-icon name="pencil-sharp"></ion-icon>
-      <!-- PARA GUARDAR POST ACTIVAR EL EDIT <ion-icon name="save"></ion-icon> -->
     </ion-fab-button>
-  </ion-fab>
-  <!------------------------------------->
+  </ion-fab> -->
   <!--header bloque color + profile-img-->
   <div class="profile-header">
     <div class="profile-header"></div>
@@ -36,6 +32,11 @@
         <div class="img-box">
           <img *ngIf="profile?.imageUrl;" [src]="profile.imageUrl" alt="foto-perfil">
         </div>
+        <ion-fab id="edit-fab" slot="fixed">
+          <ion-fab-button id="open-modal" expand="block" (click)="onLoadForm" color="light">
+            <ion-icon name="pencil-sharp"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
       </div>
     </div>
   </div>
@@ -49,23 +50,23 @@
             <div padding>
               <ion-item lines="none">
                 <ion-label position="stacked">Email</ion-label>
-                <ion-item lines="none" placeholder="Enter text">{{pasajero.p_email}}</ion-item>
+                <ion-item lines="full" placeholder="Enter text">{{pasajero.p_email}}</ion-item>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">Nombre</ion-label>
-                <ion-item lines="none">{{pasajero.p_name}}</ion-item>
+                <ion-item lines="full">{{pasajero.p_name}}</ion-item>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">Apellido</ion-label>
-                <ion-item lines="none">{{pasajero.p_lastname}}</ion-item>
+                <ion-item lines="full">{{pasajero.p_lastname}}</ion-item>
               </ion-item>
-              <ion-item lines="none">
+              <!-- <ion-item lines="none">
                 <ion-label position="stacked">Contraseña</ion-label>
                 <ion-item lines="none">{{pasajero.p_password}}</ion-item>
-              </ion-item>
+              </ion-item> -->
               <ion-item lines="none">
                 <ion-label position="stacked">Teléfono</ion-label>
-                <ion-item lines="none">{{pasajero.p_pnumber}}</ion-item>
+                <ion-item lines="full">{{pasajero.p_pnumber}}</ion-item>
               </ion-item>
             </div>
             <div padding>
@@ -91,30 +92,37 @@
             <ion-grid>
               <ion-row color="primary" justify-content-center>
                 <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-                  <div text-center>
-                    <h3 class="ion-text-center"><strong>Tus datos</strong></h3>
-                  </div>
+                  <!-- <div text-center>
+                    <h4 class="ion-text-center"><strong>Tus datos</strong></h4>
+                  </div> -->
                   <div padding>
                     <ion-item>
-                      <ion-input formControlName="p_email" type="email" required></ion-input>
+                      <ion-label position="floating">Email</ion-label>
+                      <ion-input class="p-left" formControlName="p_email" type="email" required></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_name" type="text" required></ion-input>
+                      <ion-label position="floating">Nombre</ion-label>
+                      <ion-input class="p-left" formControlName="p_name" type="text" required></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_lastname" type="text"></ion-input>
+                      <ion-label position="floating">Apellido</ion-label>
+                      <ion-input class="p-left" formControlName="p_lastname" type="text"></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_password" type="password" required></ion-input>
+                      <ion-label position="floating">Contraseña</ion-label>
+                      <ion-input class="p-left" formControlName="p_password" type="password" required></ion-input>
                     </ion-item>
                     <ion-item>
+                      <ion-label position="floating">Confirmar contraseña</ion-label>
                       <ion-input formControlName="p_password_confirm" type="password" required></ion-input>
                     </ion-item>
                     <ion-item>
+                      <ion-label position="floating">Número telefónico</ion-label>
                       <ion-input formControlName="p_pnumber" type="text"></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input formControlName="p_image" type="text"></ion-input>
+                      <!-- <ion-input formControlName="p_image" type="text"></ion-input> -->
+                      <ion-label id="actFoto" position="stacked">Actualizar Imagen</ion-label>
                       <ion-button (click)="uploadAvatar()" id="eyeToggle" color="duoc-primary">
                         <ion-icon name="camera-outline"></ion-icon>
                       </ion-button>
