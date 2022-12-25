@@ -26,6 +26,9 @@ Te LLevoAPP tiene el fin de conectar a los alumnos que disponen de vehículo con
 # Galería
 <img src="https://github.com/keaguirre/prograMovil/blob/master/Screenshots/login.png?raw=true" width="30%"></img> <img src="https://github.com/keaguirre/prograMovil/blob/master/Screenshots/registro.png?raw=true" width="30%"></img> <img src="https://github.com/keaguirre/prograMovil/blob/master/Screenshots/inicio.png?raw=true" width="30%"></img> <img src="https://github.com/keaguirre/prograMovil/blob/master/Screenshots/perfilUsuarios.png?raw=true" width="30%"></img> <img src="https://github.com/keaguirre/prograMovil/blob/master/Screenshots/viajePasajero.png?raw=true" width="30%"></img> <img src="https://github.com/keaguirre/prograMovil/blob/master/Screenshots/listadoPasajeros.png" width="30%"></img> 
 
+# Diagrama
+<img src="https://github.com/keaguirre/prograMovil/blob/master/Screenshots/Diagram.png?raw=true">
+
 # Estudiantes:
 Johan Dahlbokum: [@JDN2377](https://github.com/JDN2377)<br>
 Benjamin Paredes: [@BenjaminWuff](https://github.com/BenjaminWuff)<br>
