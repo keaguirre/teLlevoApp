@@ -30,10 +30,10 @@ Te LLevoAPP tiene el fin de conectar a los alumnos que disponen de vehículo con
 <img src="https://github.com/keaguirre/prograMovil/blob/master/Screenshots/Diagram.png?raw=true">
 
 # Versiones de software
-npm: 8.15.0
-Angular: 14.2.3
-Node: 16.17.1
-Ionic: 6.20.1
+- npm: 8.15.0
+- Angular: 14.2.3
+- Node: 16.17.1
+- Ionic: 6.20.1
 
 # Estudiantes:
 Johan Dahlbokum: [@JDN2377](https://github.com/JDN2377)<br>
