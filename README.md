@@ -1,9 +1,10 @@
 # TeLLevoAPP
 
 # Contexto
-Este proyecto móvil es el encargo semestral solicitado para la asignatura de Programación de aplicaciones móviles con el fin de aprender sobre el desarrollo de aplicaciones móviles híbridas con Ionic, Angular y Firebase(Almacenamiento de imágenes de perfil); Adicionalmente se ha creado un Backend con Django y DjangoRestFramework para las transacciones del usuario y los viajes mediante [API](https://github.com/keaguirre/djangoBackend).<br> 
+Te LLevoAPP tiene el fin de conectar a los alumnos que disponen de vehículo con los que no poseen para coordinar un retorno a sus hogares en un tiempo más corto entre quienes comparten cercanía en sus hogares con quienes tienen movilización propia.<br>
+
 # Descripción
-Te LLevoAPP tiene el fin de conectar a los alumnos que disponen de vehículo con los que no poseen para coordinar un retorno a sus hogares en un tiempo más corto entre quienes comparten cercanía en sus hogares con quienes tienen movilización propia.
+Este proyecto móvil es el encargo semestral solicitado para la asignatura de Programación de aplicaciones móviles con el fin de aprender sobre el desarrollo de aplicaciones móviles híbridas con Ionic, Angular y Firebase(Almacenamiento de imágenes de perfil); Adicionalmente se ha creado un Backend con Django y DjangoRestFramework para las transacciones del usuario y los viajes mediante [API](https://github.com/keaguirre/djangoBackend).
 
 # Características
 ### Dentro de todas las cualidades de la aplicación, esta aplicación es capaz de hacer:
