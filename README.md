@@ -37,6 +37,6 @@ Este proyecto móvil es el encargo semestral solicitado para la asignatura de Pr
 - Ionic: 6.20.1
 
 # Estudiantes:
-Johan Dahlbokum: [@JDN2377](https://github.com/JDN2377)<br>
+Johan Dahlbokum: [@DAHLNOV](https://github.com/DAHLNOV/)<br>
 Benjamin Paredes: [@BenjaminWuff](https://github.com/BenjaminWuff)<br>
 Kevin Aguirre: [@keaguirre](https://github.com/keaguirre)
